@@ -1,0 +1,2595 @@
+
+
+Microchip Technology PIC18 PRO Macro Assembler V1.41 build -162212810 
+                                                                                               Thu May 15 15:40:56 2025
+
+Microchip Technology Omniscient Code Generator v1.41 (PRO mode) build 201701250102
+     1                           	processor	18F4550
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	pm
+     5                           	psect	idataCOMRAM,global,class=CODE,delta=1,noexec
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	dataCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     8                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     9                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    21                           	psect	text12,global,reloc=2,class=CODE,delta=1
+    22                           	psect	text13,global,reloc=2,class=CODE,delta=1
+    23                           	psect	text14,global,reloc=2,class=CODE,delta=1
+    24                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    25                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    26                           	psect	pa_nodes0,global,class=CODE,delta=1
+    27  0000                     
+    28                           ; Version 1.41
+    29                           ; Generated 25/01/2017 GMT
+    30                           ; 
+    31                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    32                           ; All rights reserved.
+    33                           ; 
+    34                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    35                           ; 
+    36                           ; Redistribution and use in source and binary forms, with or without modification, are
+    37                           ; permitted provided that the following conditions are met:
+    38                           ; 
+    39                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    40                           ;        conditions and the following disclaimer.
+    41                           ; 
+    42                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    43                           ;        of conditions and the following disclaimer in the documentation and/or other
+    44                           ;        materials provided with the distribution.
+    45                           ; 
+    46                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    47                           ;        software without specific prior written permission.
+    48                           ; 
+    49                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    50                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    51                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    52                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    53                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    54                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    55                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    56                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    57                           ; 
+    58                           ; 
+    59                           ; Code-generator required, PIC18F4550 Definitions
+    60                           ; 
+    61                           ; SFR Addresses
+    62  0000                     prodl	equ	0xFF3
+    63                           wreg	equ	0xFE8
+    64                           postinc1	equ	0xFE6
+    65                           plusw1	equ	0xFE3
+    66                           fsr1h	equ	0xFE2
+    67                           fsr1l	equ	0xFE1
+    68                           indf2	equ	0xFDF
+    69                           postinc2	equ	0xFDE
+    70                           plusw2	equ	0xFDB
+    71                           fsr2h	equ	0xFDA
+    72                           fsr2l	equ	0xFD9
+    73                           
+    74                           	psect	idataCOMRAM
+    75  007C2B                     __pidataCOMRAM:
+    76                           	opt stack 0
+    77                           
+    78                           ;initializer for main@F3898
+    79  007C2B  A1                 	db	161
+    80  007C2C  A1                 	db	161
+    81  007C2D  A1                 	db	161
+    82  007C2E  A1                 	db	161
+    83  007C2F  A1                 	db	161
+    84  0000                     _ADCON0bits	set	4034
+    85  0000                     _PORTBbits	set	3969
+    86  0000                     _SSPBUF	set	4041
+    87  0000                     _LATAbits	set	3977
+    88  0000                     _TRISAbits	set	3986
+    89  0000                     _ADCON1	set	4033
+    90  0000                     _PIR1bits	set	3998
+    91  0000                     _IPR1bits	set	3999
+    92  0000                     _PIE1bits	set	3997
+    93  0000                     _SSPSTATbits	set	4039
+    94  0000                     _SSPCON1bits	set	4038
+    95  0000                     _SSPCON1	set	4038
+    96  0000                     _TRISCbits	set	3988
+    97  0000                     _TRISBbits	set	3987
+    98                           
+    99                           ; #config settings
+   100  0000                     prodl	equ	0xFF3
+   101                           wreg	equ	0xFE8
+   102                           postinc1	equ	0xFE6
+   103                           plusw1	equ	0xFE3
+   104                           fsr1h	equ	0xFE2
+   105                           fsr1l	equ	0xFE1
+   106                           indf2	equ	0xFDF
+   107                           postinc2	equ	0xFDE
+   108                           plusw2	equ	0xFDB
+   109                           fsr2h	equ	0xFDA
+   110                           fsr2l	equ	0xFD9
+   111                           
+   112                           	psect	cinit
+   113  007CAC                     __pcinit:
+   114                           	opt stack 0
+   115  007CAC                     start_initialization:
+   116                           	opt stack 0
+   117  007CAC                     __initialization:
+   118                           	opt stack 0
+   119                           
+   120                           ; Initialize objects allocated to COMRAM (5 bytes)
+   121                           ; load TBLPTR registers with __pidataCOMRAM
+   122  007CAC  0E2B               	movlw	low __pidataCOMRAM
+   123  007CAE  6EF6               	movwf	tblptrl,c
+   124  007CB0  0E7C               	movlw	high __pidataCOMRAM
+   125  007CB2  6EF7               	movwf	tblptrh,c
+   126  007CB4  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
+   127  007CB6  6EF8               	movwf	tblptru,c
+   128  007CB8  EE00  F028         	lfsr	0,__pdataCOMRAM
+   129  007CBC  EE10 F005          	lfsr	1,5
+   130  007CC0                     copy_data0:
+   131  007CC0  0009               	tblrd		*+
+   132  007CC2  CFF5 FFEE          	movff	tablat,postinc0
+   133  007CC6  50E5               	movf	postdec1,w,c
+   134  007CC8  50E1               	movf	fsr1l,w,c
+   135  007CCA  E1FA               	bnz	copy_data0
+   136  007CCC                     end_of_initialization:
+   137                           	opt stack 0
+   138  007CCC                     __end_of__initialization:
+   139                           	opt stack 0
+   140  007CCC  0100               	movlb	0
+   141  007CCE  EF39  F03F         	goto	_main	;jump to C main() function
+   142                           tblptru	equ	0xFF8
+   143                           tblptrh	equ	0xFF7
+   144                           tblptrl	equ	0xFF6
+   145                           tablat	equ	0xFF5
+   146                           prodl	equ	0xFF3
+   147                           postinc0	equ	0xFEE
+   148                           wreg	equ	0xFE8
+   149                           postinc1	equ	0xFE6
+   150                           postdec1	equ	0xFE5
+   151                           plusw1	equ	0xFE3
+   152                           fsr1h	equ	0xFE2
+   153                           fsr1l	equ	0xFE1
+   154                           indf2	equ	0xFDF
+   155                           postinc2	equ	0xFDE
+   156                           plusw2	equ	0xFDB
+   157                           fsr2h	equ	0xFDA
+   158                           fsr2l	equ	0xFD9
+   159                           
+   160                           	psect	dataCOMRAM
+   161  000028                     __pdataCOMRAM:
+   162                           	opt stack 0
+   163  000028                     main@F3898:
+   164                           	opt stack 0
+   165  000028                     	ds	5
+   166                           tblptru	equ	0xFF8
+   167                           tblptrh	equ	0xFF7
+   168                           tblptrl	equ	0xFF6
+   169                           tablat	equ	0xFF5
+   170                           prodl	equ	0xFF3
+   171                           postinc0	equ	0xFEE
+   172                           wreg	equ	0xFE8
+   173                           postinc1	equ	0xFE6
+   174                           postdec1	equ	0xFE5
+   175                           plusw1	equ	0xFE3
+   176                           fsr1h	equ	0xFE2
+   177                           fsr1l	equ	0xFE1
+   178                           indf2	equ	0xFDF
+   179                           postinc2	equ	0xFDE
+   180                           plusw2	equ	0xFDB
+   181                           fsr2h	equ	0xFDA
+   182                           fsr2l	equ	0xFD9
+   183                           
+   184                           	psect	cstackCOMRAM
+   185  000001                     __pcstackCOMRAM:
+   186                           	opt stack 0
+   187  000001                     SPI_Start@Clock_Frequency:
+   188                           	opt stack 0
+   189  000001                     SPI_Transfer@byte_to_send:
+   190                           	opt stack 0
+   191                           
+   192                           ; 1 bytes @ 0x0
+   193  000001                     	ds	1
+   194  000002                     Read_nRF24L01_Register@Register_Address:
+   195                           	opt stack 0
+   196  000002                     Read_nRF24L01_Status@nRF24L01_Status:
+   197                           	opt stack 0
+   198  000002                     Write_nRF24L01_Status@Register_Content:
+   199                           	opt stack 0
+   200  000002                     Read_nRF24L01_Address_Register@Register_Address:
+   201                           	opt stack 0
+   202  000002                     Write_nRF24L01_TX_Payload@TX_RX_Payload_Width:
+   203                           	opt stack 0
+   204                           
+   205                           ; 1 bytes @ 0x1
+   206  000002                     	ds	1
+   207  000003                     Read_nRF24L01_Register@Register_Content:
+   208                           	opt stack 0
+   209  000003                     Read_nRF24L01_Address_Register@Register_Content:
+   210                           	opt stack 0
+   211  000003                     Write_nRF24L01_TX_Payload@TX_Payload:
+   212                           	opt stack 0
+   213                           
+   214                           ; 1 bytes @ 0x2
+   215  000003                     	ds	1
+   216  000004                     ??_Read_nRF24L01_Address_Register:
+   217  000004                     Write_nRF24L01_Register@Register_Content:
+   218                           	opt stack 0
+   219  000004                     Write_nRF24L01_TX_Payload@TX_Checksum:
+   220                           	opt stack 0
+   221                           
+   222                           ; 1 bytes @ 0x3
+   223  000004                     	ds	1
+   224  000005                     Write_nRF24L01_Register@Register_Address:
+   225                           	opt stack 0
+   226  000005                     Write_nRF24L01_TX_Payload@Enable_Checksum:
+   227                           	opt stack 0
+   228                           
+   229                           ; 1 bytes @ 0x4
+   230  000005                     	ds	1
+   231  000006                     Write_nRF24L01_TX_Payload@i:
+   232                           	opt stack 0
+   233  000006                     Start_TX_Mode_nRF24L01@Frequency_Channel:
+   234                           	opt stack 0
+   235  000006                     Check_Data_Sent_TX_Mode_nRF24L01@i:
+   236                           	opt stack 0
+   237                           
+   238                           ; 2 bytes @ 0x5
+   239  000006                     	ds	1
+   240  000007                     Start_TX_Mode_nRF24L01@RF_Data_Rate:
+   241                           	opt stack 0
+   242                           
+   243                           ; 1 bytes @ 0x6
+   244  000007                     	ds	1
+   245  000008                     Start_TX_Mode_nRF24L01@RF_Output_Power:
+   246                           	opt stack 0
+   247  000008                     Check_Data_Sent_TX_Mode_nRF24L01@j:
+   248                           	opt stack 0
+   249                           
+   250                           ; 1 bytes @ 0x7
+   251  000008                     	ds	1
+   252  000009                     Read_nRF24L01_Address_Register@TX_RX_Address_Width:
+   253                           	opt stack 0
+   254  000009                     Start_TX_Mode_nRF24L01@LNA_Gain:
+   255                           	opt stack 0
+   256  000009                     Check_Data_Sent_TX_Mode_nRF24L01@nRF24L01_Status:
+   257                           	opt stack 0
+   258                           
+   259                           ; 1 bytes @ 0x8
+   260  000009                     	ds	1
+   261  00000A                     Read_nRF24L01_Address_Register@i:
+   262                           	opt stack 0
+   263  00000A                     Start_TX_Mode_nRF24L01@CRC_Setup:
+   264                           	opt stack 0
+   265                           
+   266                           ; 1 bytes @ 0x9
+   267  00000A                     	ds	1
+   268  00000B                     Write_nRF24L01_Address_Register@Register_Address:
+   269                           	opt stack 0
+   270  00000B                     Start_TX_Mode_nRF24L01@Auto_Retransmit_Delay:
+   271                           	opt stack 0
+   272                           
+   273                           ; 1 bytes @ 0xA
+   274  00000B                     	ds	1
+   275  00000C                     Write_nRF24L01_Address_Register@Register_Content:
+   276                           	opt stack 0
+   277  00000C                     Start_TX_Mode_nRF24L01@Max_Auto_Retransmit:
+   278                           	opt stack 0
+   279                           
+   280                           ; 1 bytes @ 0xB
+   281  00000C                     	ds	1
+   282  00000D                     ??_Write_nRF24L01_Address_Register:
+   283  00000D                     Start_TX_Mode_nRF24L01@Enable_Checksum:
+   284                           	opt stack 0
+   285                           
+   286                           ; 1 bytes @ 0xC
+   287  00000D                     	ds	1
+   288  00000E                     Start_TX_Mode_nRF24L01@TX_RX_Payload_Width:
+   289                           	opt stack 0
+   290                           
+   291                           ; 1 bytes @ 0xD
+   292  00000E                     	ds	1
+   293  00000F                     ??_Start_TX_Mode_nRF24L01:
+   294                           
+   295                           ; 1 bytes @ 0xE
+   296  00000F                     	ds	1
+   297  000010                     Start_TX_Mode_nRF24L01@TX_RX_Address_Width:
+   298                           	opt stack 0
+   299                           
+   300                           ; 1 bytes @ 0xF
+   301  000010                     	ds	2
+   302  000012                     Write_nRF24L01_Address_Register@Address_Verification:
+   303                           	opt stack 0
+   304                           
+   305                           ; 5 bytes @ 0x11
+   306  000012                     	ds	5
+   307  000017                     Write_nRF24L01_Address_Register@Process_Finished:
+   308                           	opt stack 0
+   309                           
+   310                           ; 1 bytes @ 0x16
+   311  000017                     	ds	1
+   312  000018                     Write_nRF24L01_Address_Register@TX_RX_Address_Width:
+   313                           	opt stack 0
+   314                           
+   315                           ; 1 bytes @ 0x17
+   316  000018                     	ds	1
+   317  000019                     Write_nRF24L01_Address_Register@i:
+   318                           	opt stack 0
+   319                           
+   320                           ; 1 bytes @ 0x18
+   321  000019                     	ds	1
+   322  00001A                     Send_Data_TX_Mode_nRF24L01@TX_RX_Address_Width:
+   323                           	opt stack 0
+   324                           
+   325                           ; 1 bytes @ 0x19
+   326  00001A                     	ds	1
+   327  00001B                     Send_Data_TX_Mode_nRF24L01@TX_Address:
+   328                           	opt stack 0
+   329                           
+   330                           ; 1 bytes @ 0x1A
+   331  00001B                     	ds	1
+   332  00001C                     Send_Data_TX_Mode_nRF24L01@TX_RX_Payload_Width:
+   333                           	opt stack 0
+   334                           
+   335                           ; 1 bytes @ 0x1B
+   336  00001C                     	ds	1
+   337  00001D                     Send_Data_TX_Mode_nRF24L01@TX_Payload:
+   338                           	opt stack 0
+   339                           
+   340                           ; 1 bytes @ 0x1C
+   341  00001D                     	ds	1
+   342  00001E                     Send_Data_TX_Mode_nRF24L01@Enable_Checksum:
+   343                           	opt stack 0
+   344                           
+   345                           ; 1 bytes @ 0x1D
+   346  00001E                     	ds	1
+   347  00001F                     ??_main:
+   348                           
+   349                           ; 1 bytes @ 0x1E
+   350  00001F                     	ds	2
+   351  000021                     main@direccion_tx:
+   352                           	opt stack 0
+   353                           
+   354                           ; 5 bytes @ 0x20
+   355  000021                     	ds	5
+   356  000026                     main@estado:
+   357                           	opt stack 0
+   358                           
+   359                           ; 1 bytes @ 0x25
+   360  000026                     	ds	1
+   361  000027                     main@mensaje:
+   362                           	opt stack 0
+   363                           
+   364                           ; 1 bytes @ 0x26
+   365  000027                     	ds	1
+   366                           tblptru	equ	0xFF8
+   367                           tblptrh	equ	0xFF7
+   368                           tblptrl	equ	0xFF6
+   369                           tablat	equ	0xFF5
+   370                           prodl	equ	0xFF3
+   371                           postinc0	equ	0xFEE
+   372                           wreg	equ	0xFE8
+   373                           postinc1	equ	0xFE6
+   374                           postdec1	equ	0xFE5
+   375                           plusw1	equ	0xFE3
+   376                           fsr1h	equ	0xFE2
+   377                           fsr1l	equ	0xFE1
+   378                           indf2	equ	0xFDF
+   379                           postinc2	equ	0xFDE
+   380                           plusw2	equ	0xFDB
+   381                           fsr2h	equ	0xFDA
+   382                           fsr2l	equ	0xFD9
+   383                           
+   384 ;;
+   385 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   386 ;;
+   387 ;; *************** function _main *****************
+   388 ;; Defined at:
+   389 ;;		line 6 in file "main.c"
+   390 ;; Parameters:    Size  Location     Type
+   391 ;;		None
+   392 ;; Auto vars:     Size  Location     Type
+   393 ;;  direccion_tx    5   32[COMRAM] unsigned char [5]
+   394 ;;  mensaje         1   38[COMRAM] unsigned char [1]
+   395 ;;  estado          1   37[COMRAM] unsigned char 
+   396 ;; Return value:  Size  Location     Type
+   397 ;;                  1    wreg      void 
+   398 ;; Registers used:
+   399 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   400 ;; Tracked objects:
+   401 ;;		On entry : 0/0
+   402 ;;		On exit  : 0/0
+   403 ;;		Unchanged: 0/0
+   404 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   405 ;;      Params:         0       0       0       0       0       0       0       0       0
+   406 ;;      Locals:         7       0       0       0       0       0       0       0       0
+   407 ;;      Temps:          2       0       0       0       0       0       0       0       0
+   408 ;;      Totals:         9       0       0       0       0       0       0       0       0
+   409 ;;Total ram usage:        9 bytes
+   410 ;; Hardware stack levels required when called:    4
+   411 ;; This function calls:
+   412 ;;		_Check_Data_Sent_TX_Mode_nRF24L01
+   413 ;;		_SPI_Start
+   414 ;;		_Send_Data_TX_Mode_nRF24L01
+   415 ;;		_Start_TX_Mode_nRF24L01
+   416 ;;		_nRF24L01_Ports_Start
+   417 ;; This function is called by:
+   418 ;;		Startup code after reset
+   419 ;; This function uses a non-reentrant model
+   420 ;;
+   421                           
+   422                           	psect	text0
+   423  007E72                     __ptext0:
+   424                           	opt stack 0
+   425  007E72                     _main:
+   426                           	opt stack 27
+   427                           
+   428                           ;main.c: 8: unsigned char direccion_tx[5] = {0xA1, 0xA1, 0xA1, 0xA1, 0xA1};
+   429                           
+   430                           ;incstack = 0
+   431  007E72  EE20  F028         	lfsr	2,main@F3898
+   432  007E76  EE10  F021         	lfsr	1,main@direccion_tx
+   433  007E7A  0E04               	movlw	4
+   434  007E7C                     u291:
+   435  007E7C  CFDB FFE3          	movff	plusw2,plusw1
+   436  007E80  06E8               	decf	wreg,f,c
+   437  007E82  E2FC               	bc	u291
+   438                           
+   439                           ;main.c: 9: unsigned char mensaje[1];
+   440                           ;main.c: 10: unsigned char estado = 0;
+   441  007E84  6A26               	clrf	main@estado,c
+   442                           
+   443                           ;main.c: 12: ADCON0bits.ADON = 0;
+   444  007E86  90C2               	bcf	4034,0,c	;volatile
+   445                           
+   446                           ;main.c: 14: SPI_Start(0b01);
+   447  007E88  0E01               	movlw	1
+   448  007E8A  EC46  F03E         	call	_SPI_Start
+   449                           
+   450                           ;main.c: 15: nRF24L01_Ports_Start();
+   451  007E8E  EC28  F03E         	call	_nRF24L01_Ports_Start	;wreg free
+   452                           
+   453                           ;main.c: 16: Start_TX_Mode_nRF24L01(0b11, 0x01, 0, 0b11, 1, 1, 0x00, 10, 0, 1);
+   454  007E92  0E01               	movlw	1
+   455  007E94  6E06               	movwf	Start_TX_Mode_nRF24L01@Frequency_Channel,c
+   456  007E96  6A07               	clrf	Start_TX_Mode_nRF24L01@RF_Data_Rate,c
+   457  007E98  0E03               	movlw	3
+   458  007E9A  6E08               	movwf	Start_TX_Mode_nRF24L01@RF_Output_Power,c
+   459  007E9C  0E01               	movlw	1
+   460  007E9E  6E09               	movwf	Start_TX_Mode_nRF24L01@LNA_Gain,c
+   461  007EA0  6E0A               	movwf	Start_TX_Mode_nRF24L01@CRC_Setup,c
+   462  007EA2  6A0B               	clrf	Start_TX_Mode_nRF24L01@Auto_Retransmit_Delay,c
+   463  007EA4  0E0A               	movlw	10
+   464  007EA6  6E0C               	movwf	Start_TX_Mode_nRF24L01@Max_Auto_Retransmit,c
+   465  007EA8  6A0D               	clrf	Start_TX_Mode_nRF24L01@Enable_Checksum,c
+   466  007EAA  0E01               	movlw	1
+   467  007EAC  6E0E               	movwf	Start_TX_Mode_nRF24L01@TX_RX_Payload_Width,c
+   468  007EAE  0E03               	movlw	3
+   469  007EB0  EC78  F03F         	call	_Start_TX_Mode_nRF24L01
+   470  007EB4                     l1165:
+   471                           
+   472                           ;main.c: 19: {
+   473                           ;main.c: 20: mensaje[0] = estado;
+   474  007EB4  C026  F027         	movff	main@estado,main@mensaje
+   475                           
+   476                           ;main.c: 21: Send_Data_TX_Mode_nRF24L01(0, 0b11, direccion_tx, 1, mensaje);
+   477  007EB8  0E03               	movlw	3
+   478  007EBA  6E1A               	movwf	Send_Data_TX_Mode_nRF24L01@TX_RX_Address_Width,c
+   479  007EBC  0E21               	movlw	low main@direccion_tx
+   480  007EBE  6E1B               	movwf	Send_Data_TX_Mode_nRF24L01@TX_Address,c
+   481  007EC0  0E01               	movlw	1
+   482  007EC2  6E1C               	movwf	Send_Data_TX_Mode_nRF24L01@TX_RX_Payload_Width,c
+   483  007EC4  0E27               	movlw	low main@mensaje
+   484  007EC6  6E1D               	movwf	Send_Data_TX_Mode_nRF24L01@TX_Payload,c
+   485  007EC8  0E00               	movlw	0
+   486  007ECA  ECBD  F03E         	call	_Send_Data_TX_Mode_nRF24L01
+   487                           
+   488                           ;main.c: 22: Check_Data_Sent_TX_Mode_nRF24L01();
+   489  007ECE  EC0D  F03F         	call	_Check_Data_Sent_TX_Mode_nRF24L01	;wreg free
+   490                           
+   491                           ;main.c: 24: estado ^= 0x01;
+   492  007ED2  0E01               	movlw	1
+   493  007ED4  1A26               	xorwf	main@estado,f,c
+   494                           
+   495                           ;main.c: 26: _delay((unsigned long)((500)*(48000000UL/4000.0)));
+   496  007ED6  0E1F               	movlw	31
+   497  007ED8  6E20               	movwf	(??_main+1)& (0+255),c
+   498  007EDA  0E71               	movlw	113
+   499  007EDC  6E1F               	movwf	??_main& (0+255),c
+   500  007EDE  0E1E               	movlw	30
+   501  007EE0                     u307:
+   502  007EE0  2EE8               	decfsz	wreg,f,c
+   503  007EE2  D7FE               	bra	u307
+   504  007EE4  2E1F               	decfsz	??_main& (0+255),f,c
+   505  007EE6  D7FC               	bra	u307
+   506  007EE8  2E20               	decfsz	(??_main+1)& (0+255),f,c
+   507  007EEA  D7FA               	bra	u307
+   508  007EEC  D000               	nop2	
+   509  007EEE  D7E2               	goto	l1165
+   510  007EF0                     __end_of_main:
+   511                           	opt stack 0
+   512                           tblptru	equ	0xFF8
+   513                           tblptrh	equ	0xFF7
+   514                           tblptrl	equ	0xFF6
+   515                           tablat	equ	0xFF5
+   516                           prodl	equ	0xFF3
+   517                           postinc0	equ	0xFEE
+   518                           wreg	equ	0xFE8
+   519                           postinc1	equ	0xFE6
+   520                           postdec1	equ	0xFE5
+   521                           plusw1	equ	0xFE3
+   522                           fsr1h	equ	0xFE2
+   523                           fsr1l	equ	0xFE1
+   524                           indf2	equ	0xFDF
+   525                           postinc2	equ	0xFDE
+   526                           plusw2	equ	0xFDB
+   527                           fsr2h	equ	0xFDA
+   528                           fsr2l	equ	0xFD9
+   529                           
+   530 ;; *************** function _nRF24L01_Ports_Start *****************
+   531 ;; Defined at:
+   532 ;;		line 22 in file "nRF24l01.c"
+   533 ;; Parameters:    Size  Location     Type
+   534 ;;		None
+   535 ;; Auto vars:     Size  Location     Type
+   536 ;;		None
+   537 ;; Return value:  Size  Location     Type
+   538 ;;                  1    wreg      void 
+   539 ;; Registers used:
+   540 ;;		wreg, status,2
+   541 ;; Tracked objects:
+   542 ;;		On entry : 0/0
+   543 ;;		On exit  : 0/0
+   544 ;;		Unchanged: 0/0
+   545 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   546 ;;      Params:         0       0       0       0       0       0       0       0       0
+   547 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   548 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   549 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   550 ;;Total ram usage:        0 bytes
+   551 ;; Hardware stack levels used:    1
+   552 ;; This function calls:
+   553 ;;		Nothing
+   554 ;; This function is called by:
+   555 ;;		_main
+   556 ;; This function uses a non-reentrant model
+   557 ;;
+   558                           
+   559                           	psect	text1
+   560  007C50                     __ptext1:
+   561                           	opt stack 0
+   562  007C50                     _nRF24L01_Ports_Start:
+   563                           	opt stack 30
+   564                           
+   565                           ;nRF24l01.c: 24: ADCON1=0x0F;
+   566                           
+   567                           ;incstack = 0
+   568  007C50  0E0F               	movlw	15
+   569  007C52  6EC1               	movwf	4033,c	;volatile
+   570                           
+   571                           ;nRF24l01.c: 25: TRISAbits.TRISA2=0;
+   572  007C54  9492               	bcf	3986,2,c	;volatile
+   573                           
+   574                           ;nRF24l01.c: 26: TRISAbits.TRISA3=0;
+   575  007C56  9692               	bcf	3986,3,c	;volatile
+   576                           
+   577                           ;nRF24l01.c: 27: TRISBbits.TRISB2=1;
+   578  007C58  8493               	bsf	3987,2,c	;volatile
+   579                           
+   580                           ;nRF24l01.c: 28: LATAbits.LATA3=1;
+   581  007C5A  8689               	bsf	3977,3,c	;volatile
+   582                           
+   583                           ;nRF24l01.c: 29: LATAbits.LATA2=0;
+   584  007C5C  9489               	bcf	3977,2,c	;volatile
+   585  007C5E  0C0F               	retlw	15	;funcret
+   586  007C60                     __end_of_nRF24L01_Ports_Start:
+   587                           	opt stack 0
+   588                           tblptru	equ	0xFF8
+   589                           tblptrh	equ	0xFF7
+   590                           tblptrl	equ	0xFF6
+   591                           tablat	equ	0xFF5
+   592                           prodl	equ	0xFF3
+   593                           postinc0	equ	0xFEE
+   594                           wreg	equ	0xFE8
+   595                           postinc1	equ	0xFE6
+   596                           postdec1	equ	0xFE5
+   597                           plusw1	equ	0xFE3
+   598                           fsr1h	equ	0xFE2
+   599                           fsr1l	equ	0xFE1
+   600                           indf2	equ	0xFDF
+   601                           postinc2	equ	0xFDE
+   602                           plusw2	equ	0xFDB
+   603                           fsr2h	equ	0xFDA
+   604                           fsr2l	equ	0xFD9
+   605                           
+   606 ;; *************** function _Start_TX_Mode_nRF24L01 *****************
+   607 ;; Defined at:
+   608 ;;		line 280 in file "nRF24l01.c"
+   609 ;; Parameters:    Size  Location     Type
+   610 ;;  TX_RX_Addres    1    wreg     unsigned char 
+   611 ;;  Frequency_Ch    1    5[COMRAM] unsigned char 
+   612 ;;  RF_Data_Rate    1    6[COMRAM] unsigned char 
+   613 ;;  RF_Output_Po    1    7[COMRAM] unsigned char 
+   614 ;;  LNA_Gain        1    8[COMRAM] unsigned char 
+   615 ;;  CRC_Setup       1    9[COMRAM] unsigned char 
+   616 ;;  Auto_Retrans    1   10[COMRAM] unsigned char 
+   617 ;;  Max_Auto_Ret    1   11[COMRAM] unsigned char 
+   618 ;;  Enable_Check    1   12[COMRAM] unsigned char 
+   619 ;;  TX_RX_Payloa    1   13[COMRAM] unsigned char 
+   620 ;; Auto vars:     Size  Location     Type
+   621 ;;  TX_RX_Addres    1   15[COMRAM] unsigned char 
+   622 ;; Return value:  Size  Location     Type
+   623 ;;                  1    wreg      void 
+   624 ;; Registers used:
+   625 ;;		wreg, status,2, status,0, prodl, prodh, cstack
+   626 ;; Tracked objects:
+   627 ;;		On entry : 0/0
+   628 ;;		On exit  : 0/0
+   629 ;;		Unchanged: 0/0
+   630 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   631 ;;      Params:         9       0       0       0       0       0       0       0       0
+   632 ;;      Locals:         1       0       0       0       0       0       0       0       0
+   633 ;;      Temps:          1       0       0       0       0       0       0       0       0
+   634 ;;      Totals:        11       0       0       0       0       0       0       0       0
+   635 ;;Total ram usage:       11 bytes
+   636 ;; Hardware stack levels used:    1
+   637 ;; Hardware stack levels required when called:    3
+   638 ;; This function calls:
+   639 ;;		_Reset_nRF24L01_Status_and_nRF24L01_Payloads
+   640 ;;		_Write_nRF24L01_Register
+   641 ;; This function is called by:
+   642 ;;		_main
+   643 ;; This function uses a non-reentrant model
+   644 ;;
+   645                           
+   646                           	psect	text2
+   647  007EF0                     __ptext2:
+   648                           	opt stack 0
+   649  007EF0                     _Start_TX_Mode_nRF24L01:
+   650                           	opt stack 27
+   651                           
+   652                           ;incstack = 0
+   653                           ;Start_TX_Mode_nRF24L01@TX_RX_Address_Width stored from wreg
+   654  007EF0  6E10               	movwf	Start_TX_Mode_nRF24L01@TX_RX_Address_Width,c
+   655                           
+   656                           ;nRF24l01.c: 282: LATAbits.LATA2=0;
+   657  007EF2  9489               	bcf	3977,2,c	;volatile
+   658                           
+   659                           ;nRF24l01.c: 283: Reset_nRF24L01_Status_and_nRF24L01_Payloads();
+   660  007EF4  EC69  F03E         	call	_Reset_nRF24L01_Status_and_nRF24L01_Payloads	;wreg free
+   661                           
+   662                           ;nRF24l01.c: 285: Write_nRF24L01_Register (0x01, 0b00111111);
+   663  007EF8  0E3F               	movlw	63
+   664  007EFA  6E04               	movwf	Write_nRF24L01_Register@Register_Content,c
+   665  007EFC  0E01               	movlw	1
+   666  007EFE  EC7F  F03E         	call	_Write_nRF24L01_Register
+   667                           
+   668                           ;nRF24l01.c: 287: Write_nRF24L01_Register (0x02, 0b00111111);
+   669  007F02  0E3F               	movlw	63
+   670  007F04  6E04               	movwf	Write_nRF24L01_Register@Register_Content,c
+   671  007F06  0E02               	movlw	2
+   672  007F08  EC7F  F03E         	call	_Write_nRF24L01_Register
+   673                           
+   674                           ;nRF24l01.c: 289: Write_nRF24L01_Register (0x03, TX_RX_Address_Width);
+   675  007F0C  C010  F004         	movff	Start_TX_Mode_nRF24L01@TX_RX_Address_Width,Write_nRF24L01_Register@Register_Conte
+      +                          nt
+   676  007F10  0E03               	movlw	3
+   677  007F12  EC7F  F03E         	call	_Write_nRF24L01_Register
+   678                           
+   679                           ;nRF24l01.c: 291: Write_nRF24L01_Register (0x04, Auto_Retransmit_Delay*0b10000 +
+   680                           ;nRF24l01.c: 292: Max_Auto_Retransmit);
+   681  007F16  500B               	movf	Start_TX_Mode_nRF24L01@Auto_Retransmit_Delay,w,c
+   682  007F18  0D10               	mullw	16
+   683  007F1A  50F3               	movf	prodl,w,c
+   684  007F1C  240C               	addwf	Start_TX_Mode_nRF24L01@Max_Auto_Retransmit,w,c
+   685  007F1E  6E04               	movwf	Write_nRF24L01_Register@Register_Content,c
+   686  007F20  0E04               	movlw	4
+   687  007F22  EC7F  F03E         	call	_Write_nRF24L01_Register
+   688                           
+   689                           ;nRF24l01.c: 293: Write_nRF24L01_Register (0x05, Frequency_Channel);
+   690  007F26  C006  F004         	movff	Start_TX_Mode_nRF24L01@Frequency_Channel,Write_nRF24L01_Register@Register_Content
+   691  007F2A  0E05               	movlw	5
+   692  007F2C  EC7F  F03E         	call	_Write_nRF24L01_Register
+   693                           
+   694                           ;nRF24l01.c: 295: Write_nRF24L01_Register (0x06, RF_Data_Rate*0b1000 + RF_Output_Power*0
+      +                          b10 +
+   695                           ;nRF24l01.c: 296: LNA_Gain);
+   696  007F30  5008               	movf	Start_TX_Mode_nRF24L01@RF_Output_Power,w,c
+   697  007F32  0D02               	mullw	2
+   698  007F34  CFF3 F00F          	movff	prodl,??_Start_TX_Mode_nRF24L01
+   699  007F38  5007               	movf	Start_TX_Mode_nRF24L01@RF_Data_Rate,w,c
+   700  007F3A  0D08               	mullw	8
+   701  007F3C  50F3               	movf	prodl,w,c
+   702  007F3E  240F               	addwf	??_Start_TX_Mode_nRF24L01,w,c
+   703  007F40  2409               	addwf	Start_TX_Mode_nRF24L01@LNA_Gain,w,c
+   704  007F42  6E04               	movwf	Write_nRF24L01_Register@Register_Content,c
+   705  007F44  0E06               	movlw	6
+   706  007F46  EC7F  F03E         	call	_Write_nRF24L01_Register
+   707                           
+   708                           ;nRF24l01.c: 297: Write_nRF24L01_Register (0x11, TX_RX_Payload_Width+Enable_Checksum);
+   709  007F4A  500E               	movf	Start_TX_Mode_nRF24L01@TX_RX_Payload_Width,w,c
+   710  007F4C  240D               	addwf	Start_TX_Mode_nRF24L01@Enable_Checksum,w,c
+   711  007F4E  6E04               	movwf	Write_nRF24L01_Register@Register_Content,c
+   712  007F50  0E11               	movlw	17
+   713  007F52  EC7F  F03E         	call	_Write_nRF24L01_Register
+   714                           
+   715                           ;nRF24l01.c: 299: Write_nRF24L01_Register (0x00,0b00001000 + CRC_Setup*0b100 + 0b0000001
+      +                          0 + 0*0b00000001);
+   716  007F56  500A               	movf	Start_TX_Mode_nRF24L01@CRC_Setup,w,c
+   717  007F58  0D04               	mullw	4
+   718  007F5A  50F3               	movf	prodl,w,c
+   719  007F5C  0F0A               	addlw	10
+   720  007F5E  6E04               	movwf	Write_nRF24L01_Register@Register_Content,c
+   721  007F60  0E00               	movlw	0
+   722  007F62  EC7F  F03E         	call	_Write_nRF24L01_Register
+   723                           
+   724                           ;nRF24l01.c: 301: _delay((unsigned long)((2)*(48000000UL/4000.0)));
+   725  007F66  0E20               	movlw	32
+   726  007F68  6E0F               	movwf	??_Start_TX_Mode_nRF24L01& (0+255),c
+   727  007F6A  0E2A               	movlw	42
+   728  007F6C                     u317:
+   729  007F6C  2EE8               	decfsz	wreg,f,c
+   730  007F6E  D7FE               	bra	u317
+   731  007F70  2E0F               	decfsz	??_Start_TX_Mode_nRF24L01& (0+255),f,c
+   732  007F72  D7FC               	bra	u317
+   733  007F74  0012               	return		;funcret
+   734  007F76                     __end_of_Start_TX_Mode_nRF24L01:
+   735                           	opt stack 0
+   736                           tblptru	equ	0xFF8
+   737                           tblptrh	equ	0xFF7
+   738                           tblptrl	equ	0xFF6
+   739                           tablat	equ	0xFF5
+   740                           prodl	equ	0xFF3
+   741                           postinc0	equ	0xFEE
+   742                           wreg	equ	0xFE8
+   743                           postinc1	equ	0xFE6
+   744                           postdec1	equ	0xFE5
+   745                           plusw1	equ	0xFE3
+   746                           fsr1h	equ	0xFE2
+   747                           fsr1l	equ	0xFE1
+   748                           indf2	equ	0xFDF
+   749                           postinc2	equ	0xFDE
+   750                           plusw2	equ	0xFDB
+   751                           fsr2h	equ	0xFDA
+   752                           fsr2l	equ	0xFD9
+   753                           
+   754 ;; *************** function _Write_nRF24L01_Register *****************
+   755 ;; Defined at:
+   756 ;;		line 56 in file "nRF24l01.c"
+   757 ;; Parameters:    Size  Location     Type
+   758 ;;  Register_Add    1    wreg     unsigned char 
+   759 ;;  Register_Con    1    3[COMRAM] unsigned char 
+   760 ;; Auto vars:     Size  Location     Type
+   761 ;;  Register_Add    1    4[COMRAM] unsigned char 
+   762 ;;  nRF24L01_Sta    1    0        unsigned char 
+   763 ;;  dummydata       1    0        unsigned char 
+   764 ;; Return value:  Size  Location     Type
+   765 ;;                  1    wreg      void 
+   766 ;; Registers used:
+   767 ;;		wreg, status,2, status,0, cstack
+   768 ;; Tracked objects:
+   769 ;;		On entry : 0/0
+   770 ;;		On exit  : 0/0
+   771 ;;		Unchanged: 0/0
+   772 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   773 ;;      Params:         1       0       0       0       0       0       0       0       0
+   774 ;;      Locals:         1       0       0       0       0       0       0       0       0
+   775 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   776 ;;      Totals:         2       0       0       0       0       0       0       0       0
+   777 ;;Total ram usage:        2 bytes
+   778 ;; Hardware stack levels used:    1
+   779 ;; Hardware stack levels required when called:    2
+   780 ;; This function calls:
+   781 ;;		_Read_nRF24L01_Register
+   782 ;;		_SPI_Transfer
+   783 ;; This function is called by:
+   784 ;;		_Start_TX_Mode_nRF24L01
+   785 ;; This function uses a non-reentrant model
+   786 ;;
+   787                           
+   788                           	psect	text3
+   789  007CFE                     __ptext3:
+   790                           	opt stack 0
+   791  007CFE                     _Write_nRF24L01_Register:
+   792                           	opt stack 27
+   793                           
+   794                           ;incstack = 0
+   795                           ;Write_nRF24L01_Register@Register_Address stored from wreg
+   796  007CFE  6E05               	movwf	Write_nRF24L01_Register@Register_Address,c
+   797                           
+   798                           ;nRF24l01.c: 58: unsigned char dummydata, nRF24L01_Status;
+   799                           ;nRF24l01.c: 59: LATAbits.LATA3=0;
+   800                           
+   801                           ;nRF24l01.c: 60: nRF24L01_Status=SPI_Transfer(0b00100000+Register_Address);
+   802  007D00  D813               	call	PL8	;call to abstracted procedure
+   803  007D02  EC18  F03E         	call	_SPI_Transfer
+   804                           
+   805                           ;nRF24l01.c: 62: dummydata=SPI_Transfer(Register_Content);
+   806  007D06  5004               	movf	Write_nRF24L01_Register@Register_Content,w,c
+   807  007D08  EC18  F03E         	call	_SPI_Transfer
+   808  007D0C  D006               	goto	l1055
+   809  007D0E                     l47:
+   810                           
+   811                           ;nRF24l01.c: 66: {
+   812                           ;nRF24l01.c: 67: LATAbits.LATA3=0;
+   813                           
+   814                           ;nRF24l01.c: 68: nRF24L01_Status=SPI_Transfer(0b00100000+Register_Address);
+   815  007D0E  D80C               	call	PL8	;call to abstracted procedure
+   816  007D10  EC18  F03E         	call	_SPI_Transfer
+   817                           
+   818                           ;nRF24l01.c: 69: dummydata=SPI_Transfer(Register_Content);
+   819  007D14  5004               	movf	Write_nRF24L01_Register@Register_Content,w,c
+   820  007D16  EC18  F03E         	call	_SPI_Transfer
+   821  007D1A                     l1055:
+   822                           
+   823                           ;nRF24l01.c: 70: LATAbits.LATA3=1;
+   824  007D1A  8689               	bsf	3977,3,c	;volatile
+   825  007D1C  5005               	movf	Write_nRF24L01_Register@Register_Address,w,c
+   826  007D1E  EC3A  F03E         	call	_Read_nRF24L01_Register
+   827  007D22  1804               	xorwf	Write_nRF24L01_Register@Register_Content,w,c
+   828  007D24  E1F4               	bnz	l47
+   829  007D26  0012               	return		;funcret
+   830  007D28                     __end_of_Write_nRF24L01_Register:
+   831                           	opt stack 0
+   832  007D28                     PL8:
+   833                           	opt stack 27
+   834  007D28  9689               	bcf	3977,3,c	;volatile
+   835  007D2A  5005               	movf	Write_nRF24L01_Register@Register_Address,w,c
+   836  007D2C  0F20               	addlw	32
+   837  007D2E  0012               	return	
+   838  007D30                     __end_ofPL8:
+   839                           	opt stack 0
+   840                           tblptru	equ	0xFF8
+   841                           tblptrh	equ	0xFF7
+   842                           tblptrl	equ	0xFF6
+   843                           tablat	equ	0xFF5
+   844                           prodl	equ	0xFF3
+   845                           postinc0	equ	0xFEE
+   846                           wreg	equ	0xFE8
+   847                           postinc1	equ	0xFE6
+   848                           postdec1	equ	0xFE5
+   849                           plusw1	equ	0xFE3
+   850                           fsr1h	equ	0xFE2
+   851                           fsr1l	equ	0xFE1
+   852                           indf2	equ	0xFDF
+   853                           postinc2	equ	0xFDE
+   854                           plusw2	equ	0xFDB
+   855                           fsr2h	equ	0xFDA
+   856                           fsr2l	equ	0xFD9
+   857                           
+   858 ;; *************** function _Reset_nRF24L01_Status_and_nRF24L01_Payloads *****************
+   859 ;; Defined at:
+   860 ;;		line 218 in file "nRF24l01.c"
+   861 ;; Parameters:    Size  Location     Type
+   862 ;;		None
+   863 ;; Auto vars:     Size  Location     Type
+   864 ;;  nRF24L01_Sta    1    0        unsigned char 
+   865 ;; Return value:  Size  Location     Type
+   866 ;;                  1    wreg      void 
+   867 ;; Registers used:
+   868 ;;		wreg, status,2, cstack
+   869 ;; Tracked objects:
+   870 ;;		On entry : 0/0
+   871 ;;		On exit  : 0/0
+   872 ;;		Unchanged: 0/0
+   873 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   874 ;;      Params:         0       0       0       0       0       0       0       0       0
+   875 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   876 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   877 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   878 ;;Total ram usage:        0 bytes
+   879 ;; Hardware stack levels used:    1
+   880 ;; Hardware stack levels required when called:    2
+   881 ;; This function calls:
+   882 ;;		_SPI_Transfer
+   883 ;;		_Write_nRF24L01_Status
+   884 ;; This function is called by:
+   885 ;;		_Start_TX_Mode_nRF24L01
+   886 ;; This function uses a non-reentrant model
+   887 ;;
+   888                           
+   889                           	psect	text4
+   890  007CD2                     __ptext4:
+   891                           	opt stack 0
+   892  007CD2                     _Reset_nRF24L01_Status_and_nRF24L01_Payloads:
+   893                           	opt stack 27
+   894                           
+   895                           ;nRF24l01.c: 220: unsigned char nRF24L01_Status;
+   896                           ;nRF24l01.c: 222: LATAbits.LATA3=0;
+   897                           
+   898                           ;incstack = 0
+   899  007CD2  9689               	bcf	3977,3,c	;volatile
+   900                           
+   901                           ;nRF24l01.c: 223: nRF24L01_Status=SPI_Transfer(0b11100001);
+   902  007CD4  0EE1               	movlw	225
+   903  007CD6  EC18  F03E         	call	_SPI_Transfer
+   904                           
+   905                           ;nRF24l01.c: 224: LATAbits.LATA3=1;
+   906  007CDA  8689               	bsf	3977,3,c	;volatile
+   907                           
+   908                           ;nRF24l01.c: 225: _delay((unsigned long)((1)*(48000000UL/4000000.0)));
+   909  007CDC  0E04               	movlw	4
+   910  007CDE                     u327:
+   911  007CDE  2EE8               	decfsz	wreg,f,c
+   912  007CE0  D7FE               	bra	u327
+   913                           
+   914                           ;nRF24l01.c: 226: LATAbits.LATA3=0;
+   915  007CE2  9689               	bcf	3977,3,c	;volatile
+   916                           
+   917                           ;nRF24l01.c: 227: nRF24L01_Status=SPI_Transfer(0b11100010);
+   918  007CE4  0EE2               	movlw	226
+   919  007CE6  EC18  F03E         	call	_SPI_Transfer
+   920                           
+   921                           ;nRF24l01.c: 228: LATAbits.LATA3=1;
+   922  007CEA  8689               	bsf	3977,3,c	;volatile
+   923                           
+   924                           ;nRF24l01.c: 230: Write_nRF24L01_Status(0b01000000);
+   925  007CEC  0E40               	movlw	64
+   926  007CEE  EC30  F03E         	call	_Write_nRF24L01_Status
+   927                           
+   928                           ;nRF24l01.c: 231: Write_nRF24L01_Status(0b00100000);
+   929  007CF2  0E20               	movlw	32
+   930  007CF4  EC30  F03E         	call	_Write_nRF24L01_Status
+   931                           
+   932                           ;nRF24l01.c: 232: Write_nRF24L01_Status(0b00010000);
+   933  007CF8  0E10               	movlw	16
+   934  007CFA  EF30  F03E         	goto	_Write_nRF24L01_Status
+   935  007CFE                     __end_of_Reset_nRF24L01_Status_and_nRF24L01_Payloads:
+   936                           	opt stack 0
+   937                           tblptru	equ	0xFF8
+   938                           tblptrh	equ	0xFF7
+   939                           tblptrl	equ	0xFF6
+   940                           tablat	equ	0xFF5
+   941                           prodl	equ	0xFF3
+   942                           postinc0	equ	0xFEE
+   943                           wreg	equ	0xFE8
+   944                           postinc1	equ	0xFE6
+   945                           postdec1	equ	0xFE5
+   946                           plusw1	equ	0xFE3
+   947                           fsr1h	equ	0xFE2
+   948                           fsr1l	equ	0xFE1
+   949                           indf2	equ	0xFDF
+   950                           postinc2	equ	0xFDE
+   951                           plusw2	equ	0xFDB
+   952                           fsr2h	equ	0xFDA
+   953                           fsr2l	equ	0xFD9
+   954                           
+   955 ;; *************** function _Send_Data_TX_Mode_nRF24L01 *****************
+   956 ;; Defined at:
+   957 ;;		line 343 in file "nRF24l01.c"
+   958 ;; Parameters:    Size  Location     Type
+   959 ;;  Enable_Check    1    wreg     unsigned char 
+   960 ;;  TX_RX_Addres    1   25[COMRAM] unsigned char 
+   961 ;;  TX_Address      1   26[COMRAM] PTR unsigned char 
+   962 ;;		 -> main@direccion_tx(5), 
+   963 ;;  TX_RX_Payloa    1   27[COMRAM] unsigned char 
+   964 ;;  TX_Payload      1   28[COMRAM] PTR unsigned char 
+   965 ;;		 -> main@mensaje(1), 
+   966 ;; Auto vars:     Size  Location     Type
+   967 ;;  Enable_Check    1   29[COMRAM] unsigned char 
+   968 ;; Return value:  Size  Location     Type
+   969 ;;                  1    wreg      void 
+   970 ;; Registers used:
+   971 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+   972 ;; Tracked objects:
+   973 ;;		On entry : 0/0
+   974 ;;		On exit  : 0/0
+   975 ;;		Unchanged: 0/0
+   976 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   977 ;;      Params:         4       0       0       0       0       0       0       0       0
+   978 ;;      Locals:         1       0       0       0       0       0       0       0       0
+   979 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   980 ;;      Totals:         5       0       0       0       0       0       0       0       0
+   981 ;;Total ram usage:        5 bytes
+   982 ;; Hardware stack levels used:    1
+   983 ;; Hardware stack levels required when called:    3
+   984 ;; This function calls:
+   985 ;;		_Write_nRF24L01_Address_Register
+   986 ;;		_Write_nRF24L01_TX_Payload
+   987 ;; This function is called by:
+   988 ;;		_main
+   989 ;; This function uses a non-reentrant model
+   990 ;;
+   991                           
+   992                           	psect	text5
+   993  007D7A                     __ptext5:
+   994                           	opt stack 0
+   995  007D7A                     _Send_Data_TX_Mode_nRF24L01:
+   996                           	opt stack 27
+   997                           
+   998                           ;incstack = 0
+   999                           ;Send_Data_TX_Mode_nRF24L01@Enable_Checksum stored from wreg
+  1000  007D7A  6E1E               	movwf	Send_Data_TX_Mode_nRF24L01@Enable_Checksum,c
+  1001                           
+  1002                           ;nRF24l01.c: 345: Write_nRF24L01_Address_Register (TX_RX_Address_Width, 0x10, TX_Address
+      +                          );
+  1003  007D7C  0E10               	movlw	16
+  1004  007D7E  D81E               	call	PL6	;call to abstracted procedure
+  1005  007D80  ECBB  F03F         	call	_Write_nRF24L01_Address_Register
+  1006                           
+  1007                           ;nRF24l01.c: 347: Write_nRF24L01_Address_Register (TX_RX_Address_Width, 0x0A, TX_Address
+      +                          );
+  1008  007D84  0E0A               	movlw	10
+  1009  007D86  D81A               	call	PL6	;call to abstracted procedure
+  1010  007D88  ECBB  F03F         	call	_Write_nRF24L01_Address_Register
+  1011                           
+  1012                           ;nRF24l01.c: 349: Write_nRF24L01_TX_Payload (Enable_Checksum, TX_RX_Payload_Width, TX_Pa
+      +                          yload);
+  1013  007D8C  C01C  F002         	movff	Send_Data_TX_Mode_nRF24L01@TX_RX_Payload_Width,Write_nRF24L01_TX_Payload@TX_RX_Pa
+      +                          yload_Width
+  1014  007D90  C01D  F003         	movff	Send_Data_TX_Mode_nRF24L01@TX_Payload,Write_nRF24L01_TX_Payload@TX_Payload
+  1015  007D94  501E               	movf	Send_Data_TX_Mode_nRF24L01@Enable_Checksum,w,c
+  1016  007D96  ECE3  F03E         	call	_Write_nRF24L01_TX_Payload
+  1017                           
+  1018                           ;nRF24l01.c: 352: LATAbits.LATA2 = 1;
+  1019  007D9A  8489               	bsf	3977,2,c	;volatile
+  1020                           
+  1021                           ;nRF24l01.c: 354: _delay((unsigned long)((130)*(48000000UL/4000000.0)));
+  1022  007D9C  0EDE               	movlw	222
+  1023  007D9E                     u337:
+  1024  007D9E  D000               	nop2	
+  1025  007DA0  D000               	nop2	
+  1026  007DA2  2EE8               	decfsz	wreg,f,c
+  1027  007DA4  D7FC               	bra	u337
+  1028  007DA6  D000               	nop2	
+  1029  007DA8  D000               	nop2	
+  1030  007DAA  D000               	nop2	
+  1031                           
+  1032                           ;nRF24l01.c: 355: _delay((unsigned long)((10)*(48000000UL/4000000.0)));
+  1033  007DAC  0E28               	movlw	40
+  1034  007DAE                     u347:
+  1035  007DAE  2EE8               	decfsz	wreg,f,c
+  1036  007DB0  D7FE               	bra	u347
+  1037                           
+  1038                           ;nRF24l01.c: 357: LATAbits.LATA2 = 0;
+  1039  007DB2  9489               	bcf	3977,2,c	;volatile
+  1040                           
+  1041                           ;nRF24l01.c: 359: _delay((unsigned long)((4)*(48000000UL/4000000.0)));
+  1042  007DB4  0E10               	movlw	16
+  1043  007DB6                     u357:
+  1044  007DB6  2EE8               	decfsz	wreg,f,c
+  1045  007DB8  D7FE               	bra	u357
+  1046  007DBA  0012               	return		;funcret
+  1047  007DBC                     __end_of_Send_Data_TX_Mode_nRF24L01:
+  1048                           	opt stack 0
+  1049  007DBC                     PL6:
+  1050                           	opt stack 27
+  1051  007DBC  6E0B               	movwf	Write_nRF24L01_Address_Register@Register_Address,c
+  1052  007DBE  C01B  F00C         	movff	Send_Data_TX_Mode_nRF24L01@TX_Address,Write_nRF24L01_Address_Register@Register_Co
+      +                          ntent
+  1053  007DC2  501A               	movf	Send_Data_TX_Mode_nRF24L01@TX_RX_Address_Width,w,c
+  1054  007DC4  0012               	return	
+  1055  007DC6                     __end_ofPL6:
+  1056                           	opt stack 0
+  1057                           tblptru	equ	0xFF8
+  1058                           tblptrh	equ	0xFF7
+  1059                           tblptrl	equ	0xFF6
+  1060                           tablat	equ	0xFF5
+  1061                           prodl	equ	0xFF3
+  1062                           postinc0	equ	0xFEE
+  1063                           wreg	equ	0xFE8
+  1064                           postinc1	equ	0xFE6
+  1065                           postdec1	equ	0xFE5
+  1066                           plusw1	equ	0xFE3
+  1067                           fsr1h	equ	0xFE2
+  1068                           fsr1l	equ	0xFE1
+  1069                           indf2	equ	0xFDF
+  1070                           postinc2	equ	0xFDE
+  1071                           plusw2	equ	0xFDB
+  1072                           fsr2h	equ	0xFDA
+  1073                           fsr2l	equ	0xFD9
+  1074                           
+  1075 ;; *************** function _Write_nRF24L01_TX_Payload *****************
+  1076 ;; Defined at:
+  1077 ;;		line 187 in file "nRF24l01.c"
+  1078 ;; Parameters:    Size  Location     Type
+  1079 ;;  Enable_Check    1    wreg     unsigned char 
+  1080 ;;  TX_RX_Payloa    1    1[COMRAM] unsigned char 
+  1081 ;;  TX_Payload      1    2[COMRAM] PTR unsigned char 
+  1082 ;;		 -> main@mensaje(1), 
+  1083 ;; Auto vars:     Size  Location     Type
+  1084 ;;  Enable_Check    1    4[COMRAM] unsigned char 
+  1085 ;;  i               1    5[COMRAM] unsigned char 
+  1086 ;;  TX_Checksum     1    3[COMRAM] unsigned char 
+  1087 ;;  dummydata       1    0        unsigned char 
+  1088 ;;  nRF24L01_Sta    1    0        unsigned char 
+  1089 ;; Return value:  Size  Location     Type
+  1090 ;;                  1    wreg      void 
+  1091 ;; Registers used:
+  1092 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+  1093 ;; Tracked objects:
+  1094 ;;		On entry : 0/0
+  1095 ;;		On exit  : 0/0
+  1096 ;;		Unchanged: 0/0
+  1097 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1098 ;;      Params:         2       0       0       0       0       0       0       0       0
+  1099 ;;      Locals:         3       0       0       0       0       0       0       0       0
+  1100 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1101 ;;      Totals:         5       0       0       0       0       0       0       0       0
+  1102 ;;Total ram usage:        5 bytes
+  1103 ;; Hardware stack levels used:    1
+  1104 ;; Hardware stack levels required when called:    1
+  1105 ;; This function calls:
+  1106 ;;		_SPI_Transfer
+  1107 ;; This function is called by:
+  1108 ;;		_Send_Data_TX_Mode_nRF24L01
+  1109 ;; This function uses a non-reentrant model
+  1110 ;;
+  1111                           
+  1112                           	psect	text6
+  1113  007DC6                     __ptext6:
+  1114                           	opt stack 0
+  1115  007DC6                     _Write_nRF24L01_TX_Payload:
+  1116                           	opt stack 28
+  1117                           
+  1118                           ;incstack = 0
+  1119                           ;Write_nRF24L01_TX_Payload@Enable_Checksum stored from wreg
+  1120  007DC6  6E05               	movwf	Write_nRF24L01_TX_Payload@Enable_Checksum,c
+  1121                           
+  1122                           ;nRF24l01.c: 189: unsigned char nRF24L01_Status, TX_Checksum;
+  1123                           ;nRF24l01.c: 190: unsigned char i, dummydata;
+  1124                           ;nRF24l01.c: 192: LATAbits.LATA3=0;
+  1125  007DC8  9689               	bcf	3977,3,c	;volatile
+  1126                           
+  1127                           ;nRF24l01.c: 193: nRF24L01_Status=SPI_Transfer(0b10100000);
+  1128  007DCA  0EA0               	movlw	160
+  1129  007DCC  EC18  F03E         	call	_SPI_Transfer
+  1130                           
+  1131                           ;nRF24l01.c: 194: if(!Enable_Checksum)
+  1132  007DD0  5005               	movf	Write_nRF24L01_TX_Payload@Enable_Checksum,w,c
+  1133  007DD2  E10A               	bnz	l1101
+  1134                           
+  1135                           ;nRF24l01.c: 195: {
+  1136                           ;nRF24l01.c: 196: for(i=0; i<TX_RX_Payload_Width; i++)
+  1137  007DD4  6A06               	clrf	Write_nRF24L01_TX_Payload@i,c
+  1138  007DD6  D004               	goto	l1099
+  1139  007DD8                     l1095:
+  1140                           
+  1141                           ;nRF24l01.c: 197: {
+  1142                           ;nRF24l01.c: 198: dummydata=SPI_Transfer(TX_Payload[i]);
+  1143  007DD8  D81A               	call	PL4	;call to abstracted procedure
+  1144  007DDA  EC18  F03E         	call	_SPI_Transfer
+  1145  007DDE  2A06               	incf	Write_nRF24L01_TX_Payload@i,f,c
+  1146  007DE0                     l1099:
+  1147  007DE0  5002               	movf	Write_nRF24L01_TX_Payload@TX_RX_Payload_Width,w,c
+  1148  007DE2  5C06               	subwf	Write_nRF24L01_TX_Payload@i,w,c
+  1149  007DE4  E212               	bc	l1115
+  1150  007DE6  D7F8               	goto	l1095
+  1151  007DE8                     l1101:
+  1152                           
+  1153                           ;nRF24l01.c: 202: else if(Enable_Checksum)
+  1154  007DE8  5005               	movf	Write_nRF24L01_TX_Payload@Enable_Checksum,w,c
+  1155  007DEA  E00F               	bz	l1115
+  1156                           
+  1157                           ;nRF24l01.c: 203: {
+  1158                           ;nRF24l01.c: 204: TX_Checksum=0b00000000;
+  1159  007DEC  6A04               	clrf	Write_nRF24L01_TX_Payload@TX_Checksum,c
+  1160                           
+  1161                           ;nRF24l01.c: 205: for(i=0; i<TX_RX_Payload_Width; i++)
+  1162  007DEE  6A06               	clrf	Write_nRF24L01_TX_Payload@i,c
+  1163  007DF0  D006               	goto	l1111
+  1164  007DF2                     l1105:
+  1165                           
+  1166                           ;nRF24l01.c: 206: {
+  1167                           ;nRF24l01.c: 207: dummydata=SPI_Transfer(TX_Payload[i]);
+  1168  007DF2  D80D               	call	PL4	;call to abstracted procedure
+  1169  007DF4  EC18  F03E         	call	_SPI_Transfer
+  1170                           
+  1171                           ;nRF24l01.c: 209: TX_Checksum=TX_Checksum+TX_Payload[i];
+  1172  007DF8  D80A               	call	PL4	;call to abstracted procedure
+  1173  007DFA  2604               	addwf	Write_nRF24L01_TX_Payload@TX_Checksum,f,c
+  1174  007DFC  2A06               	incf	Write_nRF24L01_TX_Payload@i,f,c
+  1175  007DFE                     l1111:
+  1176  007DFE  5002               	movf	Write_nRF24L01_TX_Payload@TX_RX_Payload_Width,w,c
+  1177  007E00  5C06               	subwf	Write_nRF24L01_TX_Payload@i,w,c
+  1178  007E02  E3F7               	bnc	l1105
+  1179                           
+  1180                           ;nRF24l01.c: 211: }
+  1181                           ;nRF24l01.c: 212: dummydata=SPI_Transfer(TX_Checksum);
+  1182  007E04  5004               	movf	Write_nRF24L01_TX_Payload@TX_Checksum,w,c
+  1183  007E06  EC18  F03E         	call	_SPI_Transfer
+  1184  007E0A                     l1115:
+  1185                           
+  1186                           ;nRF24l01.c: 214: }
+  1187                           ;nRF24l01.c: 215: LATAbits.LATA3=1;
+  1188  007E0A  8689               	bsf	3977,3,c	;volatile
+  1189  007E0C  0012               	return		;funcret
+  1190  007E0E                     __end_of_Write_nRF24L01_TX_Payload:
+  1191                           	opt stack 0
+  1192  007E0E                     PL4:
+  1193                           	opt stack 28
+  1194  007E0E  5003               	movf	Write_nRF24L01_TX_Payload@TX_Payload,w,c
+  1195  007E10  2406               	addwf	Write_nRF24L01_TX_Payload@i,w,c
+  1196  007E12  6ED9               	movwf	fsr2l,c
+  1197  007E14  6ADA               	clrf	fsr2h,c
+  1198  007E16  50DF               	movf	indf2,w,c
+  1199  007E18  0012               	return	
+  1200  007E1A                     __end_ofPL4:
+  1201                           	opt stack 0
+  1202                           tblptru	equ	0xFF8
+  1203                           tblptrh	equ	0xFF7
+  1204                           tblptrl	equ	0xFF6
+  1205                           tablat	equ	0xFF5
+  1206                           prodl	equ	0xFF3
+  1207                           postinc0	equ	0xFEE
+  1208                           wreg	equ	0xFE8
+  1209                           postinc1	equ	0xFE6
+  1210                           postdec1	equ	0xFE5
+  1211                           plusw1	equ	0xFE3
+  1212                           fsr1h	equ	0xFE2
+  1213                           fsr1l	equ	0xFE1
+  1214                           indf2	equ	0xFDF
+  1215                           postinc2	equ	0xFDE
+  1216                           plusw2	equ	0xFDB
+  1217                           fsr2h	equ	0xFDA
+  1218                           fsr2l	equ	0xFD9
+  1219                           
+  1220 ;; *************** function _Write_nRF24L01_Address_Register *****************
+  1221 ;; Defined at:
+  1222 ;;		line 111 in file "nRF24l01.c"
+  1223 ;; Parameters:    Size  Location     Type
+  1224 ;;  TX_RX_Addres    1    wreg     unsigned char 
+  1225 ;;  Register_Add    1   10[COMRAM] unsigned char 
+  1226 ;;  Register_Con    1   11[COMRAM] PTR unsigned char 
+  1227 ;;		 -> main@direccion_tx(5), 
+  1228 ;; Auto vars:     Size  Location     Type
+  1229 ;;  TX_RX_Addres    1   23[COMRAM] unsigned char 
+  1230 ;;  Address_Veri    5   17[COMRAM] unsigned char [5]
+  1231 ;;  i               1   24[COMRAM] unsigned char 
+  1232 ;;  Process_Fini    1   22[COMRAM] unsigned char 
+  1233 ;;  nRF24L01_Sta    1    0        unsigned char 
+  1234 ;;  dummydata       1    0        unsigned char 
+  1235 ;; Return value:  Size  Location     Type
+  1236 ;;                  1    wreg      void 
+  1237 ;; Registers used:
+  1238 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+  1239 ;; Tracked objects:
+  1240 ;;		On entry : 0/0
+  1241 ;;		On exit  : 0/0
+  1242 ;;		Unchanged: 0/0
+  1243 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1244 ;;      Params:         2       0       0       0       0       0       0       0       0
+  1245 ;;      Locals:         8       0       0       0       0       0       0       0       0
+  1246 ;;      Temps:          5       0       0       0       0       0       0       0       0
+  1247 ;;      Totals:        15       0       0       0       0       0       0       0       0
+  1248 ;;Total ram usage:       15 bytes
+  1249 ;; Hardware stack levels used:    1
+  1250 ;; Hardware stack levels required when called:    2
+  1251 ;; This function calls:
+  1252 ;;		_Read_nRF24L01_Address_Register
+  1253 ;;		_SPI_Transfer
+  1254 ;; This function is called by:
+  1255 ;;		_Send_Data_TX_Mode_nRF24L01
+  1256 ;; This function uses a non-reentrant model
+  1257 ;;
+  1258                           
+  1259                           	psect	text7
+  1260  007F76                     __ptext7:
+  1261                           	opt stack 0
+  1262  007F76                     _Write_nRF24L01_Address_Register:
+  1263                           	opt stack 27
+  1264                           
+  1265                           ;incstack = 0
+  1266                           ;Write_nRF24L01_Address_Register@TX_RX_Address_Width stored from wreg
+  1267  007F76  6E18               	movwf	Write_nRF24L01_Address_Register@TX_RX_Address_Width,c
+  1268                           
+  1269                           ;nRF24l01.c: 113: unsigned char dummydata, i, nRF24L01_Status;
+  1270                           ;nRF24l01.c: 114: unsigned char Process_Finished;
+  1271                           ;nRF24l01.c: 115: unsigned char Address_Verification[5];
+  1272                           ;nRF24l01.c: 117: Process_Finished=0;
+  1273  007F78  6A17               	clrf	Write_nRF24L01_Address_Register@Process_Finished,c
+  1274                           
+  1275                           ;nRF24l01.c: 118: while(!Process_Finished)
+  1276  007F7A  D02C               	goto	l1085
+  1277  007F7C                     l65:
+  1278                           
+  1279                           ;nRF24l01.c: 119: {
+  1280                           ;nRF24l01.c: 120: LATAbits.LATA3=0;
+  1281  007F7C  9689               	bcf	3977,3,c	;volatile
+  1282                           
+  1283                           ;nRF24l01.c: 121: nRF24L01_Status=SPI_Transfer(0b00100000+Register_Address);
+  1284  007F7E  500B               	movf	Write_nRF24L01_Address_Register@Register_Address,w,c
+  1285  007F80  0F20               	addlw	32
+  1286  007F82  EC18  F03E         	call	_SPI_Transfer
+  1287                           
+  1288                           ;nRF24l01.c: 122: for(i=0; i<(TX_RX_Address_Width+0b10); i++)
+  1289  007F86  6A19               	clrf	Write_nRF24L01_Address_Register@i,c
+  1290  007F88  D008               	goto	l1069
+  1291  007F8A                     l1065:
+  1292                           
+  1293                           ;nRF24l01.c: 123: {
+  1294                           ;nRF24l01.c: 124: dummydata=SPI_Transfer(Register_Content[i]);
+  1295  007F8A  500C               	movf	Write_nRF24L01_Address_Register@Register_Content,w,c
+  1296  007F8C  2419               	addwf	Write_nRF24L01_Address_Register@i,w,c
+  1297  007F8E  6ED9               	movwf	fsr2l,c
+  1298  007F90  6ADA               	clrf	fsr2h,c
+  1299  007F92  50DF               	movf	indf2,w,c
+  1300  007F94  EC18  F03E         	call	_SPI_Transfer
+  1301  007F98  2A19               	incf	Write_nRF24L01_Address_Register@i,f,c
+  1302  007F9A                     l1069:
+  1303  007F9A  D81F               	call	PL2	;call to abstracted procedure
+  1304  007F9C  E3F6               	bnc	l1065
+  1305                           
+  1306                           ;nRF24l01.c: 125: }
+  1307                           ;nRF24l01.c: 126: LATAbits.LATA3=1;
+  1308  007F9E  8689               	bsf	3977,3,c	;volatile
+  1309                           
+  1310                           ;nRF24l01.c: 128: Read_nRF24L01_Address_Register(TX_RX_Address_Width, Register_Address, 
+      +                          Address_Verification);
+  1311  007FA0  C00B  F002         	movff	Write_nRF24L01_Address_Register@Register_Address,Read_nRF24L01_Address_Register@R
+      +                          egister_Address
+  1312  007FA4  0E12               	movlw	low Write_nRF24L01_Address_Register@Address_Verification
+  1313  007FA6  6E03               	movwf	Read_nRF24L01_Address_Register@Register_Content,c
+  1314  007FA8  5018               	movf	Write_nRF24L01_Address_Register@TX_RX_Address_Width,w,c
+  1315  007FAA  EC98  F03E         	call	_Read_nRF24L01_Address_Register
+  1316                           
+  1317                           ;nRF24l01.c: 129: Process_Finished=1;
+  1318  007FAE  0E01               	movlw	1
+  1319  007FB0  6E17               	movwf	Write_nRF24L01_Address_Register@Process_Finished,c
+  1320                           
+  1321                           ;nRF24l01.c: 130: for(i=0; i<(TX_RX_Address_Width+0b10); i++)
+  1322  007FB2  6A19               	clrf	Write_nRF24L01_Address_Register@i,c
+  1323  007FB4  D00D               	goto	l1083
+  1324  007FB6                     l1077:
+  1325                           
+  1326                           ;nRF24l01.c: 131: {
+  1327                           ;nRF24l01.c: 132: if(Register_Content[i]!=Address_Verification[i])
+  1328  007FB6  5019               	movf	Write_nRF24L01_Address_Register@i,w,c
+  1329  007FB8  0F12               	addlw	low Write_nRF24L01_Address_Register@Address_Verification
+  1330  007FBA  6ED9               	movwf	fsr2l,c
+  1331  007FBC  6ADA               	clrf	fsr2h,c
+  1332  007FBE  500C               	movf	Write_nRF24L01_Address_Register@Register_Content,w,c
+  1333  007FC0  2419               	addwf	Write_nRF24L01_Address_Register@i,w,c
+  1334  007FC2  6EE1               	movwf	fsr1l,c
+  1335  007FC4  6AE2               	clrf	fsr1h,c
+  1336  007FC6  50DE               	movf	postinc2,w,c
+  1337  007FC8  18E6               	xorwf	postinc1,w,c
+  1338  007FCA  E001               	bz	l1081
+  1339                           
+  1340                           ;nRF24l01.c: 133: {
+  1341                           ;nRF24l01.c: 134: Process_Finished=0;
+  1342  007FCC  6A17               	clrf	Write_nRF24L01_Address_Register@Process_Finished,c
+  1343  007FCE                     l1081:
+  1344  007FCE  2A19               	incf	Write_nRF24L01_Address_Register@i,f,c
+  1345  007FD0                     l1083:
+  1346  007FD0  D804               	call	PL2	;call to abstracted procedure
+  1347  007FD2  E3F1               	bnc	l1077
+  1348  007FD4                     l1085:
+  1349  007FD4  5017               	movf	Write_nRF24L01_Address_Register@Process_Finished,w,c
+  1350  007FD6  E0D2               	bz	l65
+  1351  007FD8  0012               	return		;funcret
+  1352  007FDA                     __end_of_Write_nRF24L01_Address_Register:
+  1353                           	opt stack 0
+  1354  007FDA                     PL2:
+  1355                           	opt stack 27
+  1356  007FDA  5018               	movf	Write_nRF24L01_Address_Register@TX_RX_Address_Width,w,c
+  1357  007FDC  6E0D               	movwf	??_Write_nRF24L01_Address_Register& (0+255),c
+  1358  007FDE  6A0E               	clrf	(??_Write_nRF24L01_Address_Register+1)& (0+255),c
+  1359  007FE0  0E02               	movlw	2
+  1360  007FE2  260D               	addwf	??_Write_nRF24L01_Address_Register,f,c
+  1361  007FE4  0E00               	movlw	0
+  1362  007FE6  220E               	addwfc	??_Write_nRF24L01_Address_Register+1,f,c
+  1363  007FE8  5019               	movf	Write_nRF24L01_Address_Register@i,w,c
+  1364  007FEA  6E0F               	movwf	(??_Write_nRF24L01_Address_Register+2)& (0+255),c
+  1365  007FEC  6A10               	clrf	(??_Write_nRF24L01_Address_Register+3)& (0+255),c
+  1366  007FEE  500D               	movf	??_Write_nRF24L01_Address_Register,w,c
+  1367  007FF0  5C0F               	subwf	??_Write_nRF24L01_Address_Register+2,w,c
+  1368  007FF2  5010               	movf	??_Write_nRF24L01_Address_Register+3,w,c
+  1369  007FF4  0A80               	xorlw	128
+  1370  007FF6  6E11               	movwf	(??_Write_nRF24L01_Address_Register+4)& (0+255),c
+  1371  007FF8  500E               	movf	??_Write_nRF24L01_Address_Register+1,w,c
+  1372  007FFA  0A80               	xorlw	128
+  1373  007FFC  5811               	subwfb	(??_Write_nRF24L01_Address_Register+4)& (0+255),w,c
+  1374  007FFE  0012               	return	
+  1375  008000                     __end_ofPL2:
+  1376                           	opt stack 0
+  1377                           tblptru	equ	0xFF8
+  1378                           tblptrh	equ	0xFF7
+  1379                           tblptrl	equ	0xFF6
+  1380                           tablat	equ	0xFF5
+  1381                           prodl	equ	0xFF3
+  1382                           postinc0	equ	0xFEE
+  1383                           wreg	equ	0xFE8
+  1384                           postinc1	equ	0xFE6
+  1385                           postdec1	equ	0xFE5
+  1386                           plusw1	equ	0xFE3
+  1387                           fsr1h	equ	0xFE2
+  1388                           fsr1l	equ	0xFE1
+  1389                           indf2	equ	0xFDF
+  1390                           postinc2	equ	0xFDE
+  1391                           plusw2	equ	0xFDB
+  1392                           fsr2h	equ	0xFDA
+  1393                           fsr2l	equ	0xFD9
+  1394                           
+  1395 ;; *************** function _Read_nRF24L01_Address_Register *****************
+  1396 ;; Defined at:
+  1397 ;;		line 98 in file "nRF24l01.c"
+  1398 ;; Parameters:    Size  Location     Type
+  1399 ;;  TX_RX_Addres    1    wreg     unsigned char 
+  1400 ;;  Register_Add    1    1[COMRAM] unsigned char 
+  1401 ;;  Register_Con    1    2[COMRAM] PTR unsigned char 
+  1402 ;;		 -> Write_nRF24L01_Address_Register@Address_Verification(5), 
+  1403 ;; Auto vars:     Size  Location     Type
+  1404 ;;  TX_RX_Addres    1    8[COMRAM] unsigned char 
+  1405 ;;  i               1    9[COMRAM] unsigned char 
+  1406 ;;  nRF24L01_Sta    1    0        unsigned char 
+  1407 ;; Return value:  Size  Location     Type
+  1408 ;;                  1    wreg      void 
+  1409 ;; Registers used:
+  1410 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+  1411 ;; Tracked objects:
+  1412 ;;		On entry : 0/0
+  1413 ;;		On exit  : 0/0
+  1414 ;;		Unchanged: 0/0
+  1415 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1416 ;;      Params:         2       0       0       0       0       0       0       0       0
+  1417 ;;      Locals:         2       0       0       0       0       0       0       0       0
+  1418 ;;      Temps:          5       0       0       0       0       0       0       0       0
+  1419 ;;      Totals:         9       0       0       0       0       0       0       0       0
+  1420 ;;Total ram usage:        9 bytes
+  1421 ;; Hardware stack levels used:    1
+  1422 ;; Hardware stack levels required when called:    1
+  1423 ;; This function calls:
+  1424 ;;		_SPI_Transfer
+  1425 ;; This function is called by:
+  1426 ;;		_Write_nRF24L01_Address_Register
+  1427 ;; This function uses a non-reentrant model
+  1428 ;;
+  1429                           
+  1430                           	psect	text8
+  1431  007D30                     __ptext8:
+  1432                           	opt stack 0
+  1433  007D30                     _Read_nRF24L01_Address_Register:
+  1434                           	opt stack 27
+  1435                           
+  1436                           ;incstack = 0
+  1437                           ;Read_nRF24L01_Address_Register@TX_RX_Address_Width stored from wreg
+  1438  007D30  6E09               	movwf	Read_nRF24L01_Address_Register@TX_RX_Address_Width,c
+  1439                           
+  1440                           ;nRF24l01.c: 100: unsigned char i, nRF24L01_Status;
+  1441                           ;nRF24l01.c: 102: LATAbits.LATA3=0;
+  1442  007D32  9689               	bcf	3977,3,c	;volatile
+  1443                           
+  1444                           ;nRF24l01.c: 103: nRF24L01_Status=SPI_Transfer(0b00000000+Register_Address);
+  1445  007D34  5002               	movf	Read_nRF24L01_Address_Register@Register_Address,w,c
+  1446  007D36  EC18  F03E         	call	_SPI_Transfer
+  1447                           
+  1448                           ;nRF24l01.c: 104: for(i=0; i<(TX_RX_Address_Width+0b10); i++)
+  1449  007D3A  6A0A               	clrf	Read_nRF24L01_Address_Register@i,c
+  1450  007D3C  D009               	goto	l1041
+  1451  007D3E                     l1037:
+  1452                           
+  1453                           ;nRF24l01.c: 105: {
+  1454                           ;nRF24l01.c: 106: Register_Content[i]=SPI_Transfer(0x00);
+  1455  007D3E  5003               	movf	Read_nRF24L01_Address_Register@Register_Content,w,c
+  1456  007D40  240A               	addwf	Read_nRF24L01_Address_Register@i,w,c
+  1457  007D42  6ED9               	movwf	fsr2l,c
+  1458  007D44  6ADA               	clrf	fsr2h,c
+  1459  007D46  0E00               	movlw	0
+  1460  007D48  EC18  F03E         	call	_SPI_Transfer
+  1461  007D4C  6EDF               	movwf	indf2,c
+  1462  007D4E  2A0A               	incf	Read_nRF24L01_Address_Register@i,f,c
+  1463  007D50                     l1041:
+  1464  007D50  5009               	movf	Read_nRF24L01_Address_Register@TX_RX_Address_Width,w,c
+  1465  007D52  6E04               	movwf	??_Read_nRF24L01_Address_Register& (0+255),c
+  1466  007D54  6A05               	clrf	(??_Read_nRF24L01_Address_Register+1)& (0+255),c
+  1467  007D56  0E02               	movlw	2
+  1468  007D58  2604               	addwf	??_Read_nRF24L01_Address_Register,f,c
+  1469  007D5A  0E00               	movlw	0
+  1470  007D5C  2205               	addwfc	??_Read_nRF24L01_Address_Register+1,f,c
+  1471  007D5E  500A               	movf	Read_nRF24L01_Address_Register@i,w,c
+  1472  007D60  6E06               	movwf	(??_Read_nRF24L01_Address_Register+2)& (0+255),c
+  1473  007D62  6A07               	clrf	(??_Read_nRF24L01_Address_Register+3)& (0+255),c
+  1474  007D64  5004               	movf	??_Read_nRF24L01_Address_Register,w,c
+  1475  007D66  5C06               	subwf	??_Read_nRF24L01_Address_Register+2,w,c
+  1476  007D68  5007               	movf	??_Read_nRF24L01_Address_Register+3,w,c
+  1477  007D6A  0A80               	xorlw	128
+  1478  007D6C  6E08               	movwf	(??_Read_nRF24L01_Address_Register+4)& (0+255),c
+  1479  007D6E  5005               	movf	??_Read_nRF24L01_Address_Register+1,w,c
+  1480  007D70  0A80               	xorlw	128
+  1481  007D72  5808               	subwfb	(??_Read_nRF24L01_Address_Register+4)& (0+255),w,c
+  1482  007D74  E3E4               	bnc	l1037
+  1483                           
+  1484                           ;nRF24l01.c: 107: }
+  1485                           ;nRF24l01.c: 108: LATAbits.LATA3=1;
+  1486  007D76  8689               	bsf	3977,3,c	;volatile
+  1487  007D78  0012               	return		;funcret
+  1488  007D7A                     __end_of_Read_nRF24L01_Address_Register:
+  1489                           	opt stack 0
+  1490                           tblptru	equ	0xFF8
+  1491                           tblptrh	equ	0xFF7
+  1492                           tblptrl	equ	0xFF6
+  1493                           tablat	equ	0xFF5
+  1494                           prodl	equ	0xFF3
+  1495                           postinc0	equ	0xFEE
+  1496                           wreg	equ	0xFE8
+  1497                           postinc1	equ	0xFE6
+  1498                           postdec1	equ	0xFE5
+  1499                           plusw1	equ	0xFE3
+  1500                           fsr1h	equ	0xFE2
+  1501                           fsr1l	equ	0xFE1
+  1502                           indf2	equ	0xFDF
+  1503                           postinc2	equ	0xFDE
+  1504                           plusw2	equ	0xFDB
+  1505                           fsr2h	equ	0xFDA
+  1506                           fsr2l	equ	0xFD9
+  1507                           
+  1508 ;; *************** function _SPI_Start *****************
+  1509 ;; Defined at:
+  1510 ;;		line 7 in file "nRF24l01.c"
+  1511 ;; Parameters:    Size  Location     Type
+  1512 ;;  Clock_Freque    1    wreg     unsigned char 
+  1513 ;; Auto vars:     Size  Location     Type
+  1514 ;;  Clock_Freque    1    0[COMRAM] unsigned char 
+  1515 ;; Return value:  Size  Location     Type
+  1516 ;;                  1    wreg      void 
+  1517 ;; Registers used:
+  1518 ;;		wreg, status,2, status,0
+  1519 ;; Tracked objects:
+  1520 ;;		On entry : 0/0
+  1521 ;;		On exit  : 0/0
+  1522 ;;		Unchanged: 0/0
+  1523 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1524 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1525 ;;      Locals:         1       0       0       0       0       0       0       0       0
+  1526 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1527 ;;      Totals:         1       0       0       0       0       0       0       0       0
+  1528 ;;Total ram usage:        1 bytes
+  1529 ;; Hardware stack levels used:    1
+  1530 ;; This function calls:
+  1531 ;;		Nothing
+  1532 ;; This function is called by:
+  1533 ;;		_main
+  1534 ;; This function uses a non-reentrant model
+  1535 ;;
+  1536                           
+  1537                           	psect	text9
+  1538  007C8C                     __ptext9:
+  1539                           	opt stack 0
+  1540  007C8C                     _SPI_Start:
+  1541                           	opt stack 30
+  1542                           
+  1543                           ;incstack = 0
+  1544                           ;SPI_Start@Clock_Frequency stored from wreg
+  1545  007C8C  6E01               	movwf	SPI_Start@Clock_Frequency,c
+  1546                           
+  1547                           ;nRF24l01.c: 9: TRISBbits.RB1 = 0;
+  1548  007C8E  9293               	bcf	3987,1,c	;volatile
+  1549                           
+  1550                           ;nRF24l01.c: 10: TRISBbits.RB0 = 1;
+  1551  007C90  8093               	bsf	3987,0,c	;volatile
+  1552                           
+  1553                           ;nRF24l01.c: 11: TRISCbits.RC7 = 0;
+  1554  007C92  9E94               	bcf	3988,7,c	;volatile
+  1555                           
+  1556                           ;nRF24l01.c: 12: SSPCON1 = (SSPCON1 & 0xF0) | Clock_Frequency;
+  1557  007C94  50C6               	movf	4038,w,c	;volatile
+  1558  007C96  0BF0               	andlw	240
+  1559  007C98  1001               	iorwf	SPI_Start@Clock_Frequency,w,c
+  1560  007C9A  6EC6               	movwf	4038,c	;volatile
+  1561                           
+  1562                           ;nRF24l01.c: 13: SSPCON1bits.CKP=0;
+  1563  007C9C  98C6               	bcf	4038,4,c	;volatile
+  1564                           
+  1565                           ;nRF24l01.c: 14: SSPSTATbits.CKE=1;
+  1566  007C9E  8CC7               	bsf	4039,6,c	;volatile
+  1567                           
+  1568                           ;nRF24l01.c: 15: SSPSTATbits.SMP=1;
+  1569  007CA0  8EC7               	bsf	4039,7,c	;volatile
+  1570                           
+  1571                           ;nRF24l01.c: 16: PIE1bits.SSPIE=0;
+  1572  007CA2  969D               	bcf	3997,3,c	;volatile
+  1573                           
+  1574                           ;nRF24l01.c: 17: IPR1bits.SSPIP=0;
+  1575  007CA4  969F               	bcf	3999,3,c	;volatile
+  1576                           
+  1577                           ;nRF24l01.c: 18: PIR1bits.SSPIF=0;
+  1578  007CA6  969E               	bcf	3998,3,c	;volatile
+  1579                           
+  1580                           ;nRF24l01.c: 19: SSPCON1bits.SSPEN=1;
+  1581  007CA8  8AC6               	bsf	4038,5,c	;volatile
+  1582  007CAA  0012               	return		;funcret
+  1583  007CAC                     __end_of_SPI_Start:
+  1584                           	opt stack 0
+  1585                           tblptru	equ	0xFF8
+  1586                           tblptrh	equ	0xFF7
+  1587                           tblptrl	equ	0xFF6
+  1588                           tablat	equ	0xFF5
+  1589                           prodl	equ	0xFF3
+  1590                           postinc0	equ	0xFEE
+  1591                           wreg	equ	0xFE8
+  1592                           postinc1	equ	0xFE6
+  1593                           postdec1	equ	0xFE5
+  1594                           plusw1	equ	0xFE3
+  1595                           fsr1h	equ	0xFE2
+  1596                           fsr1l	equ	0xFE1
+  1597                           indf2	equ	0xFDF
+  1598                           postinc2	equ	0xFDE
+  1599                           plusw2	equ	0xFDB
+  1600                           fsr2h	equ	0xFDA
+  1601                           fsr2l	equ	0xFD9
+  1602                           
+  1603 ;; *************** function _Check_Data_Sent_TX_Mode_nRF24L01 *****************
+  1604 ;; Defined at:
+  1605 ;;		line 363 in file "nRF24l01.c"
+  1606 ;; Parameters:    Size  Location     Type
+  1607 ;;		None
+  1608 ;; Auto vars:     Size  Location     Type
+  1609 ;;  i               2    5[COMRAM] unsigned int 
+  1610 ;;  nRF24L01_Sta    1    8[COMRAM] unsigned char 
+  1611 ;;  j               1    7[COMRAM] unsigned char 
+  1612 ;;  TX_Operation    1    0        unsigned char 
+  1613 ;;  TX_Retransmi    1    0        unsigned char 
+  1614 ;; Return value:  Size  Location     Type
+  1615 ;;                  1    wreg      unsigned char 
+  1616 ;; Registers used:
+  1617 ;;		wreg, status,2, status,0, cstack
+  1618 ;; Tracked objects:
+  1619 ;;		On entry : 0/0
+  1620 ;;		On exit  : 0/0
+  1621 ;;		Unchanged: 0/0
+  1622 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1623 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1624 ;;      Locals:         6       0       0       0       0       0       0       0       0
+  1625 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1626 ;;      Totals:         6       0       0       0       0       0       0       0       0
+  1627 ;;Total ram usage:        6 bytes
+  1628 ;; Hardware stack levels used:    1
+  1629 ;; Hardware stack levels required when called:    2
+  1630 ;; This function calls:
+  1631 ;;		_Read_nRF24L01_Register
+  1632 ;;		_Read_nRF24L01_Status
+  1633 ;;		_Write_nRF24L01_Status
+  1634 ;; This function is called by:
+  1635 ;;		_main
+  1636 ;; This function uses a non-reentrant model
+  1637 ;;
+  1638                           
+  1639                           	psect	text10
+  1640  007E1A                     __ptext10:
+  1641                           	opt stack 0
+  1642  007E1A                     _Check_Data_Sent_TX_Mode_nRF24L01:
+  1643                           	opt stack 28
+  1644                           
+  1645                           ;nRF24l01.c: 366: unsigned char TX_Operation_Result, TX_Retransmit_Counter;
+  1646                           ;nRF24l01.c: 367: unsigned char nRF24L01_Status;
+  1647                           ;nRF24l01.c: 368: unsigned int i;
+  1648                           ;nRF24l01.c: 369: unsigned char j;
+  1649                           ;nRF24l01.c: 371: i=0; j=0;
+  1650                           
+  1651                           ;incstack = 0
+  1652  007E1A  6A06               	clrf	Check_Data_Sent_TX_Mode_nRF24L01@i,c
+  1653  007E1C  6A07               	clrf	Check_Data_Sent_TX_Mode_nRF24L01@i+1,c
+  1654  007E1E  6A08               	clrf	Check_Data_Sent_TX_Mode_nRF24L01@j,c
+  1655                           
+  1656                           ;nRF24l01.c: 372: while(PORTBbits.RB2)
+  1657  007E20  D00E               	goto	l124
+  1658  007E22                     l979:
+  1659                           
+  1660                           ;nRF24l01.c: 373: {
+  1661                           ;nRF24l01.c: 374: i++;
+  1662  007E22  4A06               	infsnz	Check_Data_Sent_TX_Mode_nRF24L01@i,f,c
+  1663  007E24  2A07               	incf	Check_Data_Sent_TX_Mode_nRF24L01@i+1,f,c
+  1664                           
+  1665                           ;nRF24l01.c: 375: if(i==333)
+  1666  007E26  0E4D               	movlw	77
+  1667  007E28  1806               	xorwf	Check_Data_Sent_TX_Mode_nRF24L01@i,w,c
+  1668  007E2A  E105               	bnz	l987
+  1669  007E2C  0407               	decf	Check_Data_Sent_TX_Mode_nRF24L01@i+1,w,c
+  1670  007E2E  E103               	bnz	l987
+  1671                           
+  1672                           ;nRF24l01.c: 376: {
+  1673                           ;nRF24l01.c: 377: i=0; j++;
+  1674  007E30  6A06               	clrf	Check_Data_Sent_TX_Mode_nRF24L01@i,c
+  1675  007E32  6A07               	clrf	Check_Data_Sent_TX_Mode_nRF24L01@i+1,c
+  1676  007E34  2A08               	incf	Check_Data_Sent_TX_Mode_nRF24L01@j,f,c
+  1677  007E36                     l987:
+  1678                           
+  1679                           ;nRF24l01.c: 378: }
+  1680                           ;nRF24l01.c: 379: if(j==7)
+  1681  007E36  0E07               	movlw	7
+  1682  007E38  1808               	xorwf	Check_Data_Sent_TX_Mode_nRF24L01@j,w,c
+  1683  007E3A  E101               	bnz	l124
+  1684                           
+  1685                           ;nRF24l01.c: 382: break;
+  1686  007E3C  D017               	goto	l1007
+  1687  007E3E                     l124:
+  1688  007E3E  B481               	btfsc	3969,2,c	;volatile
+  1689  007E40  D7F0               	goto	l979
+  1690  007E42  D014               	goto	l1007
+  1691  007E44                     l991:
+  1692                           
+  1693                           ;nRF24l01.c: 386: {
+  1694                           ;nRF24l01.c: 387: nRF24L01_Status=Read_nRF24L01_Status();
+  1695  007E44  EC20  F03E         	call	_Read_nRF24L01_Status	;wreg free
+  1696  007E48  6E09               	movwf	Check_Data_Sent_TX_Mode_nRF24L01@nRF24L01_Status,c
+  1697                           
+  1698                           ;nRF24l01.c: 389: if(nRF24L01_Status & 0b00010000)
+  1699  007E4A  A809               	btfss	Check_Data_Sent_TX_Mode_nRF24L01@nRF24L01_Status,4,c
+  1700  007E4C  D007               	goto	l131
+  1701  007E4E  0E08               	movlw	8
+  1702  007E50  EC3A  F03E         	call	_Read_nRF24L01_Register
+  1703                           
+  1704                           ;nRF24l01.c: 395: Write_nRF24L01_Status(0b00010000);
+  1705  007E54  0E10               	movlw	16
+  1706  007E56  EC30  F03E         	call	_Write_nRF24L01_Status
+  1707                           
+  1708                           ;nRF24l01.c: 397: }
+  1709  007E5A  D008               	goto	l1007
+  1710  007E5C                     l131:
+  1711                           
+  1712                           ;nRF24l01.c: 398: else if(nRF24L01_Status & 0b00100000)
+  1713  007E5C  AA09               	btfss	Check_Data_Sent_TX_Mode_nRF24L01@nRF24L01_Status,5,c
+  1714  007E5E  D006               	goto	l1007
+  1715  007E60  0E08               	movlw	8
+  1716  007E62  EC3A  F03E         	call	_Read_nRF24L01_Register
+  1717                           
+  1718                           ;nRF24l01.c: 404: Write_nRF24L01_Status(0b00100000);
+  1719  007E66  0E20               	movlw	32
+  1720  007E68  EC30  F03E         	call	_Write_nRF24L01_Status
+  1721  007E6C                     l1007:
+  1722  007E6C  B481               	btfsc	3969,2,c	;volatile
+  1723  007E6E  0012               	return		;funcret
+  1724  007E70  D7E9               	goto	l991
+  1725  007E72                     __end_of_Check_Data_Sent_TX_Mode_nRF24L01:
+  1726                           	opt stack 0
+  1727                           tblptru	equ	0xFF8
+  1728                           tblptrh	equ	0xFF7
+  1729                           tblptrl	equ	0xFF6
+  1730                           tablat	equ	0xFF5
+  1731                           prodl	equ	0xFF3
+  1732                           postinc0	equ	0xFEE
+  1733                           wreg	equ	0xFE8
+  1734                           postinc1	equ	0xFE6
+  1735                           postdec1	equ	0xFE5
+  1736                           plusw1	equ	0xFE3
+  1737                           fsr1h	equ	0xFE2
+  1738                           fsr1l	equ	0xFE1
+  1739                           indf2	equ	0xFDF
+  1740                           postinc2	equ	0xFDE
+  1741                           plusw2	equ	0xFDB
+  1742                           fsr2h	equ	0xFDA
+  1743                           fsr2l	equ	0xFD9
+  1744                           
+  1745 ;; *************** function _Write_nRF24L01_Status *****************
+  1746 ;; Defined at:
+  1747 ;;		line 86 in file "nRF24l01.c"
+  1748 ;; Parameters:    Size  Location     Type
+  1749 ;;  Register_Con    1    wreg     unsigned char 
+  1750 ;; Auto vars:     Size  Location     Type
+  1751 ;;  Register_Con    1    1[COMRAM] unsigned char 
+  1752 ;;  nRF24L01_Sta    1    0        unsigned char 
+  1753 ;;  dummydata       1    0        unsigned char 
+  1754 ;; Return value:  Size  Location     Type
+  1755 ;;                  1    wreg      void 
+  1756 ;; Registers used:
+  1757 ;;		wreg, status,2, cstack
+  1758 ;; Tracked objects:
+  1759 ;;		On entry : 0/0
+  1760 ;;		On exit  : 0/0
+  1761 ;;		Unchanged: 0/0
+  1762 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1763 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1764 ;;      Locals:         1       0       0       0       0       0       0       0       0
+  1765 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1766 ;;      Totals:         1       0       0       0       0       0       0       0       0
+  1767 ;;Total ram usage:        1 bytes
+  1768 ;; Hardware stack levels used:    1
+  1769 ;; Hardware stack levels required when called:    1
+  1770 ;; This function calls:
+  1771 ;;		_SPI_Transfer
+  1772 ;; This function is called by:
+  1773 ;;		_Reset_nRF24L01_Status_and_nRF24L01_Payloads
+  1774 ;;		_Check_Data_Sent_TX_Mode_nRF24L01
+  1775 ;; This function uses a non-reentrant model
+  1776 ;;
+  1777                           
+  1778                           	psect	text11
+  1779  007C60                     __ptext11:
+  1780                           	opt stack 0
+  1781  007C60                     _Write_nRF24L01_Status:
+  1782                           	opt stack 27
+  1783                           
+  1784                           ;incstack = 0
+  1785                           ;Write_nRF24L01_Status@Register_Content stored from wreg
+  1786  007C60  6E02               	movwf	Write_nRF24L01_Status@Register_Content,c
+  1787                           
+  1788                           ;nRF24l01.c: 88: unsigned char dummydata, nRF24L01_Status;
+  1789                           ;nRF24l01.c: 90: LATAbits.LATA3=0;
+  1790  007C62  9689               	bcf	3977,3,c	;volatile
+  1791                           
+  1792                           ;nRF24l01.c: 91: nRF24L01_Status=SPI_Transfer(0b00100000+0x07);
+  1793  007C64  0E27               	movlw	39
+  1794  007C66  EC18  F03E         	call	_SPI_Transfer
+  1795                           
+  1796                           ;nRF24l01.c: 93: dummydata=SPI_Transfer(Register_Content);
+  1797  007C6A  5002               	movf	Write_nRF24L01_Status@Register_Content,w,c
+  1798  007C6C  EC18  F03E         	call	_SPI_Transfer
+  1799                           
+  1800                           ;nRF24l01.c: 95: LATAbits.LATA3=1;
+  1801  007C70  8689               	bsf	3977,3,c	;volatile
+  1802  007C72  0012               	return		;funcret
+  1803  007C74                     __end_of_Write_nRF24L01_Status:
+  1804                           	opt stack 0
+  1805                           tblptru	equ	0xFF8
+  1806                           tblptrh	equ	0xFF7
+  1807                           tblptrl	equ	0xFF6
+  1808                           tablat	equ	0xFF5
+  1809                           prodl	equ	0xFF3
+  1810                           postinc0	equ	0xFEE
+  1811                           wreg	equ	0xFE8
+  1812                           postinc1	equ	0xFE6
+  1813                           postdec1	equ	0xFE5
+  1814                           plusw1	equ	0xFE3
+  1815                           fsr1h	equ	0xFE2
+  1816                           fsr1l	equ	0xFE1
+  1817                           indf2	equ	0xFDF
+  1818                           postinc2	equ	0xFDE
+  1819                           plusw2	equ	0xFDB
+  1820                           fsr2h	equ	0xFDA
+  1821                           fsr2l	equ	0xFD9
+  1822                           
+  1823 ;; *************** function _Read_nRF24L01_Status *****************
+  1824 ;; Defined at:
+  1825 ;;		line 75 in file "nRF24l01.c"
+  1826 ;; Parameters:    Size  Location     Type
+  1827 ;;		None
+  1828 ;; Auto vars:     Size  Location     Type
+  1829 ;;  nRF24L01_Sta    1    1[COMRAM] unsigned char 
+  1830 ;; Return value:  Size  Location     Type
+  1831 ;;                  1    wreg      unsigned char 
+  1832 ;; Registers used:
+  1833 ;;		wreg, status,2, cstack
+  1834 ;; Tracked objects:
+  1835 ;;		On entry : 0/0
+  1836 ;;		On exit  : 0/0
+  1837 ;;		Unchanged: 0/0
+  1838 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1839 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1840 ;;      Locals:         1       0       0       0       0       0       0       0       0
+  1841 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1842 ;;      Totals:         1       0       0       0       0       0       0       0       0
+  1843 ;;Total ram usage:        1 bytes
+  1844 ;; Hardware stack levels used:    1
+  1845 ;; Hardware stack levels required when called:    1
+  1846 ;; This function calls:
+  1847 ;;		_SPI_Transfer
+  1848 ;; This function is called by:
+  1849 ;;		_Check_Data_Sent_TX_Mode_nRF24L01
+  1850 ;; This function uses a non-reentrant model
+  1851 ;;
+  1852                           
+  1853                           	psect	text12
+  1854  007C40                     __ptext12:
+  1855                           	opt stack 0
+  1856  007C40                     _Read_nRF24L01_Status:
+  1857                           	opt stack 28
+  1858                           
+  1859                           ;nRF24l01.c: 77: unsigned char nRF24L01_Status;
+  1860                           ;nRF24l01.c: 79: LATAbits.LATA3=0;
+  1861                           
+  1862                           ;incstack = 0
+  1863  007C40  9689               	bcf	3977,3,c	;volatile
+  1864                           
+  1865                           ;nRF24l01.c: 80: nRF24L01_Status=SPI_Transfer(0b11111111);
+  1866  007C42  0EFF               	movlw	255
+  1867  007C44  EC18  F03E         	call	_SPI_Transfer
+  1868  007C48  6E02               	movwf	Read_nRF24L01_Status@nRF24L01_Status,c
+  1869                           
+  1870                           ;nRF24l01.c: 81: LATAbits.LATA3=1;
+  1871  007C4A  8689               	bsf	3977,3,c	;volatile
+  1872                           
+  1873                           ;nRF24l01.c: 83: return(nRF24L01_Status);
+  1874  007C4C  5002               	movf	Read_nRF24L01_Status@nRF24L01_Status,w,c
+  1875  007C4E  0012               	return		;funcret
+  1876  007C50                     __end_of_Read_nRF24L01_Status:
+  1877                           	opt stack 0
+  1878                           tblptru	equ	0xFF8
+  1879                           tblptrh	equ	0xFF7
+  1880                           tblptrl	equ	0xFF6
+  1881                           tablat	equ	0xFF5
+  1882                           prodl	equ	0xFF3
+  1883                           postinc0	equ	0xFEE
+  1884                           wreg	equ	0xFE8
+  1885                           postinc1	equ	0xFE6
+  1886                           postdec1	equ	0xFE5
+  1887                           plusw1	equ	0xFE3
+  1888                           fsr1h	equ	0xFE2
+  1889                           fsr1l	equ	0xFE1
+  1890                           indf2	equ	0xFDF
+  1891                           postinc2	equ	0xFDE
+  1892                           plusw2	equ	0xFDB
+  1893                           fsr2h	equ	0xFDA
+  1894                           fsr2l	equ	0xFD9
+  1895                           
+  1896 ;; *************** function _Read_nRF24L01_Register *****************
+  1897 ;; Defined at:
+  1898 ;;		line 43 in file "nRF24l01.c"
+  1899 ;; Parameters:    Size  Location     Type
+  1900 ;;  Register_Add    1    wreg     unsigned char 
+  1901 ;; Auto vars:     Size  Location     Type
+  1902 ;;  Register_Add    1    1[COMRAM] unsigned char 
+  1903 ;;  Register_Con    1    2[COMRAM] unsigned char 
+  1904 ;;  nRF24L01_Sta    1    0        unsigned char 
+  1905 ;; Return value:  Size  Location     Type
+  1906 ;;                  1    wreg      unsigned char 
+  1907 ;; Registers used:
+  1908 ;;		wreg, status,2, cstack
+  1909 ;; Tracked objects:
+  1910 ;;		On entry : 0/0
+  1911 ;;		On exit  : 0/0
+  1912 ;;		Unchanged: 0/0
+  1913 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1914 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1915 ;;      Locals:         2       0       0       0       0       0       0       0       0
+  1916 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1917 ;;      Totals:         2       0       0       0       0       0       0       0       0
+  1918 ;;Total ram usage:        2 bytes
+  1919 ;; Hardware stack levels used:    1
+  1920 ;; Hardware stack levels required when called:    1
+  1921 ;; This function calls:
+  1922 ;;		_SPI_Transfer
+  1923 ;; This function is called by:
+  1924 ;;		_Write_nRF24L01_Register
+  1925 ;;		_Check_Data_Sent_TX_Mode_nRF24L01
+  1926 ;; This function uses a non-reentrant model
+  1927 ;;
+  1928                           
+  1929                           	psect	text13
+  1930  007C74                     __ptext13:
+  1931                           	opt stack 0
+  1932  007C74                     _Read_nRF24L01_Register:
+  1933                           	opt stack 27
+  1934                           
+  1935                           ;incstack = 0
+  1936                           ;Read_nRF24L01_Register@Register_Address stored from wreg
+  1937  007C74  6E02               	movwf	Read_nRF24L01_Register@Register_Address,c
+  1938                           
+  1939                           ;nRF24l01.c: 45: unsigned char Register_Content, nRF24L01_Status;
+  1940                           ;nRF24l01.c: 47: LATAbits.LATA3=0;
+  1941  007C76  9689               	bcf	3977,3,c	;volatile
+  1942                           
+  1943                           ;nRF24l01.c: 48: nRF24L01_Status=SPI_Transfer(0b00000000+Register_Address);
+  1944  007C78  5002               	movf	Read_nRF24L01_Register@Register_Address,w,c
+  1945  007C7A  EC18  F03E         	call	_SPI_Transfer
+  1946                           
+  1947                           ;nRF24l01.c: 50: Register_Content=SPI_Transfer(0x00);
+  1948  007C7E  0E00               	movlw	0
+  1949  007C80  EC18  F03E         	call	_SPI_Transfer
+  1950  007C84  6E03               	movwf	Read_nRF24L01_Register@Register_Content,c
+  1951                           
+  1952                           ;nRF24l01.c: 52: LATAbits.LATA3=1;
+  1953  007C86  8689               	bsf	3977,3,c	;volatile
+  1954                           
+  1955                           ;nRF24l01.c: 53: return(Register_Content);
+  1956  007C88  5003               	movf	Read_nRF24L01_Register@Register_Content,w,c
+  1957  007C8A  0012               	return		;funcret
+  1958  007C8C                     __end_of_Read_nRF24L01_Register:
+  1959                           	opt stack 0
+  1960                           tblptru	equ	0xFF8
+  1961                           tblptrh	equ	0xFF7
+  1962                           tblptrl	equ	0xFF6
+  1963                           tablat	equ	0xFF5
+  1964                           prodl	equ	0xFF3
+  1965                           postinc0	equ	0xFEE
+  1966                           wreg	equ	0xFE8
+  1967                           postinc1	equ	0xFE6
+  1968                           postdec1	equ	0xFE5
+  1969                           plusw1	equ	0xFE3
+  1970                           fsr1h	equ	0xFE2
+  1971                           fsr1l	equ	0xFE1
+  1972                           indf2	equ	0xFDF
+  1973                           postinc2	equ	0xFDE
+  1974                           plusw2	equ	0xFDB
+  1975                           fsr2h	equ	0xFDA
+  1976                           fsr2l	equ	0xFD9
+  1977                           
+  1978 ;; *************** function _SPI_Transfer *****************
+  1979 ;; Defined at:
+  1980 ;;		line 33 in file "nRF24l01.c"
+  1981 ;; Parameters:    Size  Location     Type
+  1982 ;;  byte_to_send    1    wreg     unsigned char 
+  1983 ;; Auto vars:     Size  Location     Type
+  1984 ;;  byte_to_send    1    0[COMRAM] unsigned char 
+  1985 ;; Return value:  Size  Location     Type
+  1986 ;;                  1    wreg      unsigned char 
+  1987 ;; Registers used:
+  1988 ;;		wreg, status,2
+  1989 ;; Tracked objects:
+  1990 ;;		On entry : 0/0
+  1991 ;;		On exit  : 0/0
+  1992 ;;		Unchanged: 0/0
+  1993 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  1994 ;;      Params:         0       0       0       0       0       0       0       0       0
+  1995 ;;      Locals:         1       0       0       0       0       0       0       0       0
+  1996 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1997 ;;      Totals:         1       0       0       0       0       0       0       0       0
+  1998 ;;Total ram usage:        1 bytes
+  1999 ;; Hardware stack levels used:    1
+  2000 ;; This function calls:
+  2001 ;;		Nothing
+  2002 ;; This function is called by:
+  2003 ;;		_Read_nRF24L01_Register
+  2004 ;;		_Write_nRF24L01_Register
+  2005 ;;		_Read_nRF24L01_Status
+  2006 ;;		_Write_nRF24L01_Status
+  2007 ;;		_Read_nRF24L01_Address_Register
+  2008 ;;		_Write_nRF24L01_Address_Register
+  2009 ;;		_Write_nRF24L01_TX_Payload
+  2010 ;;		_Reset_nRF24L01_Status_and_nRF24L01_Payloads
+  2011 ;; This function uses a non-reentrant model
+  2012 ;;
+  2013                           
+  2014                           	psect	text14
+  2015  007C30                     __ptext14:
+  2016                           	opt stack 0
+  2017  007C30                     _SPI_Transfer:
+  2018                           	opt stack 28
+  2019                           
+  2020                           ;incstack = 0
+  2021                           ;SPI_Transfer@byte_to_send stored from wreg
+  2022  007C30  6E01               	movwf	SPI_Transfer@byte_to_send,c
+  2023                           
+  2024                           ;nRF24l01.c: 35: SSPBUF = byte_to_send;
+  2025  007C32  C001  FFC9         	movff	SPI_Transfer@byte_to_send,4041	;volatile
+  2026  007C36                     l37:
+  2027  007C36  A69E               	btfss	3998,3,c	;volatile
+  2028  007C38  D7FE               	goto	l37
+  2029                           
+  2030                           ;nRF24l01.c: 38: PIR1bits.SSPIF=0;
+  2031  007C3A  969E               	bcf	3998,3,c	;volatile
+  2032                           
+  2033                           ;nRF24l01.c: 40: return(SSPBUF);
+  2034  007C3C  50C9               	movf	4041,w,c	;volatile
+  2035  007C3E  0012               	return		;funcret
+  2036  007C40                     __end_of_SPI_Transfer:
+  2037                           	opt stack 0
+  2038  0000                     tblptru	equ	0xFF8
+  2039                           tblptrh	equ	0xFF7
+  2040                           tblptrl	equ	0xFF6
+  2041                           tablat	equ	0xFF5
+  2042                           prodl	equ	0xFF3
+  2043                           postinc0	equ	0xFEE
+  2044                           wreg	equ	0xFE8
+  2045                           postinc1	equ	0xFE6
+  2046                           postdec1	equ	0xFE5
+  2047                           plusw1	equ	0xFE3
+  2048                           fsr1h	equ	0xFE2
+  2049                           fsr1l	equ	0xFE1
+  2050                           indf2	equ	0xFDF
+  2051                           postinc2	equ	0xFDE
+  2052                           plusw2	equ	0xFDB
+  2053                           fsr2h	equ	0xFDA
+  2054                           fsr2l	equ	0xFD9
+  2055                           tblptru	equ	0xFF8
+  2056                           tblptrh	equ	0xFF7
+  2057                           tblptrl	equ	0xFF6
+  2058                           tablat	equ	0xFF5
+  2059                           prodl	equ	0xFF3
+  2060                           postinc0	equ	0xFEE
+  2061                           wreg	equ	0xFE8
+  2062                           postinc1	equ	0xFE6
+  2063                           postdec1	equ	0xFE5
+  2064                           plusw1	equ	0xFE3
+  2065                           fsr1h	equ	0xFE2
+  2066                           fsr1l	equ	0xFE1
+  2067                           indf2	equ	0xFDF
+  2068                           postinc2	equ	0xFDE
+  2069                           plusw2	equ	0xFDB
+  2070                           fsr2h	equ	0xFDA
+  2071                           fsr2l	equ	0xFD9
+  2072                           
+  2073                           	psect	rparam
+  2074  0000                     tblptru	equ	0xFF8
+  2075                           tblptrh	equ	0xFF7
+  2076                           tblptrl	equ	0xFF6
+  2077                           tablat	equ	0xFF5
+  2078                           prodl	equ	0xFF3
+  2079                           postinc0	equ	0xFEE
+  2080                           wreg	equ	0xFE8
+  2081                           postinc1	equ	0xFE6
+  2082                           postdec1	equ	0xFE5
+  2083                           plusw1	equ	0xFE3
+  2084                           fsr1h	equ	0xFE2
+  2085                           fsr1l	equ	0xFE1
+  2086                           indf2	equ	0xFDF
+  2087                           postinc2	equ	0xFDE
+  2088                           plusw2	equ	0xFDB
+  2089                           fsr2h	equ	0xFDA
+  2090                           fsr2l	equ	0xFD9
+  2091                           tblptru	equ	0xFF8
+  2092                           tblptrh	equ	0xFF7
+  2093                           tblptrl	equ	0xFF6
+  2094                           tablat	equ	0xFF5
+  2095                           prodl	equ	0xFF3
+  2096                           postinc0	equ	0xFEE
+  2097                           wreg	equ	0xFE8
+  2098                           postinc1	equ	0xFE6
+  2099                           postdec1	equ	0xFE5
+  2100                           plusw1	equ	0xFE3
+  2101                           fsr1h	equ	0xFE2
+  2102                           fsr1l	equ	0xFE1
+  2103                           indf2	equ	0xFDF
+  2104                           postinc2	equ	0xFDE
+  2105                           plusw2	equ	0xFDB
+  2106                           fsr2h	equ	0xFDA
+  2107                           fsr2l	equ	0xFD9
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        5
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     39      44
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+
+Pointer List with Targets:
+
+    Send_Data_TX_Mode_nRF24L01@TX_Payload	PTR unsigned char  size(1) Largest target is 1
+		 -> main@mensaje(COMRAM[1]), 
+
+    Send_Data_TX_Mode_nRF24L01@TX_Address	PTR unsigned char  size(1) Largest target is 5
+		 -> main@direccion_tx(COMRAM[5]), 
+
+    Write_nRF24L01_TX_Payload@TX_Payload	PTR unsigned char  size(1) Largest target is 1
+		 -> main@mensaje(COMRAM[1]), 
+
+    Write_nRF24L01_Address_Register@Register_Content	PTR unsigned char  size(1) Largest target is 5
+		 -> main@direccion_tx(COMRAM[5]), 
+
+    Read_nRF24L01_Address_Register@Register_Content	PTR unsigned char  size(1) Largest target is 5
+		 -> Write_nRF24L01_Address_Register@Address_Verification(COMRAM[5]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_Send_Data_TX_Mode_nRF24L01
+    _Start_TX_Mode_nRF24L01->_Write_nRF24L01_Register
+    _Write_nRF24L01_Register->_Read_nRF24L01_Register
+    _Reset_nRF24L01_Status_and_nRF24L01_Payloads->_Write_nRF24L01_Status
+    _Send_Data_TX_Mode_nRF24L01->_Write_nRF24L01_Address_Register
+    _Write_nRF24L01_TX_Payload->_SPI_Transfer
+    _Write_nRF24L01_Address_Register->_Read_nRF24L01_Address_Register
+    _Read_nRF24L01_Address_Register->_SPI_Transfer
+    _Check_Data_Sent_TX_Mode_nRF24L01->_Read_nRF24L01_Register
+    _Write_nRF24L01_Status->_SPI_Transfer
+    _Read_nRF24L01_Status->_SPI_Transfer
+    _Read_nRF24L01_Register->_SPI_Transfer
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 9     9      0    4592
+                                             30 COMRAM     9     9      0
+   _Check_Data_Sent_TX_Mode_nRF24L01
+                          _SPI_Start
+         _Send_Data_TX_Mode_nRF24L01
+             _Start_TX_Mode_nRF24L01
+               _nRF24L01_Ports_Start
+ ---------------------------------------------------------------------------------
+ (1) _nRF24L01_Ports_Start                                 0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _Start_TX_Mode_nRF24L01                              11     2      9    2412
+                                              5 COMRAM    11     2      9
+_Reset_nRF24L01_Status_and_nRF24L01_
+            _Write_nRF24L01_Register
+ ---------------------------------------------------------------------------------
+ (2) _Write_nRF24L01_Register                              4     3      1    1571
+                                              3 COMRAM     2     1      1
+             _Read_nRF24L01_Register
+                       _SPI_Transfer
+ ---------------------------------------------------------------------------------
+ (2) _Reset_nRF24L01_Status_and_nRF24L01_Payloads          1     1      0      45
+                       _SPI_Transfer
+              _Write_nRF24L01_Status
+ ---------------------------------------------------------------------------------
+ (1) _Send_Data_TX_Mode_nRF24L01                           5     1      4    1915
+                                             25 COMRAM     5     1      4
+    _Write_nRF24L01_Address_Register
+          _Write_nRF24L01_TX_Payload
+ ---------------------------------------------------------------------------------
+ (2) _Write_nRF24L01_TX_Payload                            7     5      2     435
+                                              1 COMRAM     5     3      2
+                       _SPI_Transfer
+ ---------------------------------------------------------------------------------
+ (2) _Write_nRF24L01_Address_Register                     17    15      2    1070
+                                             10 COMRAM    15    13      2
+     _Read_nRF24L01_Address_Register
+                       _SPI_Transfer
+ ---------------------------------------------------------------------------------
+ (3) _Read_nRF24L01_Address_Register                      10     8      2     255
+                                              1 COMRAM     9     7      2
+                       _SPI_Transfer
+ ---------------------------------------------------------------------------------
+ (1) _SPI_Start                                            1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _Check_Data_Sent_TX_Mode_nRF24L01                     6     6      0     175
+                                              3 COMRAM     6     6      0
+             _Read_nRF24L01_Register
+               _Read_nRF24L01_Status
+              _Write_nRF24L01_Status
+ ---------------------------------------------------------------------------------
+ (3) _Write_nRF24L01_Status                                3     3      0      30
+                                              1 COMRAM     1     1      0
+                       _SPI_Transfer
+ ---------------------------------------------------------------------------------
+ (2) _Read_nRF24L01_Status                                 1     1      0      30
+                                              1 COMRAM     1     1      0
+                       _SPI_Transfer
+ ---------------------------------------------------------------------------------
+ (3) _Read_nRF24L01_Register                               3     3      0      45
+                                              1 COMRAM     2     2      0
+                       _SPI_Transfer
+ ---------------------------------------------------------------------------------
+ (3) _SPI_Transfer                                         1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _Check_Data_Sent_TX_Mode_nRF24L01
+     _Read_nRF24L01_Register
+       _SPI_Transfer
+     _Read_nRF24L01_Status
+       _SPI_Transfer
+     _Write_nRF24L01_Status
+       _SPI_Transfer
+   _SPI_Start
+   _Send_Data_TX_Mode_nRF24L01
+     _Write_nRF24L01_Address_Register
+       _Read_nRF24L01_Address_Register
+         _SPI_Transfer
+       _SPI_Transfer
+     _Write_nRF24L01_TX_Payload
+       _SPI_Transfer
+   _Start_TX_Mode_nRF24L01
+     _Reset_nRF24L01_Status_and_nRF24L01_Payloads
+       _SPI_Transfer
+       _Write_nRF24L01_Status
+         _SPI_Transfer
+     _Write_nRF24L01_Register
+       _Read_nRF24L01_Register
+         _SPI_Transfer
+       _SPI_Transfer
+   _nRF24L01_Ports_Start
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             7FF      0       0      21        0.0%
+EEDATA             100      0       0       0        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F     27      2C       1       46.3%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      2C      20        0.0%
+DATA                 0      0      2C       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.41 build -162212810 
+Symbol Table                                                                                   Thu May 15 15:40:56 2025
+
+                                                  PL2 7FDA  
+                                                  PL4 7E0E  
+                                                  PL6 7DBC  
+                                                  PL8 7D28  
+                                         _SSPSTATbits 000FC7  
+                                                  l37 7C36  
+                                                  l47 7D0E  
+                                                  l65 7F7C  
+                           _Write_nRF24L01_TX_Payload 7DC6  
+                                                 l131 7E5C  
+                                                 l124 7E3E  
+                                                 l991 7E44  
+                                                 l987 7E36  
+                                                 l979 7E22  
+                                                 u307 7EE0  
+                                                 u317 7F6C  
+                                                 u327 7CDE  
+                                                 u337 7D9E  
+                                                 u347 7DAE  
+                                                 u291 7E7C  
+                                                 u357 7DB6  
+                                        _SPI_Transfer 7C30  
+                                        __CFG_BOR$OFF 000000  
+                                                 wreg 000FE8  
+                                        __CFG_LVP$OFF 000000  
+                                        __CFG_WDT$OFF 000000  
+                                                l1101 7DE8  
+                                                l1007 7E6C  
+                                                l1111 7DFE  
+                                                l1041 7D50  
+                                                l1105 7DF2  
+                                                l1115 7E0A  
+                                                l1037 7D3E  
+                                                l1055 7D1A  
+                                                l1081 7FCE  
+                                                l1065 7F8A  
+                                                l1083 7FD0  
+                                                l1077 7FB6  
+                                                l1069 7F9A  
+                                                l1085 7FD4  
+                                                l1165 7EB4  
+                                                l1095 7DD8  
+                                                l1099 7DE0  
+                                         main@mensaje 0027  
+                                                _main 7E72  
+                                                fsr1h 000FE2  
+                                                fsr2h 000FDA  
+                                                indf2 000FDF  
+                                                fsr1l 000FE1  
+                                                fsr2l 000FD9  
+                                                prodl 000FF3  
+                                                start 1000  
+                                       __CFG_IESO$OFF 000000  
+                                       __CFG_MCLRE$ON 000000  
+                                        ___param_bank 000000  
+                                       __CFG_PLLDIV$5 000000  
+                                               ?_main 0001  
+                                      __CFG_DEBUG$OFF 000000  
+                                       __CFG_USBDIV$2 000000  
+                                       __CFG_PWRT$OFF 000000  
+  Write_nRF24L01_Address_Register@TX_RX_Address_Width 0018  
+   Read_nRF24L01_Address_Register@TX_RX_Address_Width 0009  
+                                      __CFG_FCMEN$OFF 000000  
+                               _Write_nRF24L01_Status 7C60  
+                                               tablat 000FF5  
+                                               plusw1 000FE3  
+                                               plusw2 000FDB  
+                        __end_of_nRF24L01_Ports_Start 7C60  
+                                               status 000FD8  
+                                  __size_of_SPI_Start 0020  
+                Send_Data_TX_Mode_nRF24L01@TX_Address 001B  
+                                     __initialization 7CAC  
+                                        __end_of_main 7EF0  
+                Send_Data_TX_Mode_nRF24L01@TX_Payload 001D  
+                                              ??_main 001F  
+                                       __activetblptr 000000  
+                                              _ADCON1 000FC1  
+               Write_nRF24L01_Status@Register_Content 0002  
+                    __size_of_Write_nRF24L01_Register 002A  
+                                              _SSPBUF 000FC9  
+                                      __CFG_VREGEN$ON 000000  
+                    ??_Read_nRF24L01_Address_Register 0004  
+                     ?_Read_nRF24L01_Address_Register 0002  
+                                   __end_of_SPI_Start 7CAC  
+                                        __pdataCOMRAM 0028  
+                              ?_Write_nRF24L01_Status 0001  
+                     Start_TX_Mode_nRF24L01@CRC_Setup 000A  
+                                              tblptrh 000FF7  
+                                              tblptrl 000FF6  
+                                              tblptru 000FF8  
+                  __size_of_Write_nRF24L01_TX_Payload 0048  
+                            ??_Start_TX_Mode_nRF24L01 000F  
+                        __end_of_Read_nRF24L01_Status 7C50  
+                 Read_nRF24L01_Status@nRF24L01_Status 0002  
+                                          __accesstop 0060  
+                             __end_of__initialization 7CCC  
+                                     __CFG_PBADEN$OFF 000000  
+                                       ___rparam_used 000001  
+     Check_Data_Sent_TX_Mode_nRF24L01@nRF24L01_Status 0009  
+       Send_Data_TX_Mode_nRF24L01@TX_RX_Address_Width 001A  
+           Start_TX_Mode_nRF24L01@TX_RX_Address_Width 0010  
+                                      __pcstackCOMRAM 0001  
+                                    main@direccion_tx 0021  
+                                          __end_ofPL2 8000  
+                                          __end_ofPL4 7E1A  
+                                          __end_ofPL6 7DC6  
+                                          __end_ofPL8 7D30  
+ Write_nRF24L01_Address_Register@Address_Verification 0012  
+                                _nRF24L01_Ports_Start 7C50  
+                   __end_of_Write_nRF24L01_TX_Payload 7E0E  
+                        ??_Send_Data_TX_Mode_nRF24L01 001E  
+                               ?_nRF24L01_Ports_Start 0001  
+                                             _SSPCON1 000FC6  
+                     __size_of_Start_TX_Mode_nRF24L01 0086  
+                             _Write_nRF24L01_Register 7CFE  
+                                             __Hparam 0000  
+                                             __Lparam 0000  
+             Write_nRF24L01_Register@Register_Address 0005  
+              Read_nRF24L01_Register@Register_Address 0002  
+                            ??_Read_nRF24L01_Register 0002  
+             Write_nRF24L01_Register@Register_Content 0004  
+              Read_nRF24L01_Register@Register_Content 0003  
+                                _Read_nRF24L01_Status 7C40  
+                                             __pcinit 7CAC  
+                                             __ramtop 0800  
+                                             __ptext0 7E72  
+                                             __ptext1 7C50  
+                                             __ptext2 7EF0  
+                                             __ptext3 7CFE  
+                                             __ptext4 7CD2  
+                                             __ptext5 7D7A  
+                                             __ptext6 7DC6  
+                                             __ptext7 7F76  
+                                             __ptext8 7D30  
+                                             __ptext9 7C8C  
+                                end_of_initialization 7CCC  
+                   Check_Data_Sent_TX_Mode_nRF24L01@i 0006  
+                   Check_Data_Sent_TX_Mode_nRF24L01@j 0008  
+        Write_nRF24L01_TX_Payload@TX_RX_Payload_Width 0002  
+                                             postdec1 000FE5  
+       Send_Data_TX_Mode_nRF24L01@TX_RX_Payload_Width 001C  
+           Start_TX_Mode_nRF24L01@TX_RX_Payload_Width 000E  
+                                             postinc0 000FEE  
+                                             postinc1 000FE6  
+                                             postinc2 000FDE  
+                              _Start_TX_Mode_nRF24L01 7EF0  
+                               ?_Read_nRF24L01_Status 0001  
+                 Write_nRF24L01_TX_Payload@TX_Payload 0003  
+                              ??_nRF24L01_Ports_Start 0001  
+                             ??_Write_nRF24L01_Status 0002  
+                                           _PORTBbits 000F81  
+                                           _TRISAbits 000F92  
+                                           _TRISBbits 000F93  
+                                           _TRISCbits 000F94  
+                           ??_Write_nRF24L01_Register 0005  
+                                           _SPI_Start 7C8C  
+                  __end_of_Send_Data_TX_Mode_nRF24L01 7DBC  
+                          _Send_Data_TX_Mode_nRF24L01 7D7A  
+              __end_of_Read_nRF24L01_Address_Register 7D7A  
+             __size_of_Read_nRF24L01_Address_Register 004A  
+                      _Read_nRF24L01_Address_Register 7D30  
+                                          main@estado 0026  
+                     __size_of_Read_nRF24L01_Register 0018  
+                                       __pidataCOMRAM 7C2B  
+                                       ?_SPI_Transfer 0001  
+                                 start_initialization 7CAC  
+                                          ?_SPI_Start 0001  
+     Write_nRF24L01_Address_Register@Process_Finished 0017  
+                     __end_of_Write_nRF24L01_Register 7D28  
+               Start_TX_Mode_nRF24L01@RF_Output_Power 0008  
+                              ??_Read_nRF24L01_Status 0002  
+                                      ??_SPI_Transfer 0001  
+                      Start_TX_Mode_nRF24L01@LNA_Gain 0009  
+                              _Read_nRF24L01_Register 7C74  
+                          ?_Write_nRF24L01_TX_Payload 0002  
+                     Read_nRF24L01_Address_Register@i 000A  
+         Start_TX_Mode_nRF24L01@Auto_Retransmit_Delay 000B  
+                            SPI_Start@Clock_Frequency 0001  
+                                         ??_SPI_Start 0001  
+            __end_of_Check_Data_Sent_TX_Mode_nRF24L01 7E72  
+           __size_of_Check_Data_Sent_TX_Mode_nRF24L01 0058  
+                  ??_Check_Data_Sent_TX_Mode_nRF24L01 0004  
+                   ?_Check_Data_Sent_TX_Mode_nRF24L01 0001  
+                    _Check_Data_Sent_TX_Mode_nRF24L01 7E1A  
+                                            _LATAbits 000F89  
+                                            _IPR1bits 000F9F  
+                                            _PIE1bits 000F9D  
+                             ?_Start_TX_Mode_nRF24L01 0006  
+                                            _PIR1bits 000F9E  
+                                           main@F3898 0028  
+                                          _ADCON0bits 000FC2  
+                      __size_of_Write_nRF24L01_Status 0014  
+                       __end_of_Write_nRF24L01_Status 7C74  
+                                           copy_data0 7CC0  
+                         ?_Send_Data_TX_Mode_nRF24L01 001A  
+           Start_TX_Mode_nRF24L01@Max_Auto_Retransmit 000C  
+                                __end_of_SPI_Transfer 7C40  
+             Start_TX_Mode_nRF24L01@Frequency_Channel 0006  
+                      __end_of_Start_TX_Mode_nRF24L01 7F76  
+                                            __Hrparam 0000  
+                                            __Lrparam 0000  
+           Send_Data_TX_Mode_nRF24L01@Enable_Checksum 001E  
+               Start_TX_Mode_nRF24L01@Enable_Checksum 000D  
+                       __size_of_nRF24L01_Ports_Start 0010  
+ __end_of_Reset_nRF24L01_Status_and_nRF24L01_Payloads 7CFE  
+__size_of_Reset_nRF24L01_Status_and_nRF24L01_Payloads 002C  
+       ??_Reset_nRF24L01_Status_and_nRF24L01_Payloads 0003  
+        ?_Reset_nRF24L01_Status_and_nRF24L01_Payloads 0001  
+         _Reset_nRF24L01_Status_and_nRF24L01_Payloads 7CD2  
+                                            __ptext10 7E1A  
+                                            __ptext11 7C60  
+                                            __ptext12 7C40  
+                                            __ptext13 7C74  
+                                            __ptext14 7C30  
+                            SPI_Transfer@byte_to_send 0001  
+                                       __size_of_main 007E  
+                               __CFG_CPUDIV$OSC1_PLL2 000000  
+                            ?_Write_nRF24L01_Register 0004  
+                             ?_Read_nRF24L01_Register 0001  
+                    Write_nRF24L01_Address_Register@i 0019  
+                  Start_TX_Mode_nRF24L01@RF_Data_Rate 0007  
+            Write_nRF24L01_TX_Payload@Enable_Checksum 0005  
+                         ??_Write_nRF24L01_TX_Payload 0004  
+                Write_nRF24L01_TX_Payload@TX_Checksum 0004  
+             __end_of_Write_nRF24L01_Address_Register 7FDA  
+            __size_of_Write_nRF24L01_Address_Register 0064  
+                   ??_Write_nRF24L01_Address_Register 000D  
+                    ?_Write_nRF24L01_Address_Register 000B  
+                     _Write_nRF24L01_Address_Register 7F76  
+     Write_nRF24L01_Address_Register@Register_Address 000B  
+      Read_nRF24L01_Address_Register@Register_Address 0002  
+                       __size_of_Read_nRF24L01_Status 0010  
+     Write_nRF24L01_Address_Register@Register_Content 000C  
+      Read_nRF24L01_Address_Register@Register_Content 0003  
+                      __end_of_Read_nRF24L01_Register 7C8C  
+                 __size_of_Send_Data_TX_Mode_nRF24L01 0042  
+                                         _SSPCON1bits 000FC6  
+                               __size_of_SPI_Transfer 0010  
+                                  __CFG_FOSC$HSPLL_HS 000000  
+                          Write_nRF24L01_TX_Payload@i 0006  
