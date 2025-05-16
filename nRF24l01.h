@@ -11,17 +11,17 @@
 
 // nRF24L01 SPI Instruction Set  
 //  Name  Instruction Description   
-#define R_REGISTER       0b00000000      // Read a nRF24L01 Register (Register Address:  
-#define W_REGISTER  0b00100000      // Write a nRF24L01 Register (Register Address: 
-#define R_RX_PAYLOAD     0b01100001      // Read RX Payload (used in RX Mode) 
-#define W_TX_PAYLOAD    0b10100000      // Write TX Payload (used in TX Mode) 
-#define FLUSH_RX        0b11100010      // Flush RX FIFO (RX Payload) (used in RX Mode) 
-#define FLUSH_TX         0b11100001      // Flush TX FIFO (TX Payload) (used in TX Mode) 
-#define NOP 0b11111111 // No Operation. Used to get nRF24L01 Status.
+#define R_REGISTER       0b00000000        
+#define W_REGISTER  0b00100000       
+#define R_RX_PAYLOAD     0b01100001       
+#define W_TX_PAYLOAD    0b10100000       
+#define FLUSH_RX        0b11100010       
+#define FLUSH_TX         0b11100001       
+#define NOP 0b11111111 
             
 // nRF24L01 Register Definitions        
 //  Name  Address Description      
-#define CONFIG           0x00      // General Configuration Register 
+#define CONFIG           0x00       
 #define EN_AA             0x01       // Enable Auto Acknowledgment Function 
 #define EN_RXADDR        0x02       // Enabled RX Addresses          
 #define SETUP_AW         0x03       // Setup of Address Widths 
@@ -48,10 +48,10 @@
 #define MASK_RX_DR 0b01000000 // Mask interrupt caused by RX_RD 
 #define MASK_TX_DS 0b00100000 // Mask interrupt caused by TX_DS 
 #define MASK_MAX_RT 0b00010000 // Mask interrupt caused by MAX_RT 
-#define EN_CRC 0b00001000 // Enable CRC 
-#define CRCO 0b00000100 // CRC Width: 0 => 1 byte, 1 => 2 byte 
-#define PWR_UP 0b00000010 // 1: POWER UP, 0:POWER DOWN 
-#define PRIM_RX 0b00000001 // 1: RX Mode, 0: TX Mode
+#define EN_CRC 0b00001000 //  
+#define CRCO 0b00000100 //  
+#define PWR_UP 0b00000010 //  
+#define PRIM_RX 0b00000001 // 
 // nRF24L01 STATUS Register BIT Definition         
 //  Name  Bit Description 
 #define RX_DR 0b01000000 // Data Ready RX FIFO interrupt => Set high when 

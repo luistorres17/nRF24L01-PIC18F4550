@@ -3738,743 +3738,743 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x DEBUG=OFF ]
 "14
 [p x PBADEN=OFF ]
-"7 nRF24l01.c
+"11 nRF24l01.c
 [v _SPI_Start `(v ~T0 @X0 1 ef1`uc ]
-"8
-{
-[; ;nRF24l01.c: 7: void SPI_Start (unsigned char Clock_Frequency)
-[; ;nRF24l01.c: 8: {
-[e :U _SPI_Start ]
-"7
-[v _Clock_Frequency `uc ~T0 @X0 1 r1 ]
-"8
-[f ]
-[; ;nRF24l01.c: 9: TRISBbits.RB1 = 0;
-"9
-[e = . . _TRISBbits 1 1 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 10: TRISBbits.RB0 = 1;
-"10
-[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 11: TRISCbits.RC7 = 0;
-"11
-[e = . . _TRISCbits 1 5 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 12: SSPCON1 = (SSPCON1 & 0xF0) | Clock_Frequency;
 "12
-[e = _SSPCON1 -> | & -> _SSPCON1 `i -> 240 `i -> _Clock_Frequency `i `uc ]
-[; ;nRF24l01.c: 13: SSPCON1bits.CKP=0;
+{
+[; ;nRF24l01.c: 11: void SPI_Start (unsigned char Clock_Frequency)
+[; ;nRF24l01.c: 12: {
+[e :U _SPI_Start ]
+"11
+[v _Clock_Frequency `uc ~T0 @X0 1 r1 ]
+"12
+[f ]
+[; ;nRF24l01.c: 13: TRISBbits.RB1 = 0;
 "13
-[e = . . _SSPCON1bits 0 1 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 14: SSPSTATbits.CKE=1;
+[e = . . _TRISBbits 1 1 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 14: TRISBbits.RB0 = 1;
 "14
-[e = . . _SSPSTATbits 2 6 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 15: SSPSTATbits.SMP=1;
+[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 15: TRISCbits.RC7 = 0;
 "15
-[e = . . _SSPSTATbits 2 7 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 16: PIE1bits.SSPIE=0;
+[e = . . _TRISCbits 1 5 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 16: SSPCON1 = (SSPCON1 & 0xF0) | Clock_Frequency;
 "16
-[e = . . _PIE1bits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 17: IPR1bits.SSPIP=0;
-"17
-[e = . . _IPR1bits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 18: PIR1bits.SSPIF=0;
+[e = _SSPCON1 -> | & -> _SSPCON1 `i -> 240 `i -> _Clock_Frequency `i `uc ]
+[; ;nRF24l01.c: 18: SSPCON1bits.CKP=0;
 "18
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 19: SSPCON1bits.SSPEN=1;
+[e = . . _SSPCON1bits 0 1 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 19: SSPSTATbits.CKE=1;
 "19
-[e = . . _SSPCON1bits 0 2 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 20: }
+[e = . . _SSPSTATbits 2 6 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 20: SSPSTATbits.SMP=1;
 "20
+[e = . . _SSPSTATbits 2 7 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 21: PIE1bits.SSPIE=0;
+"21
+[e = . . _PIE1bits 0 3 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 22: IPR1bits.SSPIP=0;
+"22
+[e = . . _IPR1bits 0 3 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 23: PIR1bits.SSPIF=0;
+"23
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 24: SSPCON1bits.SSPEN=1;
+"24
+[e = . . _SSPCON1bits 0 2 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 25: }
+"25
 [e :UE 362 ]
 }
-"22
+"27
 [v _nRF24L01_Ports_Start `(v ~T0 @X0 1 ef ]
-"23
+"28
 {
-[; ;nRF24l01.c: 22: void nRF24L01_Ports_Start(void)
-[; ;nRF24l01.c: 23: {
+[; ;nRF24l01.c: 27: void nRF24L01_Ports_Start(void)
+[; ;nRF24l01.c: 28: {
 [e :U _nRF24L01_Ports_Start ]
 [f ]
-[; ;nRF24l01.c: 24: ADCON1=0x0F;
-"24
-[e = _ADCON1 -> -> 15 `i `uc ]
-[; ;nRF24l01.c: 25: TRISAbits.TRISA2=0;
-"25
-[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 26: TRISAbits.TRISA3=0;
-"26
-[e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 27: TRISBbits.TRISB2=1;
-"27
-[e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 28: LATAbits.LATA3=1;
-"28
-[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 29: LATAbits.LATA2=0;
+[; ;nRF24l01.c: 29: ADCON1=0x0F;
 "29
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 30: }
+[e = _ADCON1 -> -> 15 `i `uc ]
+[; ;nRF24l01.c: 30: TRISAbits.TRISA2=0;
 "30
+[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 31: TRISAbits.TRISA3=0;
+"31
+[e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 32: TRISBbits.TRISB2=1;
+"32
+[e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 33: LATAbits.LATA3=1;
+"33
+[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 34: LATAbits.LATA2=0;
+"34
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 35: }
+"35
 [e :UE 363 ]
 }
-"33
+"38
 [v _SPI_Transfer `(uc ~T0 @X0 1 ef1`uc ]
-"34
+"39
 {
-[; ;nRF24l01.c: 33: unsigned char SPI_Transfer(unsigned char byte_to_send)
-[; ;nRF24l01.c: 34: {
+[; ;nRF24l01.c: 38: unsigned char SPI_Transfer(unsigned char byte_to_send)
+[; ;nRF24l01.c: 39: {
 [e :U _SPI_Transfer ]
-"33
+"38
 [v _byte_to_send `uc ~T0 @X0 1 r1 ]
-"34
+"39
 [f ]
-[; ;nRF24l01.c: 35: SSPBUF = byte_to_send;
-"35
+[; ;nRF24l01.c: 40: SSPBUF = byte_to_send;
+"40
 [e = _SSPBUF _byte_to_send ]
-[; ;nRF24l01.c: 37: while(PIR1bits.SSPIF==0);
-"37
+[; ;nRF24l01.c: 42: while(PIR1bits.SSPIF==0);
+"42
 [e $U 365  ]
 [e :U 366 ]
 [e :U 365 ]
 [e $ == -> . . _PIR1bits 0 3 `i -> 0 `i 366  ]
 [e :U 367 ]
-[; ;nRF24l01.c: 38: PIR1bits.SSPIF=0;
-"38
+[; ;nRF24l01.c: 43: PIR1bits.SSPIF=0;
+"43
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 40: return(SSPBUF);
-"40
+[; ;nRF24l01.c: 45: return(SSPBUF);
+"45
 [e ) _SSPBUF ]
 [e $UE 364  ]
-[; ;nRF24l01.c: 41: }
-"41
+[; ;nRF24l01.c: 46: }
+"46
 [e :UE 364 ]
 }
-"43
+"48
 [v _Read_nRF24L01_Register `(uc ~T0 @X0 1 ef1`uc ]
-"44
+"49
 {
-[; ;nRF24l01.c: 43: unsigned char Read_nRF24L01_Register (unsigned char Register_Address)
-[; ;nRF24l01.c: 44: {
+[; ;nRF24l01.c: 48: unsigned char Read_nRF24L01_Register (unsigned char Register_Address)
+[; ;nRF24l01.c: 49: {
 [e :U _Read_nRF24L01_Register ]
-"43
+"48
 [v _Register_Address `uc ~T0 @X0 1 r1 ]
-"44
+"49
 [f ]
-"45
+"50
 [v _Register_Content `uc ~T0 @X0 1 a ]
 [v _nRF24L01_Status `uc ~T0 @X0 1 a ]
-[; ;nRF24l01.c: 45: unsigned char Register_Content, nRF24L01_Status;
-[; ;nRF24l01.c: 47: LATAbits.LATA3=0;
-"47
-[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 48: nRF24L01_Status=SPI_Transfer(0b00000000+Register_Address);
-"48
-[e = _nRF24L01_Status ( _SPI_Transfer (1 -> + -> 0 `i -> _Register_Address `i `uc ]
-[; ;nRF24l01.c: 50: Register_Content=SPI_Transfer(0x00);
-"50
-[e = _Register_Content ( _SPI_Transfer (1 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 52: LATAbits.LATA3=1;
+[; ;nRF24l01.c: 50: unsigned char Register_Content, nRF24L01_Status;
+[; ;nRF24l01.c: 52: LATAbits.LATA3=0;
 "52
-[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 53: return(Register_Content);
+[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 53: nRF24L01_Status=SPI_Transfer(0b00000000+Register_Address);
 "53
+[e = _nRF24L01_Status ( _SPI_Transfer (1 -> + -> 0 `i -> _Register_Address `i `uc ]
+[; ;nRF24l01.c: 55: Register_Content=SPI_Transfer(0x00);
+"55
+[e = _Register_Content ( _SPI_Transfer (1 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 57: LATAbits.LATA3=1;
+"57
+[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 58: return(Register_Content);
+"58
 [e ) _Register_Content ]
 [e $UE 368  ]
-[; ;nRF24l01.c: 54: }
-"54
+[; ;nRF24l01.c: 59: }
+"59
 [e :UE 368 ]
 }
-"56
+"61
 [v _Write_nRF24L01_Register `(v ~T0 @X0 1 ef2`uc`uc ]
-"57
+"62
 {
-[; ;nRF24l01.c: 56: void Write_nRF24L01_Register (unsigned char Register_Address,unsigned char Register_Content )
-[; ;nRF24l01.c: 57: {
+[; ;nRF24l01.c: 61: void Write_nRF24L01_Register (unsigned char Register_Address,unsigned char Register_Content )
+[; ;nRF24l01.c: 62: {
 [e :U _Write_nRF24L01_Register ]
-"56
+"61
 [v _Register_Address `uc ~T0 @X0 1 r1 ]
 [v _Register_Content `uc ~T0 @X0 1 r2 ]
-"57
+"62
 [f ]
-"58
+"63
 [v _dummydata `uc ~T0 @X0 1 a ]
 [v _nRF24L01_Status `uc ~T0 @X0 1 a ]
-[; ;nRF24l01.c: 58: unsigned char dummydata, nRF24L01_Status;
-[; ;nRF24l01.c: 59: LATAbits.LATA3=0;
-"59
-[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 60: nRF24L01_Status=SPI_Transfer(0b00100000+Register_Address);
-"60
-[e = _nRF24L01_Status ( _SPI_Transfer (1 -> + -> 32 `i -> _Register_Address `i `uc ]
-[; ;nRF24l01.c: 62: dummydata=SPI_Transfer(Register_Content);
-"62
-[e = _dummydata ( _SPI_Transfer (1 _Register_Content ]
-[; ;nRF24l01.c: 64: LATAbits.LATA3=1;
+[; ;nRF24l01.c: 63: unsigned char dummydata, nRF24L01_Status;
+[; ;nRF24l01.c: 64: LATAbits.LATA3=0;
 "64
-[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 65: while(Read_nRF24L01_Register(Register_Address)!=Register_Content)
+[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 65: nRF24L01_Status=SPI_Transfer(0b00100000+Register_Address);
 "65
+[e = _nRF24L01_Status ( _SPI_Transfer (1 -> + -> 32 `i -> _Register_Address `i `uc ]
+[; ;nRF24l01.c: 67: dummydata=SPI_Transfer(Register_Content);
+"67
+[e = _dummydata ( _SPI_Transfer (1 _Register_Content ]
+[; ;nRF24l01.c: 69: LATAbits.LATA3=1;
+"69
+[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 70: while(Read_nRF24L01_Register(Register_Address)!=Register_Content)
+"70
 [e $U 370  ]
 [e :U 371 ]
-[; ;nRF24l01.c: 66: {
-"66
-{
-[; ;nRF24l01.c: 67: LATAbits.LATA3=0;
-"67
-[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 68: nRF24L01_Status=SPI_Transfer(0b00100000+Register_Address);
-"68
-[e = _nRF24L01_Status ( _SPI_Transfer (1 -> + -> 32 `i -> _Register_Address `i `uc ]
-[; ;nRF24l01.c: 69: dummydata=SPI_Transfer(Register_Content);
-"69
-[e = _dummydata ( _SPI_Transfer (1 _Register_Content ]
-[; ;nRF24l01.c: 70: LATAbits.LATA3=1;
-"70
-[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 71: {
 "71
+{
+[; ;nRF24l01.c: 72: LATAbits.LATA3=0;
+"72
+[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 73: nRF24L01_Status=SPI_Transfer(0b00100000+Register_Address);
+"73
+[e = _nRF24L01_Status ( _SPI_Transfer (1 -> + -> 32 `i -> _Register_Address `i `uc ]
+[; ;nRF24l01.c: 74: dummydata=SPI_Transfer(Register_Content);
+"74
+[e = _dummydata ( _SPI_Transfer (1 _Register_Content ]
+[; ;nRF24l01.c: 75: LATAbits.LATA3=1;
+"75
+[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+"76
 }
 [e :U 370 ]
-"65
+"70
 [e $ != -> ( _Read_nRF24L01_Register (1 _Register_Address `i -> _Register_Content `i 371  ]
 [e :U 372 ]
-[; ;nRF24l01.c: 71: }
-[; ;nRF24l01.c: 73: }
-"73
+[; ;nRF24l01.c: 76: }
+[; ;nRF24l01.c: 78: }
+"78
 [e :UE 369 ]
 }
-"75
+"80
 [v _Read_nRF24L01_Status `(uc ~T0 @X0 1 ef ]
-"76
+"81
 {
-[; ;nRF24l01.c: 75: unsigned char Read_nRF24L01_Status (void)
-[; ;nRF24l01.c: 76: {
+[; ;nRF24l01.c: 80: unsigned char Read_nRF24L01_Status (void)
+[; ;nRF24l01.c: 81: {
 [e :U _Read_nRF24L01_Status ]
 [f ]
-"77
+"82
 [v _nRF24L01_Status `uc ~T0 @X0 1 a ]
-[; ;nRF24l01.c: 77: unsigned char nRF24L01_Status;
-[; ;nRF24l01.c: 79: LATAbits.LATA3=0;
-"79
+[; ;nRF24l01.c: 82: unsigned char nRF24L01_Status;
+[; ;nRF24l01.c: 84: LATAbits.LATA3=0;
+"84
 [e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 80: nRF24L01_Status=SPI_Transfer(0b11111111);
-"80
+[; ;nRF24l01.c: 85: nRF24L01_Status=SPI_Transfer(0b11111111);
+"85
 [e = _nRF24L01_Status ( _SPI_Transfer (1 -> -> 255 `i `uc ]
-[; ;nRF24l01.c: 81: LATAbits.LATA3=1;
-"81
+[; ;nRF24l01.c: 86: LATAbits.LATA3=1;
+"86
 [e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 83: return(nRF24L01_Status);
-"83
+[; ;nRF24l01.c: 88: return(nRF24L01_Status);
+"88
 [e ) _nRF24L01_Status ]
 [e $UE 373  ]
-[; ;nRF24l01.c: 84: }
-"84
+[; ;nRF24l01.c: 89: }
+"89
 [e :UE 373 ]
 }
-"86
+"91
 [v _Write_nRF24L01_Status `(v ~T0 @X0 1 ef1`uc ]
-"87
+"92
 {
-[; ;nRF24l01.c: 86: void Write_nRF24L01_Status (unsigned char Register_Content)
-[; ;nRF24l01.c: 87: {
+[; ;nRF24l01.c: 91: void Write_nRF24L01_Status (unsigned char Register_Content)
+[; ;nRF24l01.c: 92: {
 [e :U _Write_nRF24L01_Status ]
-"86
+"91
 [v _Register_Content `uc ~T0 @X0 1 r1 ]
-"87
+"92
 [f ]
-"88
+"93
 [v _dummydata `uc ~T0 @X0 1 a ]
 [v _nRF24L01_Status `uc ~T0 @X0 1 a ]
-[; ;nRF24l01.c: 88: unsigned char dummydata, nRF24L01_Status;
-[; ;nRF24l01.c: 90: LATAbits.LATA3=0;
-"90
-[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 91: nRF24L01_Status=SPI_Transfer(0b00100000+0x07);
-"91
-[e = _nRF24L01_Status ( _SPI_Transfer (1 -> + -> 32 `i -> 7 `i `uc ]
-[; ;nRF24l01.c: 93: dummydata=SPI_Transfer(Register_Content);
-"93
-[e = _dummydata ( _SPI_Transfer (1 _Register_Content ]
-[; ;nRF24l01.c: 95: LATAbits.LATA3=1;
+[; ;nRF24l01.c: 93: unsigned char dummydata, nRF24L01_Status;
+[; ;nRF24l01.c: 95: LATAbits.LATA3=0;
 "95
-[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 96: }
+[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 96: nRF24L01_Status=SPI_Transfer(0b00100000+0x07);
 "96
+[e = _nRF24L01_Status ( _SPI_Transfer (1 -> + -> 32 `i -> 7 `i `uc ]
+[; ;nRF24l01.c: 98: dummydata=SPI_Transfer(Register_Content);
+"98
+[e = _dummydata ( _SPI_Transfer (1 _Register_Content ]
+[; ;nRF24l01.c: 100: LATAbits.LATA3=1;
+"100
+[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 101: }
+"101
 [e :UE 374 ]
 }
-"98
+"103
 [v _Read_nRF24L01_Address_Register `(v ~T0 @X0 1 ef3`uc`uc`*uc ]
-"99
+"104
 {
-[; ;nRF24l01.c: 98: void Read_nRF24L01_Address_Register ( unsigned char TX_RX_Address_Width, unsigned char Register_Address, unsigned char *Register_Content )
-[; ;nRF24l01.c: 99: {
+[; ;nRF24l01.c: 103: void Read_nRF24L01_Address_Register ( unsigned char TX_RX_Address_Width, unsigned char Register_Address, unsigned char *Register_Content )
+[; ;nRF24l01.c: 104: {
 [e :U _Read_nRF24L01_Address_Register ]
-"98
+"103
 [v _TX_RX_Address_Width `uc ~T0 @X0 1 r1 ]
 [v _Register_Address `uc ~T0 @X0 1 r2 ]
 [v _Register_Content `*uc ~T0 @X0 1 r3 ]
-"99
+"104
 [f ]
-"100
+"105
 [v _i `uc ~T0 @X0 1 a ]
 [v _nRF24L01_Status `uc ~T0 @X0 1 a ]
-[; ;nRF24l01.c: 100: unsigned char i, nRF24L01_Status;
-[; ;nRF24l01.c: 102: LATAbits.LATA3=0;
-"102
+[; ;nRF24l01.c: 105: unsigned char i, nRF24L01_Status;
+[; ;nRF24l01.c: 107: LATAbits.LATA3=0;
+"107
 [e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 103: nRF24L01_Status=SPI_Transfer(0b00000000+Register_Address);
-"103
+[; ;nRF24l01.c: 108: nRF24L01_Status=SPI_Transfer(0b00000000+Register_Address);
+"108
 [e = _nRF24L01_Status ( _SPI_Transfer (1 -> + -> 0 `i -> _Register_Address `i `uc ]
-[; ;nRF24l01.c: 104: for(i=0; i<(TX_RX_Address_Width+0b10); i++)
-"104
+[; ;nRF24l01.c: 109: for(i=0; i<(TX_RX_Address_Width+0b10); i++)
+"109
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 379  ]
-"105
+"110
 [e :U 376 ]
-[; ;nRF24l01.c: 105: {
+[; ;nRF24l01.c: 110: {
 {
-[; ;nRF24l01.c: 106: Register_Content[i]=SPI_Transfer(0x00);
-"106
+[; ;nRF24l01.c: 111: Register_Content[i]=SPI_Transfer(0x00);
+"111
 [e = *U + _Register_Content * -> _i `ux -> -> # *U _Register_Content `ui `ux ( _SPI_Transfer (1 -> -> 0 `i `uc ]
-"107
+"112
 }
-"104
+"109
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 379 ]
 [e $ < -> _i `i + -> _TX_RX_Address_Width `i -> 2 `i 376  ]
 [e :U 377 ]
-"107
+"112
 }
-[; ;nRF24l01.c: 107: }
-[; ;nRF24l01.c: 108: LATAbits.LATA3=1;
-"108
+[; ;nRF24l01.c: 112: }
+[; ;nRF24l01.c: 113: LATAbits.LATA3=1;
+"113
 [e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 109: }
-"109
+[; ;nRF24l01.c: 114: }
+"114
 [e :UE 375 ]
 }
-"111
+"116
 [v _Write_nRF24L01_Address_Register `(v ~T0 @X0 1 ef3`uc`uc`*uc ]
-"112
+"117
 {
-[; ;nRF24l01.c: 111: void Write_nRF24L01_Address_Register ( unsigned char TX_RX_Address_Width, unsigned char Register_Address, unsigned char *Register_Content )
-[; ;nRF24l01.c: 112: {
+[; ;nRF24l01.c: 116: void Write_nRF24L01_Address_Register ( unsigned char TX_RX_Address_Width, unsigned char Register_Address, unsigned char *Register_Content )
+[; ;nRF24l01.c: 117: {
 [e :U _Write_nRF24L01_Address_Register ]
-"111
+"116
 [v _TX_RX_Address_Width `uc ~T0 @X0 1 r1 ]
 [v _Register_Address `uc ~T0 @X0 1 r2 ]
 [v _Register_Content `*uc ~T0 @X0 1 r3 ]
-"112
+"117
 [f ]
-"113
+"118
 [v _dummydata `uc ~T0 @X0 1 a ]
 [v _i `uc ~T0 @X0 1 a ]
 [v _nRF24L01_Status `uc ~T0 @X0 1 a ]
-"114
+"119
 [v _Process_Finished `uc ~T0 @X0 1 a ]
-"115
+"120
 [v _Address_Verification `uc ~T0 @X0 -> 5 `i a ]
-[; ;nRF24l01.c: 113: unsigned char dummydata, i, nRF24L01_Status;
-[; ;nRF24l01.c: 114: unsigned char Process_Finished;
-[; ;nRF24l01.c: 115: unsigned char Address_Verification[5];
-[; ;nRF24l01.c: 117: Process_Finished=0;
-"117
+[; ;nRF24l01.c: 118: unsigned char dummydata, i, nRF24L01_Status;
+[; ;nRF24l01.c: 119: unsigned char Process_Finished;
+[; ;nRF24l01.c: 120: unsigned char Address_Verification[5];
+[; ;nRF24l01.c: 122: Process_Finished=0;
+"122
 [e = _Process_Finished -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 118: while(!Process_Finished)
-"118
+[; ;nRF24l01.c: 123: while(!Process_Finished)
+"123
 [e $U 381  ]
 [e :U 382 ]
-[; ;nRF24l01.c: 119: {
-"119
+[; ;nRF24l01.c: 124: {
+"124
 {
-[; ;nRF24l01.c: 120: LATAbits.LATA3=0;
-"120
+[; ;nRF24l01.c: 125: LATAbits.LATA3=0;
+"125
 [e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 121: nRF24L01_Status=SPI_Transfer(0b00100000+Register_Address);
-"121
+[; ;nRF24l01.c: 126: nRF24L01_Status=SPI_Transfer(0b00100000+Register_Address);
+"126
 [e = _nRF24L01_Status ( _SPI_Transfer (1 -> + -> 32 `i -> _Register_Address `i `uc ]
-[; ;nRF24l01.c: 122: for(i=0; i<(TX_RX_Address_Width+0b10); i++)
-"122
+[; ;nRF24l01.c: 127: for(i=0; i<(TX_RX_Address_Width+0b10); i++)
+"127
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 387  ]
-"123
+"128
 [e :U 384 ]
-[; ;nRF24l01.c: 123: {
+[; ;nRF24l01.c: 128: {
 {
-[; ;nRF24l01.c: 124: dummydata=SPI_Transfer(Register_Content[i]);
-"124
+[; ;nRF24l01.c: 129: dummydata=SPI_Transfer(Register_Content[i]);
+"129
 [e = _dummydata ( _SPI_Transfer (1 *U + _Register_Content * -> _i `ux -> -> # *U _Register_Content `ui `ux ]
-"125
+"130
 }
-"122
+"127
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 387 ]
 [e $ < -> _i `i + -> _TX_RX_Address_Width `i -> 2 `i 384  ]
 [e :U 385 ]
-"125
-}
-[; ;nRF24l01.c: 125: }
-[; ;nRF24l01.c: 126: LATAbits.LATA3=1;
-"126
-[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 128: Read_nRF24L01_Address_Register(TX_RX_Address_Width, Register_Address, Address_Verification);
-"128
-[e ( _Read_nRF24L01_Address_Register (3 , , _TX_RX_Address_Width _Register_Address &U _Address_Verification ]
-[; ;nRF24l01.c: 129: Process_Finished=1;
-"129
-[e = _Process_Finished -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 130: for(i=0; i<(TX_RX_Address_Width+0b10); i++)
 "130
+}
+[; ;nRF24l01.c: 130: }
+[; ;nRF24l01.c: 131: LATAbits.LATA3=1;
+"131
+[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 133: Read_nRF24L01_Address_Register(TX_RX_Address_Width, Register_Address, Address_Verification);
+"133
+[e ( _Read_nRF24L01_Address_Register (3 , , _TX_RX_Address_Width _Register_Address &U _Address_Verification ]
+[; ;nRF24l01.c: 134: Process_Finished=1;
+"134
+[e = _Process_Finished -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 135: for(i=0; i<(TX_RX_Address_Width+0b10); i++)
+"135
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 391  ]
-"131
-[e :U 388 ]
-[; ;nRF24l01.c: 131: {
-{
-[; ;nRF24l01.c: 132: if(Register_Content[i]!=Address_Verification[i])
-"132
-[e $ ! != -> *U + _Register_Content * -> _i `ux -> -> # *U _Register_Content `ui `ux `i -> *U + &U _Address_Verification * -> _i `ux -> -> # *U &U _Address_Verification `ui `ux `i 392  ]
-[; ;nRF24l01.c: 133: {
-"133
-{
-[; ;nRF24l01.c: 134: Process_Finished=0;
-"134
-[e = _Process_Finished -> -> 0 `i `uc ]
 "136
+[e :U 388 ]
+[; ;nRF24l01.c: 136: {
+{
+[; ;nRF24l01.c: 137: if(Register_Content[i]!=Address_Verification[i])
+"137
+[e $ ! != -> *U + _Register_Content * -> _i `ux -> -> # *U _Register_Content `ui `ux `i -> *U + &U _Address_Verification * -> _i `ux -> -> # *U &U _Address_Verification `ui `ux `i 392  ]
+[; ;nRF24l01.c: 138: {
+"138
+{
+[; ;nRF24l01.c: 139: Process_Finished=0;
+"139
+[e = _Process_Finished -> -> 0 `i `uc ]
+"141
 }
 [e :U 392 ]
-"137
+"142
 }
-"130
+"135
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 391 ]
 [e $ < -> _i `i + -> _TX_RX_Address_Width `i -> 2 `i 388  ]
 [e :U 389 ]
-"137
+"142
 }
-"138
+"143
 }
 [e :U 381 ]
-"118
+"123
 [e $ ! != -> _Process_Finished `i -> -> -> 0 `i `uc `i 382  ]
 [e :U 383 ]
-[; ;nRF24l01.c: 136: }
-[; ;nRF24l01.c: 137: }
-[; ;nRF24l01.c: 138: }
-[; ;nRF24l01.c: 139: }
-"139
+[; ;nRF24l01.c: 141: }
+[; ;nRF24l01.c: 142: }
+[; ;nRF24l01.c: 143: }
+[; ;nRF24l01.c: 144: }
+"144
 [e :UE 380 ]
 }
-"142
+"147
 [v _Read_nRF24L01_RX_Payload `(uc ~T0 @X0 1 ef3`uc`uc`*uc ]
-"143
+"148
 {
-[; ;nRF24l01.c: 142: unsigned char Read_nRF24L01_RX_Payload ( unsigned char Enable_Checksum, unsigned char TX_RX_Payload_Width, unsigned char *RX_Payload )
-[; ;nRF24l01.c: 143: {
+[; ;nRF24l01.c: 147: unsigned char Read_nRF24L01_RX_Payload ( unsigned char Enable_Checksum, unsigned char TX_RX_Payload_Width, unsigned char *RX_Payload )
+[; ;nRF24l01.c: 148: {
 [e :U _Read_nRF24L01_RX_Payload ]
-"142
+"147
 [v _Enable_Checksum `uc ~T0 @X0 1 r1 ]
 [v _TX_RX_Payload_Width `uc ~T0 @X0 1 r2 ]
 [v _RX_Payload `*uc ~T0 @X0 1 r3 ]
-"143
+"148
 [f ]
-"144
+"149
 [v _nRF24L01_Status `uc ~T0 @X0 1 a ]
 [v _TX_Checksum `uc ~T0 @X0 1 a ]
-"146
+"151
 [v _RX_Checksum `uc ~T0 @X0 1 a ]
 [v _Checksum_Conclusion `uc ~T0 @X0 1 a ]
-"148
-[v _i `uc ~T0 @X0 1 a ]
-[; ;nRF24l01.c: 144: unsigned char nRF24L01_Status, TX_Checksum;
-[; ;nRF24l01.c: 146: unsigned char RX_Checksum, Checksum_Conclusion;
-[; ;nRF24l01.c: 148: unsigned char i;
-[; ;nRF24l01.c: 150: LATAbits.LATA3=0;
-"150
-[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 151: nRF24L01_Status=SPI_Transfer(0b01100001);
-"151
-[e = _nRF24L01_Status ( _SPI_Transfer (1 -> -> 97 `i `uc ]
-[; ;nRF24l01.c: 153: if(!Enable_Checksum)
 "153
-[e $ ! ! != -> _Enable_Checksum `i -> -> -> 0 `i `uc `i 394  ]
-[; ;nRF24l01.c: 154: {
-"154
-{
-[; ;nRF24l01.c: 155: for(i=0; i<TX_RX_Payload_Width; i++)
+[v _i `uc ~T0 @X0 1 a ]
+[; ;nRF24l01.c: 149: unsigned char nRF24L01_Status, TX_Checksum;
+[; ;nRF24l01.c: 151: unsigned char RX_Checksum, Checksum_Conclusion;
+[; ;nRF24l01.c: 153: unsigned char i;
+[; ;nRF24l01.c: 155: LATAbits.LATA3=0;
 "155
+[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 156: nRF24L01_Status=SPI_Transfer(0b01100001);
+"156
+[e = _nRF24L01_Status ( _SPI_Transfer (1 -> -> 97 `i `uc ]
+[; ;nRF24l01.c: 158: if(!Enable_Checksum)
+"158
+[e $ ! ! != -> _Enable_Checksum `i -> -> -> 0 `i `uc `i 394  ]
+[; ;nRF24l01.c: 159: {
+"159
+{
+[; ;nRF24l01.c: 160: for(i=0; i<TX_RX_Payload_Width; i++)
+"160
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 398  ]
-"156
+"161
 [e :U 395 ]
-[; ;nRF24l01.c: 156: {
+[; ;nRF24l01.c: 161: {
 {
-[; ;nRF24l01.c: 157: RX_Payload[i]=SPI_Transfer(0x00);
-"157
+[; ;nRF24l01.c: 162: RX_Payload[i]=SPI_Transfer(0x00);
+"162
 [e = *U + _RX_Payload * -> _i `ux -> -> # *U _RX_Payload `ui `ux ( _SPI_Transfer (1 -> -> 0 `i `uc ]
-"159
+"164
 }
-"155
+"160
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 398 ]
 [e $ < -> _i `i -> _TX_RX_Payload_Width `i 395  ]
 [e :U 396 ]
-"159
-}
-[; ;nRF24l01.c: 159: }
-[; ;nRF24l01.c: 160: Checksum_Conclusion=1;
-"160
-[e = _Checksum_Conclusion -> -> 1 `i `uc ]
-"161
-}
-[; ;nRF24l01.c: 161: }
-[e $U 399  ]
-"162
-[e :U 394 ]
-[; ;nRF24l01.c: 162: else if(Enable_Checksum)
-[e $ ! != -> _Enable_Checksum `i -> -> -> 0 `i `uc `i 400  ]
-[; ;nRF24l01.c: 163: {
-"163
-{
-[; ;nRF24l01.c: 164: RX_Checksum=0b00000000;
 "164
-[e = _RX_Checksum -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 165: for(i=0; i<TX_RX_Payload_Width; i++)
+}
+[; ;nRF24l01.c: 164: }
+[; ;nRF24l01.c: 165: Checksum_Conclusion=1;
 "165
+[e = _Checksum_Conclusion -> -> 1 `i `uc ]
+"166
+}
+[; ;nRF24l01.c: 166: }
+[e $U 399  ]
+"167
+[e :U 394 ]
+[; ;nRF24l01.c: 167: else if(Enable_Checksum)
+[e $ ! != -> _Enable_Checksum `i -> -> -> 0 `i `uc `i 400  ]
+[; ;nRF24l01.c: 168: {
+"168
+{
+[; ;nRF24l01.c: 169: RX_Checksum=0b00000000;
+"169
+[e = _RX_Checksum -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 170: for(i=0; i<TX_RX_Payload_Width; i++)
+"170
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 404  ]
-"166
-[e :U 401 ]
-[; ;nRF24l01.c: 166: {
-{
-[; ;nRF24l01.c: 167: RX_Payload[i]=SPI_Transfer(0x00);
-"167
-[e = *U + _RX_Payload * -> _i `ux -> -> # *U _RX_Payload `ui `ux ( _SPI_Transfer (1 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 169: RX_Checksum=RX_Checksum+RX_Payload[i];
-"169
-[e = _RX_Checksum -> + -> _RX_Checksum `i -> *U + _RX_Payload * -> _i `ux -> -> # *U _RX_Payload `ui `ux `i `uc ]
 "171
+[e :U 401 ]
+[; ;nRF24l01.c: 171: {
+{
+[; ;nRF24l01.c: 172: RX_Payload[i]=SPI_Transfer(0x00);
+"172
+[e = *U + _RX_Payload * -> _i `ux -> -> # *U _RX_Payload `ui `ux ( _SPI_Transfer (1 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 174: RX_Checksum=RX_Checksum+RX_Payload[i];
+"174
+[e = _RX_Checksum -> + -> _RX_Checksum `i -> *U + _RX_Payload * -> _i `ux -> -> # *U _RX_Payload `ui `ux `i `uc ]
+"176
 }
-"165
+"170
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 404 ]
 [e $ < -> _i `i -> _TX_RX_Payload_Width `i 401  ]
 [e :U 402 ]
-"171
-}
-[; ;nRF24l01.c: 171: }
-[; ;nRF24l01.c: 172: TX_Checksum=SPI_Transfer(0x00);
-"172
-[e = _TX_Checksum ( _SPI_Transfer (1 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 173: if(RX_Checksum==TX_Checksum)
-"173
-[e $ ! == -> _RX_Checksum `i -> _TX_Checksum `i 405  ]
-[; ;nRF24l01.c: 174: {
-"174
-{
-[; ;nRF24l01.c: 175: Checksum_Conclusion=1;
-"175
-[e = _Checksum_Conclusion -> -> 1 `i `uc ]
 "176
 }
 [; ;nRF24l01.c: 176: }
-[e $U 406  ]
+[; ;nRF24l01.c: 177: TX_Checksum=SPI_Transfer(0x00);
 "177
-[e :U 405 ]
-[; ;nRF24l01.c: 177: else if(RX_Checksum!=TX_Checksum)
-[e $ ! != -> _RX_Checksum `i -> _TX_Checksum `i 407  ]
-[; ;nRF24l01.c: 178: {
+[e = _TX_Checksum ( _SPI_Transfer (1 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 178: if(RX_Checksum==TX_Checksum)
 "178
-{
-[; ;nRF24l01.c: 179: Checksum_Conclusion=0;
+[e $ ! == -> _RX_Checksum `i -> _TX_Checksum `i 405  ]
+[; ;nRF24l01.c: 179: {
 "179
-[e = _Checksum_Conclusion -> -> 0 `i `uc ]
+{
+[; ;nRF24l01.c: 180: Checksum_Conclusion=1;
 "180
+[e = _Checksum_Conclusion -> -> 1 `i `uc ]
+"181
+}
+[; ;nRF24l01.c: 181: }
+[e $U 406  ]
+"182
+[e :U 405 ]
+[; ;nRF24l01.c: 182: else if(RX_Checksum!=TX_Checksum)
+[e $ ! != -> _RX_Checksum `i -> _TX_Checksum `i 407  ]
+[; ;nRF24l01.c: 183: {
+"183
+{
+[; ;nRF24l01.c: 184: Checksum_Conclusion=0;
+"184
+[e = _Checksum_Conclusion -> -> 0 `i `uc ]
+"185
 }
 [e :U 407 ]
-"181
+"186
 [e :U 406 ]
 }
 [e :U 400 ]
-"182
+"187
 [e :U 399 ]
-[; ;nRF24l01.c: 180: }
-[; ;nRF24l01.c: 181: }
-[; ;nRF24l01.c: 182: LATAbits.LATA3=1;
+[; ;nRF24l01.c: 185: }
+[; ;nRF24l01.c: 186: }
+[; ;nRF24l01.c: 187: LATAbits.LATA3=1;
 [e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 184: return Checksum_Conclusion;
-"184
+[; ;nRF24l01.c: 189: return Checksum_Conclusion;
+"189
 [e ) _Checksum_Conclusion ]
 [e $UE 393  ]
-[; ;nRF24l01.c: 185: }
-"185
+[; ;nRF24l01.c: 190: }
+"190
 [e :UE 393 ]
 }
-"187
+"192
 [v _Write_nRF24L01_TX_Payload `(v ~T0 @X0 1 ef3`uc`uc`*uc ]
-"188
+"193
 {
-[; ;nRF24l01.c: 187: void Write_nRF24L01_TX_Payload ( unsigned char Enable_Checksum, unsigned char TX_RX_Payload_Width, unsigned char *TX_Payload )
-[; ;nRF24l01.c: 188: {
+[; ;nRF24l01.c: 192: void Write_nRF24L01_TX_Payload ( unsigned char Enable_Checksum, unsigned char TX_RX_Payload_Width, unsigned char *TX_Payload )
+[; ;nRF24l01.c: 193: {
 [e :U _Write_nRF24L01_TX_Payload ]
-"187
+"192
 [v _Enable_Checksum `uc ~T0 @X0 1 r1 ]
 [v _TX_RX_Payload_Width `uc ~T0 @X0 1 r2 ]
 [v _TX_Payload `*uc ~T0 @X0 1 r3 ]
-"188
+"193
 [f ]
-"189
+"194
 [v _nRF24L01_Status `uc ~T0 @X0 1 a ]
 [v _TX_Checksum `uc ~T0 @X0 1 a ]
-"190
+"195
 [v _i `uc ~T0 @X0 1 a ]
 [v _dummydata `uc ~T0 @X0 1 a ]
-[; ;nRF24l01.c: 189: unsigned char nRF24L01_Status, TX_Checksum;
-[; ;nRF24l01.c: 190: unsigned char i, dummydata;
-[; ;nRF24l01.c: 192: LATAbits.LATA3=0;
-"192
+[; ;nRF24l01.c: 194: unsigned char nRF24L01_Status, TX_Checksum;
+[; ;nRF24l01.c: 195: unsigned char i, dummydata;
+[; ;nRF24l01.c: 197: LATAbits.LATA3=0;
+"197
 [e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 193: nRF24L01_Status=SPI_Transfer(0b10100000);
-"193
+[; ;nRF24l01.c: 198: nRF24L01_Status=SPI_Transfer(0b10100000);
+"198
 [e = _nRF24L01_Status ( _SPI_Transfer (1 -> -> 160 `i `uc ]
-[; ;nRF24l01.c: 194: if(!Enable_Checksum)
-"194
+[; ;nRF24l01.c: 199: if(!Enable_Checksum)
+"199
 [e $ ! ! != -> _Enable_Checksum `i -> -> -> 0 `i `uc `i 409  ]
-[; ;nRF24l01.c: 195: {
-"195
+[; ;nRF24l01.c: 200: {
+"200
 {
-[; ;nRF24l01.c: 196: for(i=0; i<TX_RX_Payload_Width; i++)
-"196
+[; ;nRF24l01.c: 201: for(i=0; i<TX_RX_Payload_Width; i++)
+"201
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 413  ]
-"197
+"202
 [e :U 410 ]
-[; ;nRF24l01.c: 197: {
+[; ;nRF24l01.c: 202: {
 {
-[; ;nRF24l01.c: 198: dummydata=SPI_Transfer(TX_Payload[i]);
-"198
+[; ;nRF24l01.c: 203: dummydata=SPI_Transfer(TX_Payload[i]);
+"203
 [e = _dummydata ( _SPI_Transfer (1 *U + _TX_Payload * -> _i `ux -> -> # *U _TX_Payload `ui `ux ]
-"200
+"205
 }
-"196
+"201
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 413 ]
 [e $ < -> _i `i -> _TX_RX_Payload_Width `i 410  ]
 [e :U 411 ]
-"200
-}
-"201
-}
-[; ;nRF24l01.c: 200: }
-[; ;nRF24l01.c: 201: }
-[e $U 414  ]
-"202
-[e :U 409 ]
-[; ;nRF24l01.c: 202: else if(Enable_Checksum)
-[e $ ! != -> _Enable_Checksum `i -> -> -> 0 `i `uc `i 415  ]
-[; ;nRF24l01.c: 203: {
-"203
-{
-[; ;nRF24l01.c: 204: TX_Checksum=0b00000000;
-"204
-[e = _TX_Checksum -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 205: for(i=0; i<TX_RX_Payload_Width; i++)
 "205
+}
+"206
+}
+[; ;nRF24l01.c: 205: }
+[; ;nRF24l01.c: 206: }
+[e $U 414  ]
+"207
+[e :U 409 ]
+[; ;nRF24l01.c: 207: else if(Enable_Checksum)
+[e $ ! != -> _Enable_Checksum `i -> -> -> 0 `i `uc `i 415  ]
+[; ;nRF24l01.c: 208: {
+"208
+{
+[; ;nRF24l01.c: 209: TX_Checksum=0b00000000;
+"209
+[e = _TX_Checksum -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 210: for(i=0; i<TX_RX_Payload_Width; i++)
+"210
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 419  ]
-"206
-[e :U 416 ]
-[; ;nRF24l01.c: 206: {
-{
-[; ;nRF24l01.c: 207: dummydata=SPI_Transfer(TX_Payload[i]);
-"207
-[e = _dummydata ( _SPI_Transfer (1 *U + _TX_Payload * -> _i `ux -> -> # *U _TX_Payload `ui `ux ]
-[; ;nRF24l01.c: 209: TX_Checksum=TX_Checksum+TX_Payload[i];
-"209
-[e = _TX_Checksum -> + -> _TX_Checksum `i -> *U + _TX_Payload * -> _i `ux -> -> # *U _TX_Payload `ui `ux `i `uc ]
 "211
+[e :U 416 ]
+[; ;nRF24l01.c: 211: {
+{
+[; ;nRF24l01.c: 212: dummydata=SPI_Transfer(TX_Payload[i]);
+"212
+[e = _dummydata ( _SPI_Transfer (1 *U + _TX_Payload * -> _i `ux -> -> # *U _TX_Payload `ui `ux ]
+[; ;nRF24l01.c: 214: TX_Checksum=TX_Checksum+TX_Payload[i];
+"214
+[e = _TX_Checksum -> + -> _TX_Checksum `i -> *U + _TX_Payload * -> _i `ux -> -> # *U _TX_Payload `ui `ux `i `uc ]
+"216
 }
-"205
+"210
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 419 ]
 [e $ < -> _i `i -> _TX_RX_Payload_Width `i 416  ]
 [e :U 417 ]
-"211
+"216
 }
-[; ;nRF24l01.c: 211: }
-[; ;nRF24l01.c: 212: dummydata=SPI_Transfer(TX_Checksum);
-"212
+[; ;nRF24l01.c: 216: }
+[; ;nRF24l01.c: 217: dummydata=SPI_Transfer(TX_Checksum);
+"217
 [e = _dummydata ( _SPI_Transfer (1 _TX_Checksum ]
-"214
+"219
 }
 [e :U 415 ]
-"215
+"220
 [e :U 414 ]
-[; ;nRF24l01.c: 214: }
-[; ;nRF24l01.c: 215: LATAbits.LATA3=1;
+[; ;nRF24l01.c: 219: }
+[; ;nRF24l01.c: 220: LATAbits.LATA3=1;
 [e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 216: }
-"216
+[; ;nRF24l01.c: 221: }
+"221
 [e :UE 408 ]
 }
-"218
+"223
 [v _Reset_nRF24L01_Status_and_nRF24L01_Payloads `(v ~T0 @X0 1 ef ]
-"219
+"224
 {
-[; ;nRF24l01.c: 218: void Reset_nRF24L01_Status_and_nRF24L01_Payloads (void)
-[; ;nRF24l01.c: 219: {
+[; ;nRF24l01.c: 223: void Reset_nRF24L01_Status_and_nRF24L01_Payloads (void)
+[; ;nRF24l01.c: 224: {
 [e :U _Reset_nRF24L01_Status_and_nRF24L01_Payloads ]
 [f ]
-"220
-[v _nRF24L01_Status `uc ~T0 @X0 1 a ]
-[; ;nRF24l01.c: 220: unsigned char nRF24L01_Status;
-[; ;nRF24l01.c: 222: LATAbits.LATA3=0;
-"222
-[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 223: nRF24L01_Status=SPI_Transfer(0b11100001);
-"223
-[e = _nRF24L01_Status ( _SPI_Transfer (1 -> -> 225 `i `uc ]
-[; ;nRF24l01.c: 224: LATAbits.LATA3=1;
-"224
-[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 225: _delay((unsigned long)((1)*(48000000UL/4000000.0)));
 "225
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 48000000 `ul `d .4000000.0 `ul ]
-[; ;nRF24l01.c: 226: LATAbits.LATA3=0;
-"226
-[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 227: nRF24L01_Status=SPI_Transfer(0b11100010);
+[v _nRF24L01_Status `uc ~T0 @X0 1 a ]
+[; ;nRF24l01.c: 225: unsigned char nRF24L01_Status;
+[; ;nRF24l01.c: 227: LATAbits.LATA3=0;
 "227
-[e = _nRF24L01_Status ( _SPI_Transfer (1 -> -> 226 `i `uc ]
-[; ;nRF24l01.c: 228: LATAbits.LATA3=1;
+[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 228: nRF24L01_Status=SPI_Transfer(0b11100001);
 "228
+[e = _nRF24L01_Status ( _SPI_Transfer (1 -> -> 225 `i `uc ]
+[; ;nRF24l01.c: 229: LATAbits.LATA3=1;
+"229
 [e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 230: Write_nRF24L01_Status(0b01000000);
+[; ;nRF24l01.c: 230: _delay((unsigned long)((1)*(48000000UL/4000000.0)));
 "230
-[e ( _Write_nRF24L01_Status (1 -> -> 64 `i `uc ]
-[; ;nRF24l01.c: 231: Write_nRF24L01_Status(0b00100000);
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 48000000 `ul `d .4000000.0 `ul ]
+[; ;nRF24l01.c: 231: LATAbits.LATA3=0;
 "231
-[e ( _Write_nRF24L01_Status (1 -> -> 32 `i `uc ]
-[; ;nRF24l01.c: 232: Write_nRF24L01_Status(0b00010000);
+[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 232: nRF24L01_Status=SPI_Transfer(0b11100010);
 "232
-[e ( _Write_nRF24L01_Status (1 -> -> 16 `i `uc ]
-[; ;nRF24l01.c: 233: }
+[e = _nRF24L01_Status ( _SPI_Transfer (1 -> -> 226 `i `uc ]
+[; ;nRF24l01.c: 233: LATAbits.LATA3=1;
 "233
+[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 235: Write_nRF24L01_Status(0b01000000);
+"235
+[e ( _Write_nRF24L01_Status (1 -> -> 64 `i `uc ]
+[; ;nRF24l01.c: 236: Write_nRF24L01_Status(0b00100000);
+"236
+[e ( _Write_nRF24L01_Status (1 -> -> 32 `i `uc ]
+[; ;nRF24l01.c: 237: Write_nRF24L01_Status(0b00010000);
+"237
+[e ( _Write_nRF24L01_Status (1 -> -> 16 `i `uc ]
+[; ;nRF24l01.c: 238: }
+"238
 [e :UE 420 ]
 }
-"235
+"240
 [v _Start_RX_Mode_nRF24L01 `(v ~T0 @X0 1 ef19`uc`uc`uc`uc`uc`uc`*uc`*uc`uc`uc`uc`uc`uc`uc`uc`uc`uc`uc`uc ]
-"236
+"241
 {
-[; ;nRF24l01.c: 235: void Start_RX_Mode_nRF24L01 ( unsigned char TX_RX_Address_Width, unsigned char Frequency_Channel, unsigned char RF_Data_Rate, unsigned char RF_Output_Power, unsigned char LNA_Gain, unsigned char CRC_Setup, unsigned char *RX_Pipe0_Address, unsigned ch
-[; ;nRF24l01.c: 236: {
+[; ;nRF24l01.c: 240: void Start_RX_Mode_nRF24L01 ( unsigned char TX_RX_Address_Width, unsigned char Frequency_Channel, unsigned char RF_Data_Rate, unsigned char RF_Output_Power, unsigned char LNA_Gain, unsigned char CRC_Setup, unsigned char *RX_Pipe0_Address, unsigned ch
+[; ;nRF24l01.c: 241: {
 [e :U _Start_RX_Mode_nRF24L01 ]
-"235
+"240
 [v _TX_RX_Address_Width `uc ~T0 @X0 1 r1 ]
 [v _Frequency_Channel `uc ~T0 @X0 1 r2 ]
 [v _RF_Data_Rate `uc ~T0 @X0 1 r3 ]
@@ -4494,84 +4494,83 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RX_P3_Payload_Width `uc ~T0 @X0 1 r17 ]
 [v _RX_P4_Payload_Width `uc ~T0 @X0 1 r18 ]
 [v _RX_P5_Payload_Width `uc ~T0 @X0 1 r19 ]
-"236
+"241
 [f ]
-[; ;nRF24l01.c: 237: LATAbits.LATA2=0;
-"237
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 238: Reset_nRF24L01_Status_and_nRF24L01_Payloads();
-"238
-[e ( _Reset_nRF24L01_Status_and_nRF24L01_Payloads ..  ]
-[; ;nRF24l01.c: 240: Write_nRF24L01_Register (0x01, 0b00111111);
-"240
-[e ( _Write_nRF24L01_Register (2 , -> -> 1 `i `uc -> -> 63 `i `uc ]
-[; ;nRF24l01.c: 242: Write_nRF24L01_Register (0x02, 0b00111111);
+[; ;nRF24l01.c: 242: LATAbits.LATA2=0;
 "242
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 243: Reset_nRF24L01_Status_and_nRF24L01_Payloads();
+"243
+[e ( _Reset_nRF24L01_Status_and_nRF24L01_Payloads ..  ]
+[; ;nRF24l01.c: 245: Write_nRF24L01_Register (0x01, 0b00111111);
+"245
+[e ( _Write_nRF24L01_Register (2 , -> -> 1 `i `uc -> -> 63 `i `uc ]
+[; ;nRF24l01.c: 247: Write_nRF24L01_Register (0x02, 0b00111111);
+"247
 [e ( _Write_nRF24L01_Register (2 , -> -> 2 `i `uc -> -> 63 `i `uc ]
-[; ;nRF24l01.c: 244: Write_nRF24L01_Register (0x03, TX_RX_Address_Width);
-"244
-[e ( _Write_nRF24L01_Register (2 , -> -> 3 `i `uc _TX_RX_Address_Width ]
-[; ;nRF24l01.c: 246: Write_nRF24L01_Register (0x05, Frequency_Channel);
-"246
-[e ( _Write_nRF24L01_Register (2 , -> -> 5 `i `uc _Frequency_Channel ]
-[; ;nRF24l01.c: 248: Write_nRF24L01_Register (0x06, RF_Data_Rate*0b1000 + RF_Output_Power*0b10 +
-[; ;nRF24l01.c: 249: LNA_Gain);
+[; ;nRF24l01.c: 249: Write_nRF24L01_Register (0x03, TX_RX_Address_Width);
 "249
+[e ( _Write_nRF24L01_Register (2 , -> -> 3 `i `uc _TX_RX_Address_Width ]
+[; ;nRF24l01.c: 251: Write_nRF24L01_Register (0x05, Frequency_Channel);
+"251
+[e ( _Write_nRF24L01_Register (2 , -> -> 5 `i `uc _Frequency_Channel ]
+[; ;nRF24l01.c: 253: Write_nRF24L01_Register (0x06, RF_Data_Rate*0b1000 + RF_Output_Power*0b10 + LNA_Gain);
+"253
 [e ( _Write_nRF24L01_Register (2 , -> -> 6 `i `uc -> + + * -> _RF_Data_Rate `i -> 8 `i * -> _RF_Output_Power `i -> 2 `i -> _LNA_Gain `i `uc ]
-[; ;nRF24l01.c: 250: Write_nRF24L01_Address_Register (TX_RX_Address_Width, 0x0A, RX_Pipe0_Address);
-"250
-[e ( _Write_nRF24L01_Address_Register (3 , , _TX_RX_Address_Width -> -> 10 `i `uc _RX_Pipe0_Address ]
-[; ;nRF24l01.c: 252: Write_nRF24L01_Address_Register (TX_RX_Address_Width, 0x0B, RX_Pipe1_Address);
-"252
-[e ( _Write_nRF24L01_Address_Register (3 , , _TX_RX_Address_Width -> -> 11 `i `uc _RX_Pipe1_Address ]
-[; ;nRF24l01.c: 254: Write_nRF24L01_Register (0x0C, RX_Pipe2_Address);
+[; ;nRF24l01.c: 254: Write_nRF24L01_Address_Register (TX_RX_Address_Width, 0x0A, RX_Pipe0_Address);
 "254
-[e ( _Write_nRF24L01_Register (2 , -> -> 12 `i `uc _RX_Pipe2_Address ]
-[; ;nRF24l01.c: 256: Write_nRF24L01_Register (0x0D, RX_Pipe3_Address);
+[e ( _Write_nRF24L01_Address_Register (3 , , _TX_RX_Address_Width -> -> 10 `i `uc _RX_Pipe0_Address ]
+[; ;nRF24l01.c: 256: Write_nRF24L01_Address_Register (TX_RX_Address_Width, 0x0B, RX_Pipe1_Address);
 "256
-[e ( _Write_nRF24L01_Register (2 , -> -> 13 `i `uc _RX_Pipe3_Address ]
-[; ;nRF24l01.c: 258: Write_nRF24L01_Register (0x0E, RX_Pipe4_Address);
+[e ( _Write_nRF24L01_Address_Register (3 , , _TX_RX_Address_Width -> -> 11 `i `uc _RX_Pipe1_Address ]
+[; ;nRF24l01.c: 258: Write_nRF24L01_Register (0x0C, RX_Pipe2_Address);
 "258
-[e ( _Write_nRF24L01_Register (2 , -> -> 14 `i `uc _RX_Pipe4_Address ]
-[; ;nRF24l01.c: 260: Write_nRF24L01_Register (0x0F, RX_Pipe5_Address);
+[e ( _Write_nRF24L01_Register (2 , -> -> 12 `i `uc _RX_Pipe2_Address ]
+[; ;nRF24l01.c: 260: Write_nRF24L01_Register (0x0D, RX_Pipe3_Address);
 "260
-[e ( _Write_nRF24L01_Register (2 , -> -> 15 `i `uc _RX_Pipe5_Address ]
-[; ;nRF24l01.c: 262: Write_nRF24L01_Register (0x11, RX_P0_Payload_Width+Enable_Checksum);
+[e ( _Write_nRF24L01_Register (2 , -> -> 13 `i `uc _RX_Pipe3_Address ]
+[; ;nRF24l01.c: 262: Write_nRF24L01_Register (0x0E, RX_Pipe4_Address);
 "262
-[e ( _Write_nRF24L01_Register (2 , -> -> 17 `i `uc -> + -> _RX_P0_Payload_Width `i -> _Enable_Checksum `i `uc ]
-[; ;nRF24l01.c: 264: Write_nRF24L01_Register (0x12, RX_P1_Payload_Width+Enable_Checksum);
+[e ( _Write_nRF24L01_Register (2 , -> -> 14 `i `uc _RX_Pipe4_Address ]
+[; ;nRF24l01.c: 264: Write_nRF24L01_Register (0x0F, RX_Pipe5_Address);
 "264
-[e ( _Write_nRF24L01_Register (2 , -> -> 18 `i `uc -> + -> _RX_P1_Payload_Width `i -> _Enable_Checksum `i `uc ]
-[; ;nRF24l01.c: 266: Write_nRF24L01_Register (0x13, RX_P2_Payload_Width+Enable_Checksum);
+[e ( _Write_nRF24L01_Register (2 , -> -> 15 `i `uc _RX_Pipe5_Address ]
+[; ;nRF24l01.c: 266: Write_nRF24L01_Register (0x11, RX_P0_Payload_Width+Enable_Checksum);
 "266
-[e ( _Write_nRF24L01_Register (2 , -> -> 19 `i `uc -> + -> _RX_P2_Payload_Width `i -> _Enable_Checksum `i `uc ]
-[; ;nRF24l01.c: 268: Write_nRF24L01_Register (0x14, RX_P3_Payload_Width+Enable_Checksum);
+[e ( _Write_nRF24L01_Register (2 , -> -> 17 `i `uc -> + -> _RX_P0_Payload_Width `i -> _Enable_Checksum `i `uc ]
+[; ;nRF24l01.c: 268: Write_nRF24L01_Register (0x12, RX_P1_Payload_Width+Enable_Checksum);
 "268
-[e ( _Write_nRF24L01_Register (2 , -> -> 20 `i `uc -> + -> _RX_P3_Payload_Width `i -> _Enable_Checksum `i `uc ]
-[; ;nRF24l01.c: 270: Write_nRF24L01_Register (0x15, RX_P4_Payload_Width+Enable_Checksum);
+[e ( _Write_nRF24L01_Register (2 , -> -> 18 `i `uc -> + -> _RX_P1_Payload_Width `i -> _Enable_Checksum `i `uc ]
+[; ;nRF24l01.c: 270: Write_nRF24L01_Register (0x13, RX_P2_Payload_Width+Enable_Checksum);
 "270
-[e ( _Write_nRF24L01_Register (2 , -> -> 21 `i `uc -> + -> _RX_P4_Payload_Width `i -> _Enable_Checksum `i `uc ]
-[; ;nRF24l01.c: 272: Write_nRF24L01_Register (0x16, RX_P5_Payload_Width+Enable_Checksum);
+[e ( _Write_nRF24L01_Register (2 , -> -> 19 `i `uc -> + -> _RX_P2_Payload_Width `i -> _Enable_Checksum `i `uc ]
+[; ;nRF24l01.c: 272: Write_nRF24L01_Register (0x14, RX_P3_Payload_Width+Enable_Checksum);
 "272
-[e ( _Write_nRF24L01_Register (2 , -> -> 22 `i `uc -> + -> _RX_P5_Payload_Width `i -> _Enable_Checksum `i `uc ]
-[; ;nRF24l01.c: 274: Write_nRF24L01_Register (0x00, 0b00001000 + CRC_Setup*0b100 + 0b00000010 + 0b00000001);
+[e ( _Write_nRF24L01_Register (2 , -> -> 20 `i `uc -> + -> _RX_P3_Payload_Width `i -> _Enable_Checksum `i `uc ]
+[; ;nRF24l01.c: 274: Write_nRF24L01_Register (0x15, RX_P4_Payload_Width+Enable_Checksum);
 "274
-[e ( _Write_nRF24L01_Register (2 , -> -> 0 `i `uc -> + + + -> 8 `i * -> _CRC_Setup `i -> 4 `i -> 2 `i -> 1 `i `uc ]
-[; ;nRF24l01.c: 276: _delay((unsigned long)((2)*(48000000UL/4000.0)));
+[e ( _Write_nRF24L01_Register (2 , -> -> 21 `i `uc -> + -> _RX_P4_Payload_Width `i -> _Enable_Checksum `i `uc ]
+[; ;nRF24l01.c: 276: Write_nRF24L01_Register (0x16, RX_P5_Payload_Width+Enable_Checksum);
 "276
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 48000000 `ul `d .4000.0 `ul ]
-[; ;nRF24l01.c: 278: }
+[e ( _Write_nRF24L01_Register (2 , -> -> 22 `i `uc -> + -> _RX_P5_Payload_Width `i -> _Enable_Checksum `i `uc ]
+[; ;nRF24l01.c: 278: Write_nRF24L01_Register (0x00, 0b00001000 + CRC_Setup*0b100 + 0b00000010 + 0b00000001);
 "278
+[e ( _Write_nRF24L01_Register (2 , -> -> 0 `i `uc -> + + + -> 8 `i * -> _CRC_Setup `i -> 4 `i -> 2 `i -> 1 `i `uc ]
+[; ;nRF24l01.c: 280: _delay((unsigned long)((2)*(48000000UL/4000.0)));
+"280
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 48000000 `ul `d .4000.0 `ul ]
+[; ;nRF24l01.c: 282: }
+"282
 [e :UE 421 ]
 }
-"280
+"284
 [v _Start_TX_Mode_nRF24L01 `(v ~T0 @X0 1 ef10`uc`uc`uc`uc`uc`uc`uc`uc`uc`uc ]
-"281
+"285
 {
-[; ;nRF24l01.c: 280: void Start_TX_Mode_nRF24L01 ( unsigned char TX_RX_Address_Width, unsigned char Frequency_Channel, unsigned char RF_Data_Rate, unsigned char RF_Output_Power, unsigned char LNA_Gain, unsigned char CRC_Setup, unsigned char Auto_Retransmit_Delay, unsigne
-[; ;nRF24l01.c: 281: {
+[; ;nRF24l01.c: 284: void Start_TX_Mode_nRF24L01 ( unsigned char TX_RX_Address_Width, unsigned char Frequency_Channel, unsigned char RF_Data_Rate, unsigned char RF_Output_Power, unsigned char LNA_Gain, unsigned char CRC_Setup, unsigned char Auto_Retransmit_Delay, unsigne
+[; ;nRF24l01.c: 285: {
 [e :U _Start_TX_Mode_nRF24L01 ]
-"280
+"284
 [v _TX_RX_Address_Width `uc ~T0 @X0 1 r1 ]
 [v _Frequency_Channel `uc ~T0 @X0 1 r2 ]
 [v _RF_Data_Rate `uc ~T0 @X0 1 r3 ]
@@ -4582,379 +4581,378 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Max_Auto_Retransmit `uc ~T0 @X0 1 r8 ]
 [v _Enable_Checksum `uc ~T0 @X0 1 r9 ]
 [v _TX_RX_Payload_Width `uc ~T0 @X0 1 r10 ]
-"281
-[f ]
-[; ;nRF24l01.c: 282: LATAbits.LATA2=0;
-"282
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 283: Reset_nRF24L01_Status_and_nRF24L01_Payloads();
-"283
-[e ( _Reset_nRF24L01_Status_and_nRF24L01_Payloads ..  ]
-[; ;nRF24l01.c: 285: Write_nRF24L01_Register (0x01, 0b00111111);
 "285
-[e ( _Write_nRF24L01_Register (2 , -> -> 1 `i `uc -> -> 63 `i `uc ]
-[; ;nRF24l01.c: 287: Write_nRF24L01_Register (0x02, 0b00111111);
+[f ]
+[; ;nRF24l01.c: 286: LATAbits.LATA2=0;
+"286
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 287: Reset_nRF24L01_Status_and_nRF24L01_Payloads();
 "287
-[e ( _Write_nRF24L01_Register (2 , -> -> 2 `i `uc -> -> 63 `i `uc ]
-[; ;nRF24l01.c: 289: Write_nRF24L01_Register (0x03, TX_RX_Address_Width);
+[e ( _Reset_nRF24L01_Status_and_nRF24L01_Payloads ..  ]
+[; ;nRF24l01.c: 289: Write_nRF24L01_Register (0x01, 0b00111111);
 "289
-[e ( _Write_nRF24L01_Register (2 , -> -> 3 `i `uc _TX_RX_Address_Width ]
-[; ;nRF24l01.c: 291: Write_nRF24L01_Register (0x04, Auto_Retransmit_Delay*0b10000 +
-[; ;nRF24l01.c: 292: Max_Auto_Retransmit);
-"292
-[e ( _Write_nRF24L01_Register (2 , -> -> 4 `i `uc -> + * -> _Auto_Retransmit_Delay `i -> 16 `i -> _Max_Auto_Retransmit `i `uc ]
-[; ;nRF24l01.c: 293: Write_nRF24L01_Register (0x05, Frequency_Channel);
+[e ( _Write_nRF24L01_Register (2 , -> -> 1 `i `uc -> -> 63 `i `uc ]
+[; ;nRF24l01.c: 291: Write_nRF24L01_Register (0x02, 0b00111111);
+"291
+[e ( _Write_nRF24L01_Register (2 , -> -> 2 `i `uc -> -> 63 `i `uc ]
+[; ;nRF24l01.c: 293: Write_nRF24L01_Register (0x03, TX_RX_Address_Width);
 "293
-[e ( _Write_nRF24L01_Register (2 , -> -> 5 `i `uc _Frequency_Channel ]
-[; ;nRF24l01.c: 295: Write_nRF24L01_Register (0x06, RF_Data_Rate*0b1000 + RF_Output_Power*0b10 +
-[; ;nRF24l01.c: 296: LNA_Gain);
+[e ( _Write_nRF24L01_Register (2 , -> -> 3 `i `uc _TX_RX_Address_Width ]
+[; ;nRF24l01.c: 295: Write_nRF24L01_Register (0x04, Auto_Retransmit_Delay*0b10000 +
+[; ;nRF24l01.c: 296: Max_Auto_Retransmit);
 "296
-[e ( _Write_nRF24L01_Register (2 , -> -> 6 `i `uc -> + + * -> _RF_Data_Rate `i -> 8 `i * -> _RF_Output_Power `i -> 2 `i -> _LNA_Gain `i `uc ]
-[; ;nRF24l01.c: 297: Write_nRF24L01_Register (0x11, TX_RX_Payload_Width+Enable_Checksum);
+[e ( _Write_nRF24L01_Register (2 , -> -> 4 `i `uc -> + * -> _Auto_Retransmit_Delay `i -> 16 `i -> _Max_Auto_Retransmit `i `uc ]
+[; ;nRF24l01.c: 297: Write_nRF24L01_Register (0x05, Frequency_Channel);
 "297
-[e ( _Write_nRF24L01_Register (2 , -> -> 17 `i `uc -> + -> _TX_RX_Payload_Width `i -> _Enable_Checksum `i `uc ]
-[; ;nRF24l01.c: 299: Write_nRF24L01_Register (0x00,0b00001000 + CRC_Setup*0b100 + 0b00000010 + 0*0b00000001);
+[e ( _Write_nRF24L01_Register (2 , -> -> 5 `i `uc _Frequency_Channel ]
+[; ;nRF24l01.c: 299: Write_nRF24L01_Register (0x06, RF_Data_Rate*0b1000 + RF_Output_Power*0b10 + LNA_Gain);
 "299
-[e ( _Write_nRF24L01_Register (2 , -> -> 0 `i `uc -> + + + -> 8 `i * -> _CRC_Setup `i -> 4 `i -> 2 `i * -> 0 `i -> 1 `i `uc ]
-[; ;nRF24l01.c: 301: _delay((unsigned long)((2)*(48000000UL/4000.0)));
-"301
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 48000000 `ul `d .4000.0 `ul ]
-[; ;nRF24l01.c: 302: }
+[e ( _Write_nRF24L01_Register (2 , -> -> 6 `i `uc -> + + * -> _RF_Data_Rate `i -> 8 `i * -> _RF_Output_Power `i -> 2 `i -> _LNA_Gain `i `uc ]
+[; ;nRF24l01.c: 300: Write_nRF24L01_Register (0x11, TX_RX_Payload_Width+Enable_Checksum);
+"300
+[e ( _Write_nRF24L01_Register (2 , -> -> 17 `i `uc -> + -> _TX_RX_Payload_Width `i -> _Enable_Checksum `i `uc ]
+[; ;nRF24l01.c: 302: Write_nRF24L01_Register (0x00,0b00001000 + CRC_Setup*0b100 + 0b00000010 + 0*0b00000001);
 "302
+[e ( _Write_nRF24L01_Register (2 , -> -> 0 `i `uc -> + + + -> 8 `i * -> _CRC_Setup `i -> 4 `i -> 2 `i * -> 0 `i -> 1 `i `uc ]
+[; ;nRF24l01.c: 303: _delay((unsigned long)((2)*(48000000UL/4000.0)));
+"303
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 48000000 `ul `d .4000.0 `ul ]
+[; ;nRF24l01.c: 304: }
+"304
 [e :UE 422 ]
 }
-"304
+"306
 [v _Receive_Data_RX_Mode_nRF24L01 `(uc ~T0 @X0 1 ef4`uc`uc`uc`*uc ]
-"305
+"307
 {
-[; ;nRF24l01.c: 304: unsigned char Receive_Data_RX_Mode_nRF24L01( unsigned char Enable_Checksum, unsigned char Max_Waiting_ds, unsigned char TX_RX_Payload_Width, unsigned char *RX_Payload )
-[; ;nRF24l01.c: 305: {
+[; ;nRF24l01.c: 306: unsigned char Receive_Data_RX_Mode_nRF24L01( unsigned char Enable_Checksum, unsigned char Max_Waiting_ds, unsigned char TX_RX_Payload_Width, unsigned char *RX_Payload )
+[; ;nRF24l01.c: 307: {
 [e :U _Receive_Data_RX_Mode_nRF24L01 ]
-"304
+"306
 [v _Enable_Checksum `uc ~T0 @X0 1 r1 ]
 [v _Max_Waiting_ds `uc ~T0 @X0 1 r2 ]
 [v _TX_RX_Payload_Width `uc ~T0 @X0 1 r3 ]
 [v _RX_Payload `*uc ~T0 @X0 1 r4 ]
-"305
-[f ]
-"306
-[v _nRF24L01_Status `uc ~T0 @X0 1 a ]
 "307
-[v _Origin_Pipe `uc ~T0 @X0 1 a ]
+[f ]
 "308
+[v _nRF24L01_Status `uc ~T0 @X0 1 a ]
+"309
+[v _Origin_Pipe `uc ~T0 @X0 1 a ]
+"310
 [v _Checksum_Conclusion `uc ~T0 @X0 1 a ]
 [v _IRQ_Error `uc ~T0 @X0 1 a ]
-"309
-[v _i `ui ~T0 @X0 1 a ]
-"310
-[v _j `uc ~T0 @X0 1 a ]
-[; ;nRF24l01.c: 306: unsigned char nRF24L01_Status;
-[; ;nRF24l01.c: 307: unsigned char Origin_Pipe;
-[; ;nRF24l01.c: 308: unsigned char Checksum_Conclusion, IRQ_Error;
-[; ;nRF24l01.c: 309: unsigned int i;
-[; ;nRF24l01.c: 310: unsigned char j;
-[; ;nRF24l01.c: 311: IRQ_Error=0;
 "311
-[e = _IRQ_Error -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 312: LATAbits.LATA2=1;
+[v _i `ui ~T0 @X0 1 a ]
 "312
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 313: _delay((unsigned long)((130)*(48000000UL/4000000.0)));
+[v _j `uc ~T0 @X0 1 a ]
+[; ;nRF24l01.c: 308: unsigned char nRF24L01_Status;
+[; ;nRF24l01.c: 309: unsigned char Origin_Pipe;
+[; ;nRF24l01.c: 310: unsigned char Checksum_Conclusion, IRQ_Error;
+[; ;nRF24l01.c: 311: unsigned int i;
+[; ;nRF24l01.c: 312: unsigned char j;
+[; ;nRF24l01.c: 313: IRQ_Error=0;
 "313
-[e ( __delay (1 -> * -> -> 130 `i `d / -> -> 48000000 `ul `d .4000000.0 `ul ]
-[; ;nRF24l01.c: 314: _delay((unsigned long)((10)*(48000000UL/4000000.0)));
+[e = _IRQ_Error -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 314: LATAbits.LATA2=1;
 "314
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 48000000 `ul `d .4000000.0 `ul ]
-[; ;nRF24l01.c: 316: i=0; j=0;
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 315: _delay((unsigned long)((130)*(48000000UL/4000000.0)));
+"315
+[e ( __delay (1 -> * -> -> 130 `i `d / -> -> 48000000 `ul `d .4000000.0 `ul ]
+[; ;nRF24l01.c: 316: _delay((unsigned long)((10)*(48000000UL/4000000.0)));
 "316
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 48000000 `ul `d .4000000.0 `ul ]
+[; ;nRF24l01.c: 318: i=0; j=0;
+"318
 [e = _i -> -> 0 `i `ui ]
 [e = _j -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 317: while(PORTBbits.RB2)
-"317
+[; ;nRF24l01.c: 319: while(PORTBbits.RB2)
+"319
 [e $U 424  ]
 [e :U 425 ]
-[; ;nRF24l01.c: 318: {
-"318
-{
-[; ;nRF24l01.c: 319: i++;
-"319
-[e ++ _i -> -> 1 `i `ui ]
-[; ;nRF24l01.c: 320: if(i==3333)
+[; ;nRF24l01.c: 320: {
 "320
-[e $ ! == _i -> -> 3333 `i `ui 427  ]
-[; ;nRF24l01.c: 321: {
-"321
 {
-[; ;nRF24l01.c: 322: i=0; j++;
+[; ;nRF24l01.c: 321: i++;
+"321
+[e ++ _i -> -> 1 `i `ui ]
+[; ;nRF24l01.c: 322: if(i==3333)
 "322
+[e $ ! == _i -> -> 3333 `i `ui 427  ]
+[; ;nRF24l01.c: 323: {
+"323
+{
+[; ;nRF24l01.c: 324: i=0; j++;
+"324
 [e = _i -> -> 0 `i `ui ]
 [e ++ _j -> -> 1 `i `uc ]
-"323
+"325
 }
 [e :U 427 ]
-[; ;nRF24l01.c: 323: }
-[; ;nRF24l01.c: 324: if(j==Max_Waiting_ds)
-"324
-[e $ ! == -> _j `i -> _Max_Waiting_ds `i 428  ]
-[; ;nRF24l01.c: 325: {
-"325
-{
-[; ;nRF24l01.c: 326: IRQ_Error=1;
+[; ;nRF24l01.c: 325: }
+[; ;nRF24l01.c: 326: if(j==Max_Waiting_ds)
 "326
-[e = _IRQ_Error -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 327: break;
+[e $ ! == -> _j `i -> _Max_Waiting_ds `i 428  ]
+[; ;nRF24l01.c: 327: {
 "327
-[e $U 426  ]
+{
+[; ;nRF24l01.c: 328: IRQ_Error=1;
 "328
+[e = _IRQ_Error -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 329: break;
+"329
+[e $U 426  ]
+"330
 }
 [e :U 428 ]
-"329
+"331
 }
 [e :U 424 ]
-"317
+"319
 [e $ != -> . . _PORTBbits 0 2 `i -> -> -> 0 `i `Vuc `i 425  ]
 [e :U 426 ]
-[; ;nRF24l01.c: 328: }
-[; ;nRF24l01.c: 329: }
-[; ;nRF24l01.c: 330: LATAbits.LATA2=0;
-"330
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 331: _delay((unsigned long)((4)*(48000000UL/4000000.0)));
-"331
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 48000000 `ul `d .4000000.0 `ul ]
-[; ;nRF24l01.c: 332: nRF24L01_Status=Read_nRF24L01_Status();
+[; ;nRF24l01.c: 330: }
+[; ;nRF24l01.c: 331: }
+[; ;nRF24l01.c: 332: LATAbits.LATA2=0;
 "332
-[e = _nRF24L01_Status ( _Read_nRF24L01_Status ..  ]
-[; ;nRF24l01.c: 334: Origin_Pipe=(nRF24L01_Status & 0b00001110);
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 333: _delay((unsigned long)((4)*(48000000UL/4000000.0)));
+"333
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 48000000 `ul `d .4000000.0 `ul ]
+[; ;nRF24l01.c: 334: nRF24L01_Status=Read_nRF24L01_Status();
 "334
-[e = _Origin_Pipe -> & -> _nRF24L01_Status `i -> 14 `i `uc ]
-[; ;nRF24l01.c: 336: Checksum_Conclusion=Read_nRF24L01_RX_Payload(Enable_Checksum,TX_RX_Payload_Width, RX_Payload);
+[e = _nRF24L01_Status ( _Read_nRF24L01_Status ..  ]
+[; ;nRF24l01.c: 336: Origin_Pipe=(nRF24L01_Status & 0b00001110);
 "336
+[e = _Origin_Pipe -> & -> _nRF24L01_Status `i -> 14 `i `uc ]
+[; ;nRF24l01.c: 338: Checksum_Conclusion=Read_nRF24L01_RX_Payload(Enable_Checksum,TX_RX_Payload_Width, RX_Payload);
+"338
 [e = _Checksum_Conclusion ( _Read_nRF24L01_RX_Payload (3 , , _Enable_Checksum _TX_RX_Payload_Width _RX_Payload ]
-[; ;nRF24l01.c: 337: Write_nRF24L01_Status(0b01000000);
-"337
-[e ( _Write_nRF24L01_Status (1 -> -> 64 `i `uc ]
-[; ;nRF24l01.c: 339: return (IRQ_Error*0b10000+Origin_Pipe+Checksum_Conclusion);
+[; ;nRF24l01.c: 339: Write_nRF24L01_Status(0b01000000);
 "339
+[e ( _Write_nRF24L01_Status (1 -> -> 64 `i `uc ]
+[; ;nRF24l01.c: 341: return (IRQ_Error*0b10000+Origin_Pipe+Checksum_Conclusion);
+"341
 [e ) -> + + * -> _IRQ_Error `i -> 16 `i -> _Origin_Pipe `i -> _Checksum_Conclusion `i `uc ]
 [e $UE 423  ]
-[; ;nRF24l01.c: 341: }
-"341
+[; ;nRF24l01.c: 343: }
+"343
 [e :UE 423 ]
 }
-"343
+"345
 [v _Send_Data_TX_Mode_nRF24L01 `(v ~T0 @X0 1 ef5`uc`uc`*uc`uc`*uc ]
-"344
+"346
 {
-[; ;nRF24l01.c: 343: void Send_Data_TX_Mode_nRF24L01( unsigned char Enable_Checksum, unsigned char TX_RX_Address_Width, unsigned char *TX_Address, unsigned char TX_RX_Payload_Width, unsigned char *TX_Payload )
-[; ;nRF24l01.c: 344: {
+[; ;nRF24l01.c: 345: void Send_Data_TX_Mode_nRF24L01( unsigned char Enable_Checksum, unsigned char TX_RX_Address_Width, unsigned char *TX_Address, unsigned char TX_RX_Payload_Width, unsigned char *TX_Payload )
+[; ;nRF24l01.c: 346: {
 [e :U _Send_Data_TX_Mode_nRF24L01 ]
-"343
+"345
 [v _Enable_Checksum `uc ~T0 @X0 1 r1 ]
 [v _TX_RX_Address_Width `uc ~T0 @X0 1 r2 ]
 [v _TX_Address `*uc ~T0 @X0 1 r3 ]
 [v _TX_RX_Payload_Width `uc ~T0 @X0 1 r4 ]
 [v _TX_Payload `*uc ~T0 @X0 1 r5 ]
-"344
+"346
 [f ]
-[; ;nRF24l01.c: 345: Write_nRF24L01_Address_Register (TX_RX_Address_Width, 0x10, TX_Address);
-"345
-[e ( _Write_nRF24L01_Address_Register (3 , , _TX_RX_Address_Width -> -> 16 `i `uc _TX_Address ]
-[; ;nRF24l01.c: 347: Write_nRF24L01_Address_Register (TX_RX_Address_Width, 0x0A, TX_Address);
+[; ;nRF24l01.c: 347: Write_nRF24L01_Address_Register (TX_RX_Address_Width, 0x10, TX_Address);
 "347
-[e ( _Write_nRF24L01_Address_Register (3 , , _TX_RX_Address_Width -> -> 10 `i `uc _TX_Address ]
-[; ;nRF24l01.c: 349: Write_nRF24L01_TX_Payload (Enable_Checksum, TX_RX_Payload_Width, TX_Payload);
+[e ( _Write_nRF24L01_Address_Register (3 , , _TX_RX_Address_Width -> -> 16 `i `uc _TX_Address ]
+[; ;nRF24l01.c: 349: Write_nRF24L01_Address_Register (TX_RX_Address_Width, 0x0A, TX_Address);
 "349
+[e ( _Write_nRF24L01_Address_Register (3 , , _TX_RX_Address_Width -> -> 10 `i `uc _TX_Address ]
+[; ;nRF24l01.c: 351: Write_nRF24L01_TX_Payload (Enable_Checksum, TX_RX_Payload_Width, TX_Payload);
+"351
 [e ( _Write_nRF24L01_TX_Payload (3 , , _Enable_Checksum _TX_RX_Payload_Width _TX_Payload ]
-[; ;nRF24l01.c: 352: LATAbits.LATA2 = 1;
-"352
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 354: _delay((unsigned long)((130)*(48000000UL/4000000.0)));
+[; ;nRF24l01.c: 354: LATAbits.LATA2 = 1;
 "354
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 356: _delay((unsigned long)((130)*(48000000UL/4000000.0)));
+"356
 [e ( __delay (1 -> * -> -> 130 `i `d / -> -> 48000000 `ul `d .4000000.0 `ul ]
-[; ;nRF24l01.c: 355: _delay((unsigned long)((10)*(48000000UL/4000000.0)));
-"355
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 48000000 `ul `d .4000000.0 `ul ]
-[; ;nRF24l01.c: 357: LATAbits.LATA2 = 0;
+[; ;nRF24l01.c: 357: _delay((unsigned long)((10)*(48000000UL/4000000.0)));
 "357
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 359: _delay((unsigned long)((4)*(48000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 48000000 `ul `d .4000000.0 `ul ]
+[; ;nRF24l01.c: 359: LATAbits.LATA2 = 0;
 "359
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 48000000 `ul `d .4000000.0 `ul ]
-[; ;nRF24l01.c: 361: }
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 361: _delay((unsigned long)((4)*(48000000UL/4000000.0)));
 "361
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 48000000 `ul `d .4000000.0 `ul ]
+[; ;nRF24l01.c: 363: }
+"363
 [e :UE 429 ]
 }
-"363
-[v _Check_Data_Sent_TX_Mode_nRF24L01 `(uc ~T0 @X0 1 ef ]
 "365
+[v _Check_Data_Sent_TX_Mode_nRF24L01 `(uc ~T0 @X0 1 ef ]
+"367
 {
-[; ;nRF24l01.c: 363: unsigned char Check_Data_Sent_TX_Mode_nRF24L01 (void)
-[; ;nRF24l01.c: 365: {
+[; ;nRF24l01.c: 365: unsigned char Check_Data_Sent_TX_Mode_nRF24L01 (void)
+[; ;nRF24l01.c: 367: {
 [e :U _Check_Data_Sent_TX_Mode_nRF24L01 ]
 [f ]
-"366
+"368
 [v _TX_Operation_Result `uc ~T0 @X0 1 a ]
 [v _TX_Retransmit_Counter `uc ~T0 @X0 1 a ]
-"367
-[v _nRF24L01_Status `uc ~T0 @X0 1 a ]
-"368
-[v _i `ui ~T0 @X0 1 a ]
 "369
-[v _j `uc ~T0 @X0 1 a ]
-[; ;nRF24l01.c: 366: unsigned char TX_Operation_Result, TX_Retransmit_Counter;
-[; ;nRF24l01.c: 367: unsigned char nRF24L01_Status;
-[; ;nRF24l01.c: 368: unsigned int i;
-[; ;nRF24l01.c: 369: unsigned char j;
-[; ;nRF24l01.c: 371: i=0; j=0;
+[v _nRF24L01_Status `uc ~T0 @X0 1 a ]
+"370
+[v _i `ui ~T0 @X0 1 a ]
 "371
+[v _j `uc ~T0 @X0 1 a ]
+[; ;nRF24l01.c: 368: unsigned char TX_Operation_Result, TX_Retransmit_Counter;
+[; ;nRF24l01.c: 369: unsigned char nRF24L01_Status;
+[; ;nRF24l01.c: 370: unsigned int i;
+[; ;nRF24l01.c: 371: unsigned char j;
+[; ;nRF24l01.c: 373: i=0; j=0;
+"373
 [e = _i -> -> 0 `i `ui ]
 [e = _j -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 372: while(PORTBbits.RB2)
-"372
+[; ;nRF24l01.c: 374: while(PORTBbits.RB2)
+"374
 [e $U 431  ]
 [e :U 432 ]
-[; ;nRF24l01.c: 373: {
-"373
-{
-[; ;nRF24l01.c: 374: i++;
-"374
-[e ++ _i -> -> 1 `i `ui ]
-[; ;nRF24l01.c: 375: if(i==333)
+[; ;nRF24l01.c: 375: {
 "375
-[e $ ! == _i -> -> 333 `i `ui 434  ]
-[; ;nRF24l01.c: 376: {
-"376
 {
-[; ;nRF24l01.c: 377: i=0; j++;
+[; ;nRF24l01.c: 376: i++;
+"376
+[e ++ _i -> -> 1 `i `ui ]
+[; ;nRF24l01.c: 377: if(i==333)
 "377
+[e $ ! == _i -> -> 333 `i `ui 434  ]
+[; ;nRF24l01.c: 378: {
+"378
+{
+[; ;nRF24l01.c: 379: i=0; j++;
+"379
 [e = _i -> -> 0 `i `ui ]
 [e ++ _j -> -> 1 `i `uc ]
-"378
+"380
 }
 [e :U 434 ]
-[; ;nRF24l01.c: 378: }
-[; ;nRF24l01.c: 379: if(j==7)
-"379
-[e $ ! == -> _j `i -> 7 `i 435  ]
-[; ;nRF24l01.c: 380: {
-"380
-{
-[; ;nRF24l01.c: 381: TX_Operation_Result=0b11;
+[; ;nRF24l01.c: 380: }
+[; ;nRF24l01.c: 381: if(j==7)
 "381
-[e = _TX_Operation_Result -> -> 3 `i `uc ]
-[; ;nRF24l01.c: 382: break;
+[e $ ! == -> _j `i -> 7 `i 435  ]
+[; ;nRF24l01.c: 382: {
 "382
-[e $U 433  ]
+{
+[; ;nRF24l01.c: 383: TX_Operation_Result=0b11;
 "383
+[e = _TX_Operation_Result -> -> 3 `i `uc ]
+[; ;nRF24l01.c: 384: break;
+"384
+[e $U 433  ]
+"385
 }
 [e :U 435 ]
-"384
+"386
 }
 [e :U 431 ]
-"372
+"374
 [e $ != -> . . _PORTBbits 0 2 `i -> -> -> 0 `i `Vuc `i 432  ]
 [e :U 433 ]
-[; ;nRF24l01.c: 383: }
-[; ;nRF24l01.c: 384: }
-[; ;nRF24l01.c: 385: while(!PORTBbits.RB2)
-"385
+[; ;nRF24l01.c: 385: }
+[; ;nRF24l01.c: 386: }
+[; ;nRF24l01.c: 387: while(!PORTBbits.RB2)
+"387
 [e $U 436  ]
 [e :U 437 ]
-[; ;nRF24l01.c: 386: {
-"386
+[; ;nRF24l01.c: 388: {
+"388
 {
-[; ;nRF24l01.c: 387: nRF24L01_Status=Read_nRF24L01_Status();
-"387
-[e = _nRF24L01_Status ( _Read_nRF24L01_Status ..  ]
-[; ;nRF24l01.c: 389: if(nRF24L01_Status & 0b00010000)
+[; ;nRF24l01.c: 389: nRF24L01_Status=Read_nRF24L01_Status();
 "389
-[e $ ! != & -> _nRF24L01_Status `i -> 16 `i -> 0 `i 439  ]
-[; ;nRF24l01.c: 390: {
-"390
-{
-[; ;nRF24l01.c: 391: TX_Operation_Result=0b00;
+[e = _nRF24L01_Status ( _Read_nRF24L01_Status ..  ]
+[; ;nRF24l01.c: 391: if(nRF24L01_Status & 0b00010000)
 "391
-[e = _TX_Operation_Result -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 393: TX_Retransmit_Counter=Read_nRF24L01_Register(0x08) & 0x0F;
-"393
-[e = _TX_Retransmit_Counter -> & -> ( _Read_nRF24L01_Register (1 -> -> 8 `i `uc `i -> 15 `i `uc ]
-[; ;nRF24l01.c: 395: Write_nRF24L01_Status(0b00010000);
-"395
-[e ( _Write_nRF24L01_Status (1 -> -> 16 `i `uc ]
-"397
-}
-[; ;nRF24l01.c: 397: }
-[e $U 440  ]
-"398
-[e :U 439 ]
-[; ;nRF24l01.c: 398: else if(nRF24L01_Status & 0b00100000)
-[e $ ! != & -> _nRF24L01_Status `i -> 32 `i -> 0 `i 441  ]
-[; ;nRF24l01.c: 399: {
-"399
+[e $ ! != & -> _nRF24L01_Status `i -> 16 `i -> 0 `i 439  ]
+[; ;nRF24l01.c: 392: {
+"392
 {
-[; ;nRF24l01.c: 400: TX_Operation_Result=0b01;
-"400
-[e = _TX_Operation_Result -> -> 1 `i `uc ]
-[; ;nRF24l01.c: 402: TX_Retransmit_Counter=Read_nRF24L01_Register(0x08) & 0x0F;
-"402
+[; ;nRF24l01.c: 393: TX_Operation_Result=0b00;
+"393
+[e = _TX_Operation_Result -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 395: TX_Retransmit_Counter=Read_nRF24L01_Register(0x08) & 0x0F;
+"395
 [e = _TX_Retransmit_Counter -> & -> ( _Read_nRF24L01_Register (1 -> -> 8 `i `uc `i -> 15 `i `uc ]
-[; ;nRF24l01.c: 404: Write_nRF24L01_Status(0b00100000);
+[; ;nRF24l01.c: 397: Write_nRF24L01_Status(0b00010000);
+"397
+[e ( _Write_nRF24L01_Status (1 -> -> 16 `i `uc ]
+"399
+}
+[; ;nRF24l01.c: 399: }
+[e $U 440  ]
+"400
+[e :U 439 ]
+[; ;nRF24l01.c: 400: else if(nRF24L01_Status & 0b00100000)
+[e $ ! != & -> _nRF24L01_Status `i -> 32 `i -> 0 `i 441  ]
+[; ;nRF24l01.c: 401: {
+"401
+{
+[; ;nRF24l01.c: 402: TX_Operation_Result=0b01;
+"402
+[e = _TX_Operation_Result -> -> 1 `i `uc ]
+[; ;nRF24l01.c: 404: TX_Retransmit_Counter=Read_nRF24L01_Register(0x08) & 0x0F;
 "404
-[e ( _Write_nRF24L01_Status (1 -> -> 32 `i `uc ]
+[e = _TX_Retransmit_Counter -> & -> ( _Read_nRF24L01_Register (1 -> -> 8 `i `uc `i -> 15 `i `uc ]
+[; ;nRF24l01.c: 406: Write_nRF24L01_Status(0b00100000);
 "406
+[e ( _Write_nRF24L01_Status (1 -> -> 32 `i `uc ]
+"408
 }
 [e :U 441 ]
-"407
+"409
 [e :U 440 ]
 }
 [e :U 436 ]
-"385
+"387
 [e $ ! != -> . . _PORTBbits 0 2 `i -> -> -> 0 `i `Vuc `i 437  ]
 [e :U 438 ]
-[; ;nRF24l01.c: 406: }
-[; ;nRF24l01.c: 407: }
-[; ;nRF24l01.c: 408: return (TX_Retransmit_Counter*0b100 + TX_Operation_Result);
-"408
+[; ;nRF24l01.c: 408: }
+[; ;nRF24l01.c: 409: }
+[; ;nRF24l01.c: 410: return (TX_Retransmit_Counter*0b100 + TX_Operation_Result);
+"410
 [e ) -> + * -> _TX_Retransmit_Counter `i -> 4 `i -> _TX_Operation_Result `i `uc ]
 [e $UE 430  ]
-[; ;nRF24l01.c: 409: }
-"409
+[; ;nRF24l01.c: 411: }
+"411
 [e :UE 430 ]
 }
-"411
+"413
 [v _Finish_nRF24L01_Operation `(v ~T0 @X0 1 ef ]
-"412
+"414
 {
-[; ;nRF24l01.c: 411: void Finish_nRF24L01_Operation (void)
-[; ;nRF24l01.c: 412: {
+[; ;nRF24l01.c: 413: void Finish_nRF24L01_Operation (void)
+[; ;nRF24l01.c: 414: {
 [e :U _Finish_nRF24L01_Operation ]
 [f ]
-"413
-[v _previous_config_register `uc ~T0 @X0 1 a ]
-[; ;nRF24l01.c: 413: unsigned char previous_config_register;
-[; ;nRF24l01.c: 414: previous_config_register=Read_nRF24L01_Register(0x00);
-"414
-[e = _previous_config_register ( _Read_nRF24L01_Register (1 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 415: Write_nRF24L01_Register(0x00, previous_config_register & 0b11111101);
 "415
-[e ( _Write_nRF24L01_Register (2 , -> -> 0 `i `uc -> & -> _previous_config_register `i -> 253 `i `uc ]
-[; ;nRF24l01.c: 416: }
+[v _previous_config_register `uc ~T0 @X0 1 a ]
+[; ;nRF24l01.c: 415: unsigned char previous_config_register;
+[; ;nRF24l01.c: 416: previous_config_register=Read_nRF24L01_Register(0x00);
 "416
+[e = _previous_config_register ( _Read_nRF24L01_Register (1 -> -> 0 `i `uc ]
+[; ;nRF24l01.c: 417: Write_nRF24L01_Register(0x00, previous_config_register & 0b11111101);
+"417
+[e ( _Write_nRF24L01_Register (2 , -> -> 0 `i `uc -> & -> _previous_config_register `i -> 253 `i `uc ]
+[; ;nRF24l01.c: 418: }
+"418
 [e :UE 442 ]
 }
-"418
+"420
 [v _Finish_SPI_Operation `(v ~T0 @X0 1 ef ]
-"419
+"421
 {
-[; ;nRF24l01.c: 418: void Finish_SPI_Operation (void)
-[; ;nRF24l01.c: 419: {
+[; ;nRF24l01.c: 420: void Finish_SPI_Operation (void)
+[; ;nRF24l01.c: 421: {
 [e :U _Finish_SPI_Operation ]
 [f ]
-[; ;nRF24l01.c: 420: SSPCON1bits.SSPEN=0;
-"420
+[; ;nRF24l01.c: 422: SSPCON1bits.SSPEN=0;
+"422
 [e = . . _SSPCON1bits 0 2 -> -> 0 `i `uc ]
-[; ;nRF24l01.c: 421: }
-"421
+[; ;nRF24l01.c: 423: }
+"423
 [e :UE 443 ]
 }

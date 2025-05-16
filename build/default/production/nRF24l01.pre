@@ -4865,13 +4865,14 @@ void Finish_SPI_Operation (void);
 #pragma config DEBUG = OFF
 #pragma config PBADEN = OFF
 
-# 7 "nRF24l01.c"
+# 11 "nRF24l01.c"
 void SPI_Start (unsigned char Clock_Frequency)
 {
 TRISBbits.RB1 = 0;
 TRISBbits.RB0 = 1;
 TRISCbits.RC7 = 0;
 SSPCON1 = (SSPCON1 & 0xF0) | Clock_Frequency;
+
 SSPCON1bits.CKP=0;
 SSPSTATbits.CKE=1;
 SSPSTATbits.SMP=1;
@@ -5107,8 +5108,7 @@ Write_nRF24L01_Register (0x03, TX_RX_Address_Width);
 
 Write_nRF24L01_Register (0x05, Frequency_Channel);
 
-Write_nRF24L01_Register (0x06, RF_Data_Rate*0b1000 + RF_Output_Power*0b10 +
-LNA_Gain);
+Write_nRF24L01_Register (0x06, RF_Data_Rate*0b1000 + RF_Output_Power*0b10 + LNA_Gain);
 Write_nRF24L01_Address_Register (TX_RX_Address_Width, 0x0A, RX_Pipe0_Address);
 
 Write_nRF24L01_Address_Register (TX_RX_Address_Width, 0x0B, RX_Pipe1_Address);
@@ -5154,12 +5154,10 @@ Write_nRF24L01_Register (0x04, Auto_Retransmit_Delay*0b10000 +
 Max_Auto_Retransmit);
 Write_nRF24L01_Register (0x05, Frequency_Channel);
 
-Write_nRF24L01_Register (0x06, RF_Data_Rate*0b1000 + RF_Output_Power*0b10 +
-LNA_Gain);
+Write_nRF24L01_Register (0x06, RF_Data_Rate*0b1000 + RF_Output_Power*0b10 + LNA_Gain);
 Write_nRF24L01_Register (0x11, TX_RX_Payload_Width+Enable_Checksum);
 
 Write_nRF24L01_Register (0x00,0b00001000 + CRC_Setup*0b100 + 0b00000010 + 0*0b00000001);
-
 _delay((unsigned long)((2)*(48000000UL/4000.0)));
 }
 
