@@ -13,7 +13,7 @@ void SPI_Start (unsigned char Clock_Frequency)
     TRISBbits.RB1 = 0;      //RB1 -> SCK
     TRISBbits.RB0 = 1;      //RB0 -> SDI(MISO)
     TRISCbits.RC7 = 0;      //RC7 -> SDO(MOSI)
-    SSPCON1 = (SSPCON1 & 0xF0) | Clock_Frequency; //Configura la velocidad del reloj SPI usando el parámetro Clock_Frequency. es la velocidad con la que se comunicara preferentemente usar FOSC/16 
+    SSPCON1 = (SSPCON1 & 0xF0) | Clock_Frequency; //Configura la velocidad del reloj SPI usando el parï¿½metro Clock_Frequency. es la velocidad con la que se comunicara preferentemente usar FOSC/16 
     //para el pic 18f4550
     SSPCON1bits.CKP=0;  
     SSPSTATbits.CKE=1;   
@@ -313,7 +313,7 @@ unsigned char Receive_Data_RX_Mode_nRF24L01( unsigned char Enable_Checksum,  uns
     IRQ_Error=0; 
     CE=1;    
     __delay_us(130);  
-    __delay_us(10);  // Asegura el mínimo requerido 
+    __delay_us(10);  // Asegura el mï¿½nimo requerido 
 
     i=0; j=0; 
     while(IRQ)   
